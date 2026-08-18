@@ -1,0 +1,154 @@
+/* SEGOV / SETDIG — Design System overrides for Material for MkDocs */
+
+:root {
+  --segov-primary:    #004f9f;
+  --segov-primary-dk: #003a76;
+  --segov-primary-lt: #1a67b5;
+  --segov-darkgray:   #30302e;
+  --segov-white:      #ffffff;
+
+  --segov-font-sans: system-ui, -apple-system, "Segoe UI", Roboto,
+                     "Helvetica Neue", "Noto Sans", "Liberation Sans",
+                     Arial, sans-serif, "Apple Color Emoji",
+                     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* --- Material theme color overrides --- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--segov-primary);
+  --md-primary-fg-color--light: var(--segov-primary-lt);
+  --md-primary-fg-color--dark:  var(--segov-primary-dk);
+  --md-primary-bg-color:        var(--segov-white);
+
+  --md-accent-fg-color:         var(--segov-primary-lt);
+
+  --md-default-fg-color:        var(--segov-darkgray);
+  --md-default-fg-color--light: #4a4a47;
+  --md-default-fg-color--lighter: #8a8a85;
+
+  --md-typeset-a-color:         var(--segov-primary);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--segov-primary-lt);
+  --md-primary-fg-color--light: #4a8fd0;
+  --md-primary-fg-color--dark:  var(--segov-primary);
+  --md-accent-fg-color:         #4a8fd0;
+  --md-typeset-a-color:         #6ba6d9;
+}
+
+/* --- Typography --- */
+body,
+.md-typeset {
+  font-family: var(--segov-font-sans);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: var(--segov-font-sans);
+  color: var(--segov-darkgray);
+  font-weight: 700;
+}
+
+.md-typeset h1 {
+  font-size: 2rem;
+  color: var(--segov-darkgray);
+  border-bottom: 3px solid var(--segov-primary);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.md-typeset h2 {
+  color: var(--segov-primary);
+  margin-top: 2rem;
+}
+
+/* --- Header (top bar) --- */
+.md-header {
+  background-color: var(--segov-primary);
+  color: var(--segov-white);
+}
+
+.md-header__title {
+  font-weight: 700;
+}
+
+/* Logo sizing in header */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
+}
+
+/* --- Navigation tabs --- */
+.md-tabs {
+  background-color: var(--segov-primary-dk);
+}
+
+/* --- Sidebar links --- */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--segov-primary);
+  font-weight: 700;
+}
+
+/* --- Tables --- */
+.md-typeset table:not([class]) {
+  border: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--segov-primary);
+  color: var(--segov-white);
+  font-weight: 700;
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: #f6f9fc;
+}
+
+/* --- Code blocks --- */
+.md-typeset code {
+  background-color: rgba(0, 79, 159, 0.08);
+  color: var(--segov-primary-dk);
+}
+
+/* --- Admonitions — SEGOV blue accents --- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-left: 4px solid var(--segov-primary);
+}
+
+/* --- Footer --- */
+.md-footer {
+  background-color: var(--segov-darkgray);
+}
+
+.md-footer-meta {
+  background-color: #1f1f1e;
+}
+
+/* --- Buttons --- */
+.md-typeset .md-button {
+  background-color: var(--segov-primary);
+  color: var(--segov-white);
+  border: 2px solid var(--segov-primary);
+  border-radius: 4px;
+}
+
+.md-typeset .md-button:hover {
+  background-color: var(--segov-primary-dk);
+  border-color: var(--segov-primary-dk);
+  color: var(--segov-white);
+}
+
+/* --- Homepage hero-ish adjustments --- */
+.md-content__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
