@@ -1,6 +1,6 @@
 # Modelos de Avaliação de Satisfação — Visão Geral
 
-Documento de referência do PBI 1. Mapeia os principais modelos usados em serviços digitais e serviços públicos, com foco em aplicabilidade ao Portal de Serviços do MS.
+Panorama dos principais modelos usados em serviços digitais e serviços públicos, situando a referência do gov.br dentro do universo maior. Foco em aplicabilidade ao Portal de Serviços do MS.
 
 Fontes consolidadas em `pesquisa/fontes.md`. Notas cruas em `pesquisa/notas/modelos.md`.
 
@@ -45,15 +45,15 @@ O governo federal padronizou a avaliação via **Portaria SGD/ME nº 548/2022** 
 
 Esse modelo é o principal candidato a referência para o MS por compatibilidade institucional e comparabilidade com outros portais estaduais/federais.
 
-## Próximos passos (PBIs seguintes)
+## Próximas leituras neste estudo
 
-- **PBI 2 (Benchmark):** analisar como iFood, Uber, Amazon, Netflix operacionalizam a coleta (momento, UI, uso posterior).
-- **PBI 3:** definir dimensões e perguntas alinhadas aos objetivos do MS.
-- **PBI 4:** propor modelo híbrido (provável base CSAT gov.br + CES + campo aberto opcional).
+- Detalhe da [Ferramenta de Avaliação do gov.br](../03-benchmark/gov-br.md) — a âncora.
+- Discussão sobre [o que perguntar ao cidadão](../04-cidadao/o-que-coletar.md).
+- [Proposta para o MS](../05-proposta/modelo-proposto.md).
 
 ## Arquivos relacionados
 
-- `docs/02-modelos/nps.md`
-- `docs/02-modelos/csat.md`
-- `docs/02-modelos/ces.md`
-- `docs/02-modelos/comparativo.md`
+- [NPS](nps.md)
+- [CSAT](csat.md)
+- [CES](ces.md)
+- [Comparativo](comparativo.md)

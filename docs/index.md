@@ -1,42 +1,58 @@
-# Avaliação dos Serviços — Portal de Serviços do MS
+# Avaliação dos Serviços do Portal MS
 
-Estudo conduzido pela **Secretaria-Executiva de Transformação Digital — SETDIG** para definir a estratégia de avaliação dos serviços disponibilizados no Portal de Serviços do Mato Grosso do Sul.
+Estudo estratégico da **SETDIG** para definir como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão.
 
-## Por onde começar
+## A pergunta central
 
-- **Quer entender o problema?** → [Contexto da Feature](01-contexto/feature.md)
-- **Quer entender os modelos existentes?** → [Modelos de Avaliação](02-modelos/modelos-avaliacao.md)
-- **Quer ver como outros fazem?** → [Benchmark](03-benchmark/visao-geral.md)
-- **Quer entender o que coletar?** → [O que coletar do cidadão](04-cidadao/o-que-coletar.md)
-- **Quer a proposta final?** → [Modelo proposto](05-proposta/modelo-proposto.md)
-- **Quer o resumo executivo?** → [Recomendação](07-conclusao/recomendacao.md)
+> Como o cidadão do MS deve avaliar cada serviço digital que ele usa no Portal?
 
-## Estrutura do estudo
+## A resposta em uma frase
+
+Adotar o **modelo padrão do gov.br** — Central de Qualidade + Ferramenta de Avaliação (Portaria SGD/ME 548/2022) — adaptado ao contexto estadual, e evoluir de forma incremental a partir dele.
+
+## Por onde começar a leitura
+
+| Se você é… | Comece por… |
+|---|---|
+| Diretor/gestor querendo a recomendação | [Recomendação](07-conclusao/recomendacao.md) |
+| Analista técnico querendo o modelo | [Modelo proposto](05-proposta/modelo-proposto.md) |
+| Equipe do Portal querendo o padrão gov.br | [gov.br — Central de Qualidade](03-benchmark/gov-br.md) |
+| Jurídico/DPO querendo o corte LGPD | [LGPD](04-cidadao/lgpd.md) |
+| Alguém novo no assunto | [Modelos de Avaliação](02-modelos/modelos-avaliacao.md) |
+
+## Por que este estudo
+
+Serviço público bem avaliado é serviço mais bem gerido. A Lei 13.460/2017 (Código de Defesa do Usuário) já exige avaliação. O gov.br federal já padronizou o instrumento. Falta o MS operacionalizar isso no seu Portal com um modelo que:
+
+1. Seja simples para o cidadão (não afugenta).
+2. Gere dado útil para o gestor (não vira ruído).
+3. Cumpra a LGPD (só coleta o que usa).
+4. Permita comparação (entre serviços, no tempo).
+
+## Escopo
+
+- Levantamento de modelos e cases.
+- Análise da referência principal (gov.br).
+- Definição do que perguntar ao cidadão.
+- Proposta concreta para o Portal MS.
+- Estratégia para validar a proposta.
+
+Fora do escopo: implementação técnica, dashboard pronto, pesquisa qualitativa com cidadãos.
+
+## Como este documento está organizado
 
 ```mermaid
 graph LR
     A[Contexto] --> B[Modelos]
-    B --> C[Benchmark]
-    C --> D[O que coletar]
-    D --> E[Proposta]
+    B --> C[Benchmark gov.br]
+    C --> D[O que perguntar]
+    D --> E[Proposta MS]
     E --> F[Validação]
     F --> G[Recomendação]
 ```
 
-## Pipeline de trabalho
-
-`Estudar` → `Comparar cases` → `Definir o que coletar` → `Propor modelo` → `Validar proposta`
-
-## Escopo
-
-Este estudo cobre os cinco PBIs da Feature "Avaliação dos Serviços do Portal":
-
-1. Estudo de modelos de avaliação de serviços.
-2. Benchmark de plataformas digitais e de governo digital.
-3. Definição das informações a coletar do cidadão.
-4. Proposta de modelo de avaliação.
-5. Estratégia de validação da proposta.
-
 ## Convenções
 
-Cada afirmação factual está marcada com `[FATO]` + fonte. Interpretações e hipóteses estão explicitamente sinalizadas. Nada é inventado — quando uma informação não pôde ser confirmada, aparece `**Não identificado**` com a explicação da limitação.
+Cada afirmação factual é marcada `[FATO]` + fonte. Interpretações, hipóteses e recomendações são sinalizadas explicitamente. Quando algo não pôde ser confirmado, aparece `**Não identificado**` com a explicação.
+
+Fontes completas em [`pesquisa/fontes.md`](../pesquisa/fontes.md).

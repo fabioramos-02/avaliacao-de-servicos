@@ -33,8 +33,20 @@
   --md-primary-fg-color:        var(--segov-primary-lt);
   --md-primary-fg-color--light: #4a8fd0;
   --md-primary-fg-color--dark:  var(--segov-primary);
-  --md-accent-fg-color:         #4a8fd0;
+  --md-primary-bg-color:        #ffffff;
+
+  --md-accent-fg-color:         #6ba6d9;
+
+  --md-default-bg-color:        #1a1a1e;
+  --md-default-fg-color:        #e6ecf1;
+  --md-default-fg-color--light: #c3c9d0;
+  --md-default-fg-color--lighter: #8a9099;
+  --md-default-fg-color--lightest: #4a5058;
+
+  --md-typeset-color:           #e6ecf1;
   --md-typeset-a-color:         #6ba6d9;
+  --md-code-bg-color:           #262a30;
+  --md-code-fg-color:           #dce3ea;
 }
 
 /* --- Typography --- */
@@ -50,21 +62,45 @@ body,
 .md-typeset h5,
 .md-typeset h6 {
   font-family: var(--segov-font-sans);
-  color: var(--segov-darkgray);
   font-weight: 700;
 }
 
-.md-typeset h1 {
+/* Light scheme headings */
+[data-md-color-scheme="default"] .md-typeset h1 {
   font-size: 2rem;
   color: var(--segov-darkgray);
   border-bottom: 3px solid var(--segov-primary);
   padding-bottom: 0.4rem;
   margin-bottom: 1.2rem;
 }
-
-.md-typeset h2 {
+[data-md-color-scheme="default"] .md-typeset h2 {
   color: var(--segov-primary);
   margin-top: 2rem;
+}
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4,
+[data-md-color-scheme="default"] .md-typeset h5,
+[data-md-color-scheme="default"] .md-typeset h6 {
+  color: var(--segov-darkgray);
+}
+
+/* Dark (slate) scheme headings — high contrast on dark bg */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  border-bottom: 3px solid #4a8fd0;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #6ba6d9;
+  margin-top: 2rem;
+}
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: #e6ecf1;
 }
 
 /* --- Header (top bar) --- */
@@ -77,11 +113,26 @@ body,
   font-weight: 700;
 }
 
-/* Logo sizing in header */
+/* Logo — force visible in all breakpoints + tint white (source SVG is #004F9E on blue header) */
+.md-header__button.md-logo {
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  margin: 0;
+}
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 2rem;
+  height: 1.8rem;
   width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+/* Drawer logo (sidebar) stays original color on light bg */
+.md-nav__title .md-nav__button.md-logo img,
+.md-nav__title .md-nav__button.md-logo svg {
+  height: 3rem;
+  width: auto;
+  filter: none;
 }
 
 /* --- Navigation tabs --- */
@@ -113,9 +164,29 @@ body,
 }
 
 /* --- Code blocks --- */
-.md-typeset code {
+[data-md-color-scheme="default"] .md-typeset code {
   background-color: rgba(0, 79, 159, 0.08);
   color: var(--segov-primary-dk);
+}
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: #262a30;
+  color: #6ba6d9;
+}
+
+/* --- Tables — dark mode --- */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border-color: #3a3f47;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: var(--segov-primary);
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: #23272d;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  color: #e6ecf1;
+  border-color: #3a3f47;
 }
 
 /* --- Admonitions — SEGOV blue accents --- */

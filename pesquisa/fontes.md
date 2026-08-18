@@ -68,3 +68,34 @@ Acesso: 2026-08-18. Todos os links verificados por WebSearch/WebFetch.
 - [Gov.br / SGD] Avaliação de Satisfação — LabQ — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade/labq/avaliacao
 - [Gov.br / SGD] Ferramenta de Avaliação — https://www.gov.br/governodigital/pt-br/plataformas-e-servicos-digitais/ferramenta-de-avaliacao
 - [CGU] Guia metodológico de avaliação de serviços públicos — https://www.gov.br/ouvidorias/pt-br/ouvidorias/avaliacao-de-servicos-publicos/conselhos-de-usuarios/GUIADEAVALIAODESERVIOS.pdf
+
+## Benchmark — governo digital (gov.br — foco principal)
+
+Referências primárias do estudo. Acesso: 2026-08-18.
+
+### Normativos vigentes
+- [Portaria SGD/MGI nº 1.083, de 14/02/2025] — Biblioteca Digital MGI — https://bibliotecadigital.gestao.gov.br/handle/123456789/533149
+- [Portaria SGD/ME nº 548, de 24/01/2022] — Diário Oficial da União — https://www.in.gov.br/en/web/dou/-/portaria-sgd/me-n-548-de-24-de-janeiro-de-2022-375784151
+- [Portaria SGD/ME nº 548, de 24/01/2022] — Transcrição consultada — https://legislacao.contabil.business/1643134772
+- [Portaria SGD/MGI nº 6.618, de 25/09/2024] — Estratégia Federal de Governo Digital
+
+### Páginas oficiais SGD/MGI
+- [Central de Qualidade] — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade
+- [Padrões de Qualidade para Serviços Públicos Digitais — 7 dimensões × 5 atributos] — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade/padroes-de-qualidade
+- [Ferramenta de Avaliação — página institucional] — https://www.gov.br/governodigital/pt-br/plataformas-e-servicos-digitais/ferramenta-de-avaliacao
+- [Avaliação de Satisfação do Usuário — LabQ] — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade/labq/avaliacao-de-satisfacao-do-usuario
+- [Notícia MGI — Governo estabelece padrões de qualidade (2022)] — https://www.gov.br/governodigital/pt-br/noticias/governo-estabelece-padroes-de-qualidade-para-servicos-e-aprimora-avaliacao-dos-usuarios
+- [Novas regras aprimoram qualidade dos serviços públicos digitais] — https://www.gov.br/gestao/pt-br/acesso-a-informacao/acoes-e-programas/principais-acoes-na-area-economica/acoes-2022/novas-regras-aprimoram-qualidade-dos-servicos-publicos-digitais
+
+### Manual técnico
+- [Manual da API de Avaliação — FAQ] — https://manual-avaliacao.servicos.gov.br/pt-br/latest/faq.html
+- [Portal público de avaliação] — https://avaliacao.servicos.gov.br/
+
+### Guias e material formativo
+- [CGU] Guia de Avaliação de Serviços — https://basedeconhecimento.cgu.gov.br/bitstream/1/12152/5/Guia_de_Avaliacao_de_Servicos.pdf
+- [ENAP] Módulo 3 — Aplicação de ferramentas de avaliação — https://repositorio.enap.gov.br/bitstream/1/6625/3/M%C3%B3dulo%203%20-%20Aplica%C3%A7%C3%A3o%20de%20ferramentas%20de%20avalia%C3%A7%C3%A3o%20a%20um%20servi%C3%A7o%20espec%C3%ADfico.pdf
+
+### Marco legal amplo
+- [Lei 13.460/2017 — Código de Defesa do Usuário de Serviços Públicos] — https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13460.htm
+- [Decreto 9.094/2017 — Carta de Serviços] — https://www2.camara.leg.br/legin/fed/decret/2017/decreto-9094-17-julho-2017-785213-normaatualizada-pe.html
+- [Lei 13.709/2018 — LGPD] — https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm

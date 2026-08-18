@@ -1,6 +1,6 @@
 # Comparativo dos Modelos de Avaliação
 
-Tabela para apoio à decisão do PBI 4 (proposta de modelo). Referências em `pesquisa/fontes.md`.
+Tabela de apoio para a decisão do modelo a adotar no Portal MS. Referências em `pesquisa/fontes.md`.
 
 ## Tabela comparativa
 
@@ -24,13 +24,13 @@ Tabela para apoio à decisão do PBI 4 (proposta de modelo). Referências em `pe
 - **ACSI** é referência conceitual, mas inviável adotar diretamente por licenciamento.
 - **Estrelas/emojis/thumbs** são **formatos de apresentação** — a métrica por trás continua sendo CSAT ou binária.
 
-## Recomendação preliminar para MS
+## Recomendação preliminar para o MS
 
-Combinação candidata (a validar no PBI 4):
+Combinação candidata, a ser detalhada em [Proposta](../05-proposta/modelo-proposto.md):
 
-1. **CSAT-5 níveis com rótulos verbais** (compatível gov.br): pergunta principal em cada serviço.
-2. **CES simplificado** (1 pergunta 1–5 sobre facilidade): complemento em serviços transacionais.
+1. **CSAT-5 rotulado (padrão gov.br)** como pergunta principal em cada serviço.
+2. **Categorias qualificadoras opcionais** (o que gostou / o que faltou) após a nota — modelo da Ferramenta de Avaliação federal.
 3. **Campo aberto opcional** para comentário livre.
-4. **Dimensões qualificadoras** (privacidade, agilidade, resolutividade — modelo LabQ) após a nota.
-5. **NPS aplicado ao portal** (não a cada serviço): coleta periódica separada.
-6. **SUS** ou similar: auditoria trimestral/semestral, não avaliação contínua.
+4. **Bloco acessibilidade opcional** (autodeclaração PcD) — igual gov.br.
+5. **NPS aplicado ao portal como marca** (não a cada serviço) — coleta periódica separada.
+6. **SUS** ou similar como auditoria trimestral de usabilidade — não avaliação contínua.

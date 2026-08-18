@@ -1,49 +1,37 @@
-# Contexto da Feature
+# O que este estudo investiga
 
-## Feature principal
+## Pergunta central
 
-- **Nome:** Avaliação dos Serviços do Portal
-- **Descrição / Objetivo:** Investigar e definir a melhor estratégia para avaliação dos serviços do Portal de Serviços do MS.
-- **Fatores considerados:** Referências de mercado, necessidades do cidadão e objetivos da gestão.
+Como o Portal de Serviços do MS deve pedir ao cidadão que avalie cada serviço digital que ele usa?
 
-## Backlog — Product Backlog Items (PBIs)
+Não é uma pergunta de design isolada. Ela mistura política pública (Lei 13.460/2017), padrão federal (gov.br), experiência do usuário, LGPD e capacidade operacional do estado.
 
-### PBI 1 — Estudo de modelos de avaliação de serviços
+## Ponto de partida assumido
 
-- **Ação:** investigar diferentes modelos de avaliação utilizados em plataformas digitais e serviços públicos.
-- **Objetivo:** identificar boas práticas, vantagens e limitações.
-- **Onde vive neste estudo:** [Modelos de Avaliação](../02-modelos/modelos-avaliacao.md).
+**O padrão nacional é o gov.br.** A Central de Qualidade coordenada pelo MGI padronizou a Ferramenta de Avaliação de Serviços via Portaria SGD/ME 548/2022. Órgãos federais já usam. Estados que se conectam à plataforma gov.br têm acesso ao mesmo instrumento.
 
-### PBI 2 — Benchmark de plataformas digitais
+Por consequência, o padrão do estudo é: **adotar o modelo gov.br como base e justificar qualquer divergência.**
 
-- **Ação:** analisar cases de plataformas de referência (iFood, Uber, Airbnb, Google, Amazon) e de governo digital (GOV.UK, gov.br).
-- **Objetivo:** avaliar como coletam, apresentam e utilizam a avaliação dos usuários.
-- **Onde vive neste estudo:** [Benchmark](../03-benchmark/visao-geral.md).
+## Recorte
 
-### PBI 3 — Definição das informações a coletar do cidadão
+- Serviços **digitais** publicados no Portal MS (não engloba atendimento presencial).
+- Avaliação **transacional** — após o cidadão usar um serviço específico.
+- Avaliação **relacional** do Portal como marca fica separada (candidata a NPS periódico).
 
-- **Ação:** identificar quais informações devem ser coletadas na avaliação.
-- **Critérios:** satisfação, facilidade de uso, resolução da necessidade e percepção geral sobre o serviço.
-- **Onde vive neste estudo:** [O que coletar do cidadão](../04-cidadao/o-que-coletar.md).
+## O que sai deste estudo
 
-### PBI 4 — Proposta de modelo de avaliação
+1. **Modelo proposto** — pergunta, escala, opcionais, fluxo.
+2. **Especificação de indicadores** — o que a gestão passa a ver.
+3. **Corte LGPD** — quais dados podem/devem/não devem ser coletados.
+4. **Estratégia de validação** — quem valida, com que critério, em quanto tempo.
+5. **Recomendação executável** — se o Portal fosse ligar isso amanhã, como seria.
 
-- **Ação:** elaborar uma proposta de modelo de avaliação para os serviços do Portal.
-- **Entregáveis:** critérios, perguntas, escala e fluxo.
-- **Onde vive neste estudo:** [Proposta](../05-proposta/modelo-proposto.md).
+## O que não sai deste estudo
 
-### PBI 5 — Validação da proposta de avaliação
+- Código, contrato, integração técnica.
+- Painel de BI pronto (só especificação).
+- Pesquisa qualitativa com cidadãos (é um próximo passo recomendado).
 
-- **Ação:** validar a proposta elaborada com as áreas envolvidas.
-- **Objetivo:** ajustar o modelo conforme necessidades da gestão e do cidadão.
-- **Onde vive neste estudo:** [Validação](../06-validacao/estrategia.md).
+## Como o estudo foi feito
 
-## Fluxo de trabalho
-
-```text
-Estudar → Comparar cases → Definir o que coletar → Propor modelo → Validar proposta
-```
-
-## Fonte original
-
-Este contexto foi extraído do arquivo [`contexto.md`](https://github.com/) na raiz do repositório.
+Pesquisa dividida em ondas por agentes especializados: modelos de avaliação, benchmark gov.br (âncora), benchmark de mercado (referência secundária), UX/Service Design, Dados/Analytics, LGPD/Governança e consolidação. Toda afirmação factual tem fonte registrada em `pesquisa/fontes.md`.

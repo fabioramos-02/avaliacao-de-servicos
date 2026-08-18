@@ -1,10 +1,22 @@
-# Benchmark de plataformas digitais — Visão geral
+# Benchmark — Visão geral
 
-## Objetivo
+## Referência primária: gov.br
 
-Investigar como cinco produtos digitais de referência (iFood, Uber, Airbnb, Google Play e Amazon) coletam avaliação dos usuários — momento, gatilho, escala, uso do feedback — para extrair padrões aplicáveis ao Portal de Serviços do MS.
+Por decisão da chefia da equipe, **o gov.br é a referência principal deste estudo**. Todo o desenho da avaliação do Portal MS parte do modelo federal — pergunta, escala, cards, campo aberto, bloco de acessibilidade — e só se distancia dele quando houver razão explícita.
 
-## Cases analisados
+Três documentos concentram o estudo do modelo federal:
+
+| Documento | Foco |
+|---|---|
+| [gov-br.md](./gov-br.md) | Visão consolidada do modelo (pergunta, escala, cards, PCD, base legal, aplicabilidade ao MS) |
+| [central-de-qualidade.md](./central-de-qualidade.md) | Guarda-chuva estratégico: pilares, 7 dimensões, governança, ciclo de melhoria |
+| [ferramenta-de-avaliacao.md](./ferramenta-de-avaliacao.md) | Peça operacional: formulário do cidadão, API, painel do gestor, cálculo |
+
+`[FATO]` O modelo gov.br está operando em escala real: **1.047 serviços integrados, nota média 4,39/5** (dados publicados pela Central de Qualidade na data de acesso).
+
+## Referências secundárias — cases de mercado
+
+Cases privados foram estudados para calibrar boas práticas de UX, momento de coleta, uso do feedback e prevenção de vieses. **Não substituem o gov.br** — servem como fonte de padrões consolidados na indústria digital.
 
 | Case | Contexto | Documento |
 |------|----------|-----------|
@@ -13,45 +25,29 @@ Investigar como cinco produtos digitais de referência (iFood, Uber, Airbnb, Goo
 | Airbnb | Hospedagem entre pessoas (global) | [airbnb.md](./airbnb.md) |
 | Google Play | Loja de apps Android (in-app review) | [google.md](./google.md) |
 | Amazon | E-commerce (produto + vendedor) | [amazon.md](./amazon.md) |
+| GOV.UK | Governo digital do Reino Unido | [gov-uk.md](./gov-uk.md) |
 
 Comparativo tabular consolidado: [comparativo.md](./comparativo.md).
 
-## Resumo executivo
+## O que os cases de mercado ensinam (destaque rápido)
 
-### O que os cinco fazem em comum
+1. **Escala visual simples** — todos convergem em 1–5 estrelas como métrica principal. Reforça a escolha do gov.br.
+2. **Momento ancorado no evento** — Uber pede após viagem, iFood após pedido, Airbnb após check-out, gov.br pede após uso do serviço. Padrão consolidado.
+3. **Campo aberto sempre opcional** — nenhum força comentário livre. gov.br segue o mesmo princípio.
+4. **Skip permitido** — só o Uber trava (e é criticado por isso). Serviço público **jamais** deveria bloquear jornada por avaliação — princípio confirmado no Art. 7º §3º da Portaria SGD/ME 548/2022.
+5. **Comunicar o que muda com o feedback** — cases sem retorno visível têm queda de participação. Vale para o Portal MS.
+6. **Moderação obrigatória** — iFood e Amazon investem em ML + humano. MS precisa de política mínima antes de ir ao ar.
+7. **Anti-viés** — Google Play proíbe pré-screening ("Está gostando?"); é boa prática a preservar.
 
-1. **Escala visual simples.** Todos usam 1–5 estrelas como métrica principal (Amazon, iFood-restaurante, Uber, Airbnb, Google Play). iFood adiciona binário (Sim/Não) para pontualidade e NPS 0–10 para a própria plataforma.
-2. **Momento ancorado no evento.** Ninguém pede avaliação "a qualquer hora": Uber pede logo após a viagem; iFood após conclusão do pedido; Airbnb após check-out; Amazon após entrega; Google Play quando o dev julga que o usuário já usou o suficiente.
-3. **Campo aberto opcional.** Nenhum dos cinco força o comentário livre. Todos oferecem — vários usam tags/motivos padronizados como caminho principal (Uber, iFood).
-4. **Baixa fricção.** Uma tela, uma pergunta principal, submissão em poucos segundos. Airbnb é o mais longo (6 dimensões) e ainda cabe numa sessão curta.
-5. **Feedback move algo.** Nota agregada é visível ao próximo consumidor, impacta ranking/exposição e alimenta decisões operacionais (desativação de motorista, ocultação de restaurante mal avaliado).
+Detalhamento completo de cada case nos respectivos arquivos.
 
-### O que muda entre eles
+## O que o gov.br tem que os cases privados não têm
 
-- **Obrigatoriedade:** Uber é o único que bloqueia o próximo uso até avaliar (soft-lock). Amazon é totalmente opcional. Airbnb tem prazo (14 dias) e depois trava.
-- **Simetria:** Uber e Airbnb são bidirecionais (ambos os lados avaliam). iFood, Amazon e Google Play são unidirecionais (cliente avalia).
-- **Anonimato:** Uber é anônimo por design. Amazon expõe o nome do reviewer. Airbnb expõe ambos os lados. iFood expõe o cliente ao restaurante.
-- **Retorno ao usuário:** Só iFood e Amazon têm resposta pública explícita do prestador; Airbnb permite resposta do host à review pública; Uber não tem canal de resposta ao passageiro.
-- **Regra anti-viés:** Airbnb usa *double-blind* de 14 dias. Google Play proíbe pré-screening ("Está gostando?"). Amazon pondera Verified Purchase e recência (não é média simples).
+`[INTERPRETAÇÃO]` Três diferenciais estruturais do modelo federal, essenciais para serviço público:
 
-### Padrões aplicáveis a serviço público
-
-1. **Ancorar no fim do serviço** (analógo ao "após entrega", "após viagem"): pedir avaliação assim que o cidadão conclui a solicitação, não como pop-up aleatório.
-2. **Uma pergunta principal + tags** ao invés de formulário longo: se quiser detalhe, usar tags condicionais (só aparecem se nota <4, por exemplo — modelo Uber).
-3. **Campo aberto sempre opcional**, nunca gate.
-4. **Comunicar o que muda com o feedback:** os cinco cases mostram nota agregada e/ou dão resposta. Se a nota não impacta nada visível, o cidadão para de avaliar.
-5. **Evitar pré-screening enganoso** — o Google proíbe explicitamente e o motivo é ético: viés seletivo destrói o valor da amostra.
-6. **Skip permitido, sem punição.** Só Uber trava, e ainda assim é a plataforma mais criticada por rating pressure. Serviço público não deveria seguir esse caminho.
-7. **Moderação obrigatória** — iFood e Amazon investem pesado em ML + humano para filtrar ofensas, fraudes e spam. Portal MS precisará de política mínima antes de ir ao ar.
-8. **Bidirecionalidade não se aplica** ao contexto MS (cidadão-Estado não é peer-to-peer), mas o *double-blind* do Airbnb é interessante como referência de proteção contra retaliação — algo a considerar se servidores puderem ver quem avaliou.
-
-### Aprendizados por case (destaque)
-
-- **iFood:** separar avaliação do serviço (restaurante) da avaliação do canal (iFood/NPS) é útil — no MS, separar "avaliação do serviço público específico" da "avaliação do Portal".
-- **Uber:** tags padronizadas capturam 80% do sinal com 20% do esforço do usuário; obrigatoriedade gera resistência.
-- **Airbnb:** múltiplas dimensões (6) só funcionam porque o serviço é rico; para serviços transacionais simples, 1–2 dimensões bastam.
-- **Google Play:** proibições explícitas (não pré-screenar, não incentivar) são um bom guia ético; quota anti-fadiga é essencial.
-- **Amazon:** ponderar por recência e "verified" evita nota congelada por reviews antigas ou fake — no MS, ponderar por "solicitação de fato concluída" tem paralelo direto.
+- **Bloco de acessibilidade** (PCD). Nenhum case privado analisado coleta essa informação.
+- **Base legal explícita** (Lei 13.460, Decreto 9.094, Portaria SGD/MGI 1083/2025). Ancora o formulário em política pública, não em métrica de negócio.
+- **Anonimato por default**. Cases privados operam com conta identificada; o gov.br assume avaliação anônima para reduzir atrito e aderir à LGPD.
 
 ## Fontes
 

@@ -7,7 +7,7 @@ theme:
   name: material
   language: pt-BR
   logo: assets/img/segov-logo.svg
-  favicon: assets/img/segov-logo.svg
+  favicon: assets/img/brasao-ms.svg
   font: false
   palette:
     - scheme: default
@@ -52,7 +52,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -74,13 +78,15 @@ nav:
       - Comparativo: 02-modelos/comparativo.md
   - Benchmark:
       - Visão geral: 03-benchmark/visao-geral.md
+      - gov.br (referência principal): 03-benchmark/gov-br.md
+      - Central de Qualidade: 03-benchmark/central-de-qualidade.md
+      - Ferramenta de Avaliação: 03-benchmark/ferramenta-de-avaliacao.md
       - iFood: 03-benchmark/ifood.md
       - Uber: 03-benchmark/uber.md
       - Airbnb: 03-benchmark/airbnb.md
       - Google: 03-benchmark/google.md
       - Amazon: 03-benchmark/amazon.md
       - GOV.UK: 03-benchmark/gov-uk.md
-      - gov.br: 03-benchmark/gov-br.md
       - Comparativo: 03-benchmark/comparativo.md
   - O que coletar do cidadão:
       - O que coletar: 04-cidadao/o-que-coletar.md

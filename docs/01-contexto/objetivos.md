@@ -1,34 +1,42 @@
-# Objetivos do estudo
+# Objetivos e princípios
 
-## Objetivo geral
+## Objetivo do estudo
 
-Definir a estratégia de avaliação dos serviços do Portal de Serviços do MS de forma **evidenciada, aderente à LGPD e alinhada às necessidades do cidadão e da gestão**.
+Entregar à SETDIG uma **proposta pronta para validação** de como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão, alinhada ao padrão gov.br e à LGPD.
 
 ## Objetivos específicos
 
-1. **Mapear** os principais modelos de avaliação usados em serviços digitais e em serviços públicos (NPS, CSAT, CES, escalas, SUS).
-2. **Comparar** cases relevantes de mercado (produtos digitais) e de governo digital.
-3. **Identificar** o que faz sentido perguntar ao cidadão brasileiro em contexto de serviço público estadual.
-4. **Propor** um modelo concreto — perguntas, escala, momento, fluxo, indicadores.
-5. **Traçar** a estratégia de validação com stakeholders (SETDIG, órgãos setoriais, ouvidoria, jurídico).
+1. **Padrão nacional primeiro.** Descrever o modelo gov.br (Central de Qualidade + Ferramenta de Avaliação) em profundidade.
+2. **Modelos de referência.** Situar o padrão gov.br dentro do universo maior (NPS, CSAT, CES, escalas).
+3. **Definir o que perguntar.** Quais dados são úteis, quais são dispensáveis, quais devem ser evitados.
+4. **Propor o modelo do MS.** Perguntas, escala, momento, fluxo, indicadores.
+5. **Traçar a validação.** Quem valida (SETDIG, órgãos setoriais, ouvidoria, jurídico), com que critério.
 
-## Público-alvo do documento
+## Público-alvo
 
-- **Gestores da SETDIG e órgãos setoriais** — para decidir a adoção.
-- **Time de produto e engenharia do Portal** — para especificação técnica.
-- **Ouvidoria e áreas de qualidade** — para operar o feedback.
-- **Auditoria e área jurídica** — para validar aderência à LGPD.
-
-## Fora de escopo
-
-- **Implementação técnica** — este estudo termina na proposta e na estratégia de validação; a construção é um projeto subsequente.
-- **Dashboards prontos** — só especificação de indicadores.
-- **Pesquisa qualitativa com cidadãos** — recomendada como próximo passo, não realizada aqui.
+| Público | O que vai buscar aqui |
+|---|---|
+| Gestores da SETDIG | Recomendação e riscos |
+| Órgãos setoriais donos de serviços | Como o serviço deles será avaliado |
+| Equipe do Portal (produto/engenharia) | Especificação para implementar |
+| Ouvidoria | Como o feedback vai chegar até eles |
+| Jurídico / DPO | Aderência à LGPD |
 
 ## Princípios que orientam a análise
 
-1. **Menos é mais** — cidadão de serviço público não é usuário de app comercial; sua tolerância a formulário é menor.
-2. **Coletar apenas o que será usado** — LGPD (art. 6º) exige minimização.
-3. **Fechar o ciclo** — feedback sem uso é ruído; a proposta precisa dizer como a gestão vai agir sobre os dados.
-4. **Comparável** — o indicador deve permitir comparação entre serviços, órgãos e no tempo.
-5. **Aderente ao marco legal** — Lei 13.460/2017 (Código de Defesa do Usuário de Serviços Públicos) já exige avaliação.
+1. **gov.br é a âncora.** Divergir do padrão federal exige justificativa explícita.
+2. **Menos é mais.** Cidadão de serviço público não tolera formulário longo — cada pergunta a mais reduz a taxa de resposta.
+3. **Coletar só o que será usado.** LGPD art. 6º III (minimização).
+4. **Fechar o ciclo.** Feedback que não vira ação vira ruído — a proposta precisa dizer como a gestão age.
+5. **Comparável.** O indicador precisa permitir comparação entre serviços, órgãos, canais e no tempo.
+6. **Aderente ao marco legal.** Lei 13.460/2017 exige avaliação; o desenho precisa cumprir.
+7. **Acessível.** Modelo deve funcionar para público heterogêneo, incluindo PcD e baixa alfabetização digital.
+
+## Critério de sucesso deste estudo
+
+O estudo cumpriu seu papel se, ao final, a SETDIG conseguir:
+
+- Levar a proposta para deliberação sem precisar refazer benchmark.
+- Explicar em 3 slides por que o modelo é esse.
+- Iniciar a implementação com a especificação já pronta.
+- Cumprir a LGPD sem sobressalto.

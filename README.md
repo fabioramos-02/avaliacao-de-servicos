@@ -1,83 +1,81 @@
-# Avaliação dos Serviços — Portal de Serviços do MS
+# Avaliação dos Serviços — Portal do MS
 
-Estudo, benchmark e proposta de modelo de avaliação para os serviços do Portal de Serviços do Mato Grosso do Sul, conduzido pela **Secretaria-Executiva de Transformação Digital — SETDIG**.
+Estudo estratégico da **Secretaria-Executiva de Transformação Digital — SETDIG** para definir como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão.
 
-## Objetivo
+**Referência principal:** modelo do gov.br — Central de Qualidade + Ferramenta de Avaliação (Portaria SGD/ME nº 548/2022).
 
-Investigar e definir a melhor estratégia para avaliação dos serviços do Portal do MS, considerando referências de mercado, necessidades do cidadão e objetivos da gestão. O resultado é uma proposta de modelo de avaliação pronta para validação com stakeholders.
+## Estado atual e plano de trabalho
 
-## Estrutura do repositório
-
-```
-.
-├── contexto.md              # Contexto original da Feature (5 PBIs)
-├── README.md                # Este arquivo
-├── mkdocs.yml               # Configuração da documentação navegável
-├── requirements.txt         # Dependências (MkDocs + Material)
-├── docs/                    # Documentação técnica em Markdown
-│   ├── 01-contexto/         # Feature e objetivos
-│   ├── 02-modelos/          # NPS, CSAT, CES, escalas, comparativo
-│   ├── 03-benchmark/        # Cases de mercado e governo
-│   ├── 04-cidadao/          # O que coletar, perguntas, LGPD
-│   ├── 05-proposta/         # Modelo proposto, matriz de decisão
-│   ├── 06-validacao/        # Estratégia, stakeholders, aceite
-│   └── 07-conclusao/        # Recomendação e próximos passos
-└── pesquisa/                # Notas cruas, evidências, bibliografia
-    ├── fontes.md
-    ├── evidencias.md
-    └── notas/
-```
+Ver [`contexto.md`](contexto.md) — documento vivo com o status das ondas de pesquisa e onde paramos.
 
 ## Como executar a documentação
 
 Pré-requisitos: Python 3.10+.
 
 ```bash
-# 1. Criar ambiente virtual (opcional, recomendado)
+# 1. Ambiente virtual (opcional)
 python -m venv .venv
-source .venv/bin/activate       # Linux/Mac
-.venv\Scripts\activate          # Windows PowerShell
+.venv\Scripts\activate           # Windows PowerShell
 
 # 2. Instalar dependências
 pip install -r requirements.txt
 
 # 3. Servidor local com hot reload
-mkdocs serve
-# Acessar http://127.0.0.1:8000
+python -m mkdocs serve -a 127.0.0.1:8000
 
-# 4. Build estático (para publicar)
-mkdocs build --strict
-# Saída em site/
+# 4. Build estático
+python -m mkdocs build
 ```
 
-## Principais entregáveis
+## Estrutura
 
-| Entregável | Onde |
-| --- | --- |
-| Panorama de modelos (NPS, CSAT, CES) | `docs/02-modelos/` |
-| Benchmark de mercado (iFood, Uber, Airbnb, Google, Amazon) | `docs/03-benchmark/` |
-| Benchmark de governo digital (GOV.UK, gov.br) | `docs/03-benchmark/` |
-| Definição do que coletar do cidadão | `docs/04-cidadao/` |
+```
+avaliacao-de-servicos/
+├── contexto.md                  Plano de trabalho e status
+├── CLAUDE.md                    Contexto para Claude Code
+├── README.md                    Este arquivo
+├── mkdocs.yml                   Configuração da documentação
+├── requirements.txt             Dependências Python
+├── docs/                        Documentação navegável
+│   ├── assets/img/              Logos oficiais SEGOV
+│   ├── assets/css/segov.css     Tema visual
+│   ├── 01-contexto/             Panorama do estudo
+│   ├── 02-modelos/              NPS, CSAT, CES, escalas
+│   ├── 03-benchmark/            gov.br (âncora) + secundários
+│   ├── 04-cidadao/              O que perguntar + LGPD
+│   ├── 05-proposta/             Modelo MS + matriz decisão
+│   ├── 06-validacao/            Estratégia com stakeholders
+│   └── 07-conclusao/            Recomendação executável
+└── pesquisa/                    Notas cruas, evidências, bibliografia
+    ├── fontes.md
+    ├── evidencias.md
+    └── notas/
+```
+
+## Principais entregas
+
+| Entrega | Onde encontrar |
+|---|---|
+| Recomendação final | `docs/07-conclusao/recomendacao.md` |
+| Modelo proposto ao MS | `docs/05-proposta/modelo-proposto.md` |
+| Detalhe da Ferramenta gov.br | `docs/03-benchmark/gov-br.md` |
+| Panorama de modelos (NPS/CSAT/CES) | `docs/02-modelos/` |
 | Análise LGPD | `docs/04-cidadao/lgpd.md` |
-| Proposta de modelo para o Portal MS | `docs/05-proposta/` |
-| Matriz de decisão entre alternativas | `docs/05-proposta/matriz-decisao.md` |
-| Estratégia de validação com stakeholders | `docs/06-validacao/` |
-| Recomendação final e próximos passos | `docs/07-conclusao/` |
-| Bibliografia consolidada | `pesquisa/fontes.md` |
+| Estratégia de validação | `docs/06-validacao/estrategia.md` |
+| Bibliografia | `pesquisa/fontes.md` |
 
-## Metodologia
+## Design visual
 
-O estudo seguiu 5 PBIs (Product Backlog Items) definidos em `contexto.md` e foi executado por agentes especializados (modelos, benchmark de produtos, benchmark de governo, UX, dados/analytics, LGPD, product management) que consolidaram evidências antes de propor o modelo. Toda afirmação factual sobre um case tem fonte registrada em `pesquisa/fontes.md`.
+Tema Material for MkDocs com paleta oficial SEGOV (azul `#004F9F`), fonte system-ui e logo institucional. CSS customizado em `docs/assets/css/segov.css` para modo claro e escuro.
 
-Marcadores utilizados nos documentos:
+## Marcadores usados na documentação
 
 - `[FATO]` — informação confirmada por fonte primária.
 - `[INTERPRETAÇÃO]` — análise apoiada em evidência.
 - `[HIPÓTESE]` — proposição a validar.
 - `[RECOMENDAÇÃO]` — sugestão do estudo.
-- `**Não identificado**` — informação buscada mas sem evidência conclusiva.
+- `**Não identificado**` — buscado sem evidência conclusiva.
 
 ## Contato
 
-Secretaria-Executiva de Transformação Digital — SETDIG
-Superintendência de Governo Digital — SGD
+Secretaria-Executiva de Transformação Digital — SETDIG · Superintendência de Governo Digital — SGD
