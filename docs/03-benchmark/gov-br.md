@@ -169,4 +169,4 @@ Fonte: [Padrões de Qualidade para Serviços Públicos Digitais](https://www.gov
 
 ## Fontes
 
-Consolidadas em [pesquisa/fontes.md — seção Benchmark gov.br](../../pesquisa/fontes.md#benchmark--governo-digital-govbr--foco-principal).
+Consolidadas em [pesquisa/fontes.md — seção Benchmark gov.br](../pesquisa/fontes.md#benchmark--governo-digital-govbr--foco-principal).

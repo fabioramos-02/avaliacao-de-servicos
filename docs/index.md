@@ -55,4 +55,4 @@ graph LR
 
 Cada afirmação factual é marcada `[FATO]` + fonte. Interpretações, hipóteses e recomendações são sinalizadas explicitamente. Quando algo não pôde ser confirmado, aparece `**Não identificado**` com a explicação.
 
-Fontes completas em [`pesquisa/fontes.md`](../pesquisa/fontes.md).
+Fontes completas em [`pesquisa/fontes.md`](pesquisa/fontes.md).

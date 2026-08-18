@@ -99,4 +99,4 @@
 
 ## Fontes
 
-Referências consolidadas em [`pesquisa/fontes.md`](../../pesquisa/fontes.md), seção "UX / Service Design".
+Referências consolidadas em [`pesquisa/fontes.md`](../pesquisa/fontes.md), seção "UX / Service Design".

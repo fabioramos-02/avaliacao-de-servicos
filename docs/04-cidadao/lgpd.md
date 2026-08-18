@@ -282,4 +282,4 @@ Política de Privacidade completa: [link]
 
 ## Fontes
 
-Consolidadas em [pesquisa/fontes.md — seção LGPD / Governança](../../pesquisa/fontes.md#lgpd--governança).
+Consolidadas em [pesquisa/fontes.md — seção LGPD / Governança](../pesquisa/fontes.md#lgpd--governança).

@@ -127,4 +127,8 @@ nav:
   - Conclusão:
       - Recomendação: 07-conclusao/recomendacao.md
       - Decisões: 07-conclusao/decisoes.md
-      - Próximos passos: 07-conclusos/proximos-passos.md
+      - Próximos passos: 07-conclusao/proximos-passos.md
+
+  - Pesquisa:
+      - Fontes: pesquisa/fontes.md
+      - Evidências: pesquisa/evidencias.md

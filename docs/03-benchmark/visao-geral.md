@@ -51,4 +51,4 @@ Detalhamento completo de cada case nos respectivos arquivos.
 
 ## Fontes
 
-Consolidado em [../../pesquisa/fontes.md](../../pesquisa/fontes.md).
+Consolidado em [../pesquisa/fontes.md](../pesquisa/fontes.md).

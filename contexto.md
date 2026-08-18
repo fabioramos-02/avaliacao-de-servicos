@@ -54,24 +54,40 @@ Documentação navegável via MkDocs (`http://127.0.0.1:8000` local).
 | 1b | Benchmark mercado | iFood, Uber, Airbnb, Google, Amazon (referência secundária) | ⏳ Em andamento |
 | 1c | Benchmark governo | GOV.UK, gov.br federal, USDS (contexto global) | ⏳ Em andamento |
 | 1d | Deep dive gov.br | Central de Qualidade + Ferramenta de Avaliação (âncora) | ✅ Concluída |
-| 2a | UX/Service Design | Momento ideal, tamanho de formulário, taxa de resposta | ⏳ Em andamento |
-| 2b | Dados/Analytics | Indicadores, dimensões, estrutura BI | ⏳ Em andamento |
-| 2c | LGPD/Governança | Base legal, minimização, retenção | ⏳ Em andamento |
-| 3 | Proposta + Validação | Modelo para MS + matriz decisão + estratégia validação | ⬜ Pendente |
-| 4 | Empacotamento MkDocs | Build, revisão navegação, ajustes finais | ⬜ Pendente |
+| 2a | UX/Service Design | Momento ideal, tamanho de formulário, taxa de resposta | ✅ Concluída |
+| 2b | Dados/Analytics | Indicadores, dimensões, estrutura BI | ✅ Concluída |
+| 2c | LGPD/Governança | Base legal, minimização, retenção | ✅ Concluída |
+| 3 | Proposta + Validação | Modelo para MS + matriz decisão + estratégia validação | ✅ Concluída |
+| 4 | Empacotamento MkDocs | Build, revisão navegação, ajustes finais | ✅ Concluída |
 
 ---
 
 ## Onde paramos
 
-**Última ação:** reorientação do estudo — gov.br promovido a referência principal (era um de vários benchmarks). Refatoração dos docs em curso para linguagem simples, macro estratégica, sem jargão de backlog.
+**Estudo concluído.** Todas as ondas finalizadas. `mkdocs build --strict` passa (0 warnings). CI GitHub Pages configurado em `.github/workflows/gh-pages.yml`.
 
-**Próximos passos imediatos:**
+**Entregas prontas para validação:**
 
-1. Aguardar conclusão dos agentes das ondas 1b, 1c e 1d.
-2. Rodar ondas 2a/2b/2c em paralelo.
-3. Consolidar em proposta do MS (onda 3).
-4. Build final MkDocs.
+- Recomendação final em `docs/07-conclusao/recomendacao.md`.
+- Modelo proposto em `docs/05-proposta/modelo-proposto.md`.
+- Matriz de decisão em `docs/05-proposta/matriz-decisao.md`.
+- Estratégia de validação em `docs/06-validacao/estrategia.md`.
+- Corte LGPD em `docs/04-cidadao/lgpd.md`.
+- Documentação navegável rodando com tema SEGOV.
+
+**Próximos passos (fora deste estudo):**
+
+1. Levar recomendação para deliberação da diretoria SETDIG.
+2. Escolher serviço piloto conforme critérios em `docs/06-validacao/estrategia.md`.
+3. Parecer jurídico e alocação de time técnico.
+4. Piloto de 3 meses.
+5. Go/no-go pós-piloto.
+
+**Melhorias futuras da documentação (opcional):**
+
+- Gerar apresentação PPTX executiva sobre os docs consolidados.
+- Publicar site em GitHub Pages (workflow já pronto, basta push).
+- Pesquisa qualitativa com cidadão antes de escala.
 
 ---
 

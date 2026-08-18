@@ -147,4 +147,4 @@
 
 ## Fontes
 
-Ver [`pesquisa/fontes.md`](../../pesquisa/fontes.md), seção "UX / Service Design".
+Ver [`pesquisa/fontes.md`](../pesquisa/fontes.md), seção "UX / Service Design".
