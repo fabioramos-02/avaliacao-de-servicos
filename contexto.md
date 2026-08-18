@@ -14,7 +14,8 @@ Ponto de partida: **replicar/adaptar o modelo do gov.br** (Central de Qualidade 
 
 - Central de Qualidade — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade
 - Ferramenta de Avaliação — https://www.gov.br/governodigital/pt-br/plataformas-e-servicos-digitais/ferramenta-de-avaliacao
-- Portaria SGD/ME 548/2022 (padronização do instrumento).
+- Portaria SGD/MGI nº 1.083/2025 (vigente) — revisou a 548/2022.
+- Portaria SGD/ME nº 548/2022 — padronização original do instrumento.
 - Lei 13.460/2017 (Código de Defesa do Usuário de Serviço Público).
 - Lei 13.709/2018 (LGPD).
 
@@ -52,10 +53,10 @@ Documentação navegável via MkDocs (`http://127.0.0.1:8000` local).
 | 1a | Modelos de avaliação | NPS/CSAT/CES/SUS/ACSI, escalas, adequação a serviço público | ✅ Concluída |
 | 1b | Benchmark mercado | iFood, Uber, Airbnb, Google, Amazon (referência secundária) | ⏳ Em andamento |
 | 1c | Benchmark governo | GOV.UK, gov.br federal, USDS (contexto global) | ⏳ Em andamento |
-| 1d | Deep dive gov.br | Central de Qualidade + Ferramenta de Avaliação (âncora) | ⏳ Em andamento |
-| 2a | UX/Service Design | Momento ideal, tamanho de formulário, taxa de resposta | ⬜ Pendente |
-| 2b | Dados/Analytics | Indicadores, dimensões, estrutura BI | ⬜ Pendente |
-| 2c | LGPD/Governança | Base legal, minimização, retenção | ⬜ Pendente |
+| 1d | Deep dive gov.br | Central de Qualidade + Ferramenta de Avaliação (âncora) | ✅ Concluída |
+| 2a | UX/Service Design | Momento ideal, tamanho de formulário, taxa de resposta | ⏳ Em andamento |
+| 2b | Dados/Analytics | Indicadores, dimensões, estrutura BI | ⏳ Em andamento |
+| 2c | LGPD/Governança | Base legal, minimização, retenção | ⏳ Em andamento |
 | 3 | Proposta + Validação | Modelo para MS + matriz decisão + estratégia validação | ⬜ Pendente |
 | 4 | Empacotamento MkDocs | Build, revisão navegação, ajustes finais | ⬜ Pendente |
 

@@ -12,7 +12,8 @@ Estudo estratégico da **Secretaria-Executiva de Transformação Digital (SETDIG
 
 1. Central de Qualidade — https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/transformacao-digital/central-de-qualidade
 2. Ferramenta de Avaliação — https://www.gov.br/governodigital/pt-br/plataformas-e-servicos-digitais/ferramenta-de-avaliacao
-3. Portaria SGD/ME nº 548/2022 (padrão nacional do instrumento).
+3. Portaria SGD/MGI nº 1.083, de 14/02/2025 (norma vigente; revisou a 548/2022).
+4. Portaria SGD/ME nº 548/2022 (norma anterior; artigos-chave herdados).
 
 Outros benchmarks (iFood, Uber, Airbnb, GOV.UK) são referências secundárias. Qualquer divergência do modelo gov.br precisa de justificativa explícita no documento.
 
@@ -23,6 +24,12 @@ Outros benchmarks (iFood, Uber, Airbnb, GOV.UK) são referências secundárias. 
 - Pergunta 2 (opcional): "O que você mais gostou em nosso serviço?" — 6 cards, marque até 3 (Fácil de usar, Site/app funcionou bem, Informações claras, Consegui resolver, Foi rápido, Fácil de encontrar).
 - Campo aberto opcional (até 2000 chars).
 - Bloco acessibilidade opcional (autodeclaração PcD).
+
+**Princípio jurídico crítico** (art. 7º §3º Portaria 548/2022): a avaliação nunca pode ser etapa obrigatória da jornada do cidadão. Convite único, nunca bloquear serviço.
+
+**Framework técnico gov.br**: 7 dimensões × 5 atributos = 35 padrões (Autodiagnóstico do gestor, não confundir com os 6 cards mostrados ao cidadão).
+
+**Referência de escala**: em 2026-08, gov.br publica média 4,39/5 sobre 1.047 serviços integrados.
 
 ## Como falar nos docs
 
