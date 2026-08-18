@@ -1,0 +1,2510 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Estudo sobre modelos, benchmark e proposta de avaliação de serviços do Portal de Serviços do MS">
+      
+      
+        <meta name="author" content="SETDIG — Secretaria-Executiva de Transformação Digital">
+      
+      
+        <link rel="canonical" href="https://fabioramos-02.github.io/avaliacao-de-servicos/04-cidadao/lgpd/">
+      
+      
+        <link rel="prev" href="../perguntas/">
+      
+      
+      
+      <link rel="icon" href="../../assets/img/brasao-ms.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>LGPD - Avaliação dos Serviços — Portal MS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/segov.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lgpd-e-governanca-do-dado-da-avaliacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Avaliação dos Serviços — Portal MS" class="md-header__button md-logo" aria-label="Avaliação dos Serviços — Portal MS" data-md-component="logo">
+      
+  <img src="../../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Avaliação dos Serviços — Portal MS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LGPD
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-contexto/feature/" class="md-tabs__link">
+          
+  
+    
+  
+  Contexto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-modelos/modelos-avaliacao/" class="md-tabs__link">
+          
+  
+    
+  
+  Modelos de Avaliação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-benchmark/visao-geral/" class="md-tabs__link">
+          
+  
+    
+  
+  Benchmark
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../o-que-coletar/" class="md-tabs__link">
+          
+  
+    
+  
+  O que coletar do cidadão
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-proposta/modelo-proposto.md" class="md-tabs__link">
+          
+  
+    
+  
+  Proposta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-validacao/estrategia.md" class="md-tabs__link">
+          
+  
+    
+  
+  Validação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-conclusao/recomendacao.md" class="md-tabs__link">
+          
+  
+    
+  
+  Conclusão
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Avaliação dos Serviços — Portal MS" class="md-nav__button md-logo" aria-label="Avaliação dos Serviços — Portal MS" data-md-component="logo">
+      
+  <img src="../../assets/img/segov-logo.svg" alt="logo">
+
+    </a>
+    Avaliação dos Serviços — Portal MS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contexto
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contexto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-contexto/feature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-contexto/objetivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objetivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modelos de Avaliação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Modelos de Avaliação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-modelos/modelos-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão geral
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-modelos/nps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-modelos/csat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSAT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-modelos/ces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CES
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-modelos/comparativo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Benchmark
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Benchmark
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/visao-geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão geral
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/gov-br/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gov.br (referência principal)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/central-de-qualidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Central de Qualidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/ferramenta-de-avaliacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramenta de Avaliação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/ifood/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iFood
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/uber/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uber
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/airbnb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Airbnb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/google/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/amazon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amazon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/gov-uk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GOV.UK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-benchmark/comparativo.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparativo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    O que coletar do cidadão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            O que coletar do cidadão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../o-que-coletar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O que coletar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perguntas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados-obrigatorios.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dados obrigatórios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    LGPD
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enquadramento-legal" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Enquadramento legal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-base-legal-para-tratamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Base legal para tratamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-principio-da-minimizacao-aplicado-ao-instrumento" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Princípio da minimização aplicado ao instrumento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-finalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Finalidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dados-que-serao-tratados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Dados que serão tratados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dados-que-nao-serao-coletados" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Dados que NÃO serão coletados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-direitos-do-titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Direitos do titular
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-aviso-de-privacidade-no-ato-rascunho-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Aviso de privacidade no ato — rascunho de texto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-anonimizacao-e-pseudonimizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Anonimização e pseudonimização
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-retencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Retenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-compartilhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Compartilhamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-publicacao-dados-abertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Publicação (dados abertos)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-governanca" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-cidadao-vulneravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Cidadão vulnerável
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-base-legal-usada-pelo-govbr-mgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Base legal usada pelo gov.br (MGI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-legislacao-estadual-de-ms-sobre-protecao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Legislação estadual de MS sobre proteção de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-riscos-identificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Riscos identificados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-lacunas-de-pesquisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Lacunas de pesquisa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fontes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proposta
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Proposta
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/modelo-proposto.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo proposto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/perguntas.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/escala.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Escala
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/fluxo.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fluxo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/indicadores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indicadores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-proposta/matriz-decisao.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matriz de decisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Validação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Validação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-validacao/estrategia.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estratégia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-validacao/stakeholders.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stakeholders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-validacao/criterios-aceite.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critérios de aceite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conclusão
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Conclusão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-conclusao/recomendacao.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-conclusao/decisoes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decisões
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-conclusos/proximos-passos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Próximos passos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enquadramento-legal" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Enquadramento legal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-base-legal-para-tratamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Base legal para tratamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-principio-da-minimizacao-aplicado-ao-instrumento" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Princípio da minimização aplicado ao instrumento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-finalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Finalidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dados-que-serao-tratados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Dados que serão tratados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dados-que-nao-serao-coletados" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Dados que NÃO serão coletados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-direitos-do-titular" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Direitos do titular
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-aviso-de-privacidade-no-ato-rascunho-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Aviso de privacidade no ato — rascunho de texto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-anonimizacao-e-pseudonimizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Anonimização e pseudonimização
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-retencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Retenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-compartilhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Compartilhamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-publicacao-dados-abertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Publicação (dados abertos)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-governanca" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Governança
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-cidadao-vulneravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Cidadão vulnerável
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-base-legal-usada-pelo-govbr-mgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Base legal usada pelo gov.br (MGI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-legislacao-estadual-de-ms-sobre-protecao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Legislação estadual de MS sobre proteção de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-riscos-identificados" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Riscos identificados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-lacunas-de-pesquisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Lacunas de pesquisa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fontes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lgpd-e-governanca-do-dado-da-avaliacao">LGPD e governança do dado da avaliação<a class="headerlink" href="#lgpd-e-governanca-do-dado-da-avaliacao" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Este documento fixa o corte de LGPD e governança do dado do instrumento de avaliação do Portal de Serviços do MS. Ele complementa — não substitui — a Política de Privacidade geral do Governo do Estado. Referência âncora: gov.br (Central de Qualidade + Ferramenta de Avaliação).</p>
+</blockquote>
+<hr />
+<h2 id="1-enquadramento-legal">1. Enquadramento legal<a class="headerlink" href="#1-enquadramento-legal" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> Duas leis se sobrepõem no instrumento:</p>
+<ul>
+<li><strong>Lei 13.460/2017 — Código de Defesa do Usuário de Serviços Públicos.</strong> Art. 23 obriga órgãos e entidades a avaliar continuamente a satisfação do usuário, a qualidade do atendimento, o cumprimento de prazos, a quantidade de manifestações e as medidas adotadas. O resultado deve ser publicado no sítio do órgão. Fonte: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13460.htm">Lei 13.460/2017 — Planalto</a>.</li>
+<li><strong>Lei 13.709/2018 — LGPD.</strong> Rege o tratamento de todo dado pessoal, inclusive quando coletado pelo Poder Público em execução de política pública. Fonte: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">Lei 13.709/2018 — Planalto</a>.</li>
+</ul>
+<p><code>[INTERPRETAÇÃO]</code> A Lei 13.460 é a <strong>causa</strong> da avaliação (obriga a coletar); a LGPD é o <strong>limite</strong> (define como e o quê pode ser coletado). O instrumento nasce, portanto, obrigatório por lei e minimalista por lei — o que reforça o desenho enxuto do gov.br.</p>
+<hr />
+<h2 id="2-base-legal-para-tratamento">2. Base legal para tratamento<a class="headerlink" href="#2-base-legal-para-tratamento" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Adotar <strong>duas bases legais convivendo</strong>, cada uma para um tipo de dado:</p>
+<table>
+<thead>
+<tr>
+<th>Bloco do formulário</th>
+<th>Base legal LGPD</th>
+<th>Fundamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nota (estrelas) + motivos positivos (cards)</td>
+<td>Art. 7º, III — execução de política pública</td>
+<td>Cumpre obrigação legal da Lei 13.460/2017 art. 23</td>
+</tr>
+<tr>
+<td>Campo aberto (comentário)</td>
+<td>Art. 7º, III — execução de política pública</td>
+<td>Mesmo fundamento; texto voluntário fornecido no ato</td>
+</tr>
+<tr>
+<td>Bloco de acessibilidade (autodeclaração PcD)</td>
+<td>Art. 11, II, "b" — execução de política pública para dado sensível</td>
+<td>Deficiência é <strong>dado pessoal sensível</strong> (art. 5º II); requer base específica</td>
+</tr>
+<tr>
+<td>Dados de sessão técnica (IP, timestamp)</td>
+<td>Art. 7º, III + art. 16, II</td>
+<td>Necessários para operação e prevenção de fraude/duplicidade</td>
+</tr>
+</tbody>
+</table>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Evitar consentimento (art. 7º I)</strong> como base primária. Consentimento cria expectativa de que o cidadão pode revogar e exigir eliminação individual — inviável em base anonimizada. Além disso, "consentimento" cobrado como pré-condição de avaliar um serviço público é frágil juridicamente (não é livre nem informado no sentido pleno da lei).</p>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Não usar legítimo interesse (art. 7º IX)</strong>. A ANPD desestimula seu uso pelo Poder Público quando há hipótese específica disponível (execução de política pública cobre o caso).</p>
+<hr />
+<h2 id="3-principio-da-minimizacao-aplicado-ao-instrumento">3. Princípio da minimização aplicado ao instrumento<a class="headerlink" href="#3-principio-da-minimizacao-aplicado-ao-instrumento" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> LGPD art. 6º III: "limitação ao mínimo necessário para a realização de suas finalidades".</p>
+<p><code>[RECOMENDAÇÃO]</code> Traduzir a minimização em três regras práticas para o formulário:</p>
+<ol>
+<li><strong>Toda pergunta precisa justificar seu próprio uso.</strong> Se um dado não vai virar decisão ou indicador publicado, ele não entra no formulário.</li>
+<li><strong>Opcionalidade por default.</strong> Único campo obrigatório: a nota. Motivos, comentário e acessibilidade são opcionais.</li>
+<li><strong>Anonimato por default.</strong> Sem CPF, sem login, sem e-mail, sem nome. O cidadão que quiser retorno individual usa a Ouvidoria (canal próprio) — não a avaliação.</li>
+</ol>
+<hr />
+<h2 id="4-finalidade">4. Finalidade<a class="headerlink" href="#4-finalidade" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Redigir a finalidade em uma frase única, replicável em todos os pontos de contato:</p>
+<blockquote>
+<p>"Coletar avaliações do cidadão sobre serviços digitais do Estado, para diagnosticar qualidade, priorizar melhorias e cumprir o art. 23 da Lei 13.460/2017."</p>
+</blockquote>
+<p><code>[INTERPRETAÇÃO]</code> Finalidade específica (art. 6º I) blinda o dado contra desvio de uso posterior. Se, no futuro, alguém quiser usar o comentário aberto para outra coisa (por exemplo, treinar modelo de IA de atendimento), essa nova finalidade precisará ser reavaliada — não está automaticamente autorizada.</p>
+<hr />
+<h2 id="5-dados-que-serao-tratados">5. Dados que serão tratados<a class="headerlink" href="#5-dados-que-serao-tratados" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dado</th>
+<th>Coletado?</th>
+<th>Base legal</th>
+<th>Retenção sugerida</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nota (1–5 estrelas)</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
+<td>Numérica anônima</td>
+</tr>
+<tr>
+<td>Motivos positivos (até 3 cards)</td>
+<td>Sim, opcional</td>
+<td>Art. 7º III</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
+<td>Categórica anônima</td>
+</tr>
+<tr>
+<td>Comentário aberto (até 2000 caracteres)</td>
+<td>Sim, opcional</td>
+<td>Art. 7º III</td>
+<td>Bruto: 12 meses. Anonimizado (pós-triagem): indefinido</td>
+<td>Texto — passa por triagem</td>
+</tr>
+<tr>
+<td>Autodeclaração PcD (Sim/Não)</td>
+<td>Sim, opcional</td>
+<td>Art. 11 II "b"</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
+<td>Booleano anônimo</td>
+</tr>
+<tr>
+<td>ID de serviço avaliado</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III</td>
+<td>Enquanto o serviço existir</td>
+<td>Chave técnica</td>
+</tr>
+<tr>
+<td>Timestamp da avaliação</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III</td>
+<td>Igual à nota</td>
+<td>Metadado técnico</td>
+</tr>
+<tr>
+<td>IP truncado (últimos octetos removidos)</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III + art. 16 II</td>
+<td>90 dias</td>
+<td>Antifraude/deduplicação</td>
+</tr>
+<tr>
+<td>User-agent (navegador/SO)</td>
+<td>Sim, opcional</td>
+<td>Art. 7º III</td>
+<td>90 dias</td>
+<td>Diagnóstico de acessibilidade</td>
+</tr>
+</tbody>
+</table>
+<p><code>[FATO]</code> <code>[HIPÓTESE]</code> sobre o IP: gov.br não publica seu esquema exato de retenção de IP na avaliação. <strong>Não identificado</strong>. A prática recomendada aqui é conservadora — truncar e reter só o suficiente para antifraude.</p>
+<hr />
+<h2 id="6-dados-que-nao-serao-coletados">6. Dados que NÃO serão coletados<a class="headerlink" href="#6-dados-que-nao-serao-coletados" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Lista negativa explícita, publicada no aviso de privacidade:</p>
+<table>
+<thead>
+<tr>
+<th>Dado</th>
+<th>Por que não</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPF</td>
+<td>gov.br não exige; identifica o cidadão sem necessidade; risco desproporcional</td>
+</tr>
+<tr>
+<td>Nome</td>
+<td>Identificação direta sem finalidade proporcional</td>
+</tr>
+<tr>
+<td>E-mail</td>
+<td>Cria expectativa de retorno individual (é papel da Ouvidoria, não da avaliação)</td>
+</tr>
+<tr>
+<td>Telefone</td>
+<td>Idem e-mail</td>
+</tr>
+<tr>
+<td>Endereço</td>
+<td>Sem uso na análise agregada</td>
+</tr>
+<tr>
+<td>Geolocalização precisa (GPS)</td>
+<td>Município do serviço é suficiente; GPS é excessivo</td>
+</tr>
+<tr>
+<td>IP completo</td>
+<td>Truncado é suficiente para deduplicação</td>
+</tr>
+<tr>
+<td>Tipo específico de deficiência</td>
+<td>O bloco de acessibilidade fica em Sim/Não; detalhe abre risco de identificação em serviços de baixo volume</td>
+</tr>
+<tr>
+<td>Renda, raça, religião, orientação política ou sexual, saúde</td>
+<td>Sensíveis (art. 5º II); sem nexo com a finalidade</td>
+</tr>
+<tr>
+<td>Cookies de terceiros / rastreadores publicitários</td>
+<td>Sem finalidade no instrumento</td>
+</tr>
+</tbody>
+</table>
+<p><code>[INTERPRETAÇÃO]</code> A lista negativa é tão importante quanto a positiva: comunica ao cidadão o que ele <strong>não vai</strong> entregar ao clicar em "Enviar avaliação" — e vincula juridicamente o órgão.</p>
+<hr />
+<h2 id="7-direitos-do-titular">7. Direitos do titular<a class="headerlink" href="#7-direitos-do-titular" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> LGPD art. 18 garante ao titular: confirmação de tratamento, acesso, correção, anonimização/bloqueio/eliminação, portabilidade, informação sobre compartilhamentos, revogação de consentimento e revisão de decisões automatizadas.</p>
+<p><code>[INTERPRETAÇÃO]</code> Em avaliação <strong>anônima por design</strong>, a operacionalização é limitada — e isso precisa ser dito com honestidade:</p>
+<p><code>[RECOMENDAÇÃO]</code> Texto padrão no aviso de privacidade:</p>
+<blockquote>
+<p>"Esta avaliação é anônima. Não coletamos seu nome, CPF ou dados que permitam identificá-lo. Por isso, após o envio, não conseguimos localizar sua avaliação específica para atender pedidos de acesso, correção ou exclusão individual. Se você deseja registrar uma manifestação identificada (elogio, reclamação, sugestão, denúncia ou solicitação de acesso à informação), use a Ouvidoria do Estado: [link]. Encarregado (DPO) do Estado do MS para questões de proteção de dados: [contato]."</p>
+</blockquote>
+<p><code>[RECOMENDAÇÃO]</code> Para o campo aberto (único caminho em que o cidadão pode se autoidentificar voluntariamente ao escrever): manter procedimento de <strong>triagem para anonimização</strong> — ver seção 9.</p>
+<hr />
+<h2 id="8-aviso-de-privacidade-no-ato-rascunho-de-texto">8. Aviso de privacidade no ato — rascunho de texto<a class="headerlink" href="#8-aviso-de-privacidade-no-ato-rascunho-de-texto" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Texto curto, visível <strong>antes</strong> do envio (link "Como tratamos seus dados" logo abaixo do botão "Enviar avaliação"):</p>
+<p>```
+Como tratamos seus dados nesta avaliação</p>
+<p>Esta avaliação é anônima. Coletamos: a nota que você deu, os motivos
+positivos que você marcou (se marcou), o comentário que você escreveu
+(se escreveu) e a autodeclaração de deficiência (se respondeu).
+Guardamos também o identificador do serviço avaliado, a data e um
+dado técnico truncado para evitar duplicidade.</p>
+<p>Não coletamos seu nome, CPF, e-mail, telefone, endereço nem sua
+localização exata.</p>
+<p>Usamos essas informações para melhorar o serviço avaliado — publicamos
+a nota média na página do serviço e o resumo consolidado em painéis
+de gestão. Dados brutos ficam guardados por até 24 meses; comentários
+abertos por até 12 meses; dados técnicos por 90 dias.</p>
+<p>Base legal: Lei 13.709/2018 (LGPD), art. 7º III e art. 11 II "b" —
+execução de política pública prevista na Lei 13.460/2017 (Código de
+Defesa do Usuário de Serviços Públicos).</p>
+<p>Encarregado pelo Tratamento de Dados (DPO) do Estado do MS: [contato]
+Ouvidoria do Estado (para manifestações identificadas): [link]
+Política de Privacidade completa: [link]
+```</p>
+<p><code>[INTERPRETAÇÃO]</code> O texto propositalmente evita jargão jurídico salvo nas citações legais. Boa prática ANPD: aviso "em camadas" — resumo curto no ato, política completa em link.</p>
+<hr />
+<h2 id="9-anonimizacao-e-pseudonimizacao">9. Anonimização e pseudonimização<a class="headerlink" href="#9-anonimizacao-e-pseudonimizacao" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> LGPD art. 5º III define <strong>anonimização</strong>: "utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo". Art. 12 diz que dado anonimizado <strong>não é considerado dado pessoal</strong> — salvo se a anonimização puder ser revertida com esforço razoável.</p>
+<p><code>[RECOMENDAÇÃO]</code> Três camadas de tratamento do dado:</p>
+<ol>
+<li><strong>Coleta:</strong> já entra anônima (sem identificador direto). IP truncado no momento da coleta, nunca armazenado inteiro.</li>
+<li><strong>Triagem do comentário aberto:</strong> rotina periódica (<code>[RECOMENDAÇÃO]</code> semanal) que revisa comentários buscando dado identificável escrito pelo próprio cidadão (nome, CPF, telefone, e-mail, número de protocolo) e substitui por marcador <code>[dado suprimido]</code>. Comentário só entra em dashboard consolidado após triagem.</li>
+<li><strong>Publicação:</strong> só sai do órgão em forma agregada (nota média, contagem de motivos, série temporal). Comentário individual <strong>nunca</strong> é publicado bruto — pode ser citado em relatório interno com trecho e serviço, mas sem identificador.</li>
+</ol>
+<p><code>[INTERPRETAÇÃO]</code> Nota + motivo + serviço + timestamp, isoladamente, não permitem reidentificar em serviços de alto volume. Em serviços de baixíssimo volume (por exemplo, um serviço com 3 avaliações no ano), a combinação pode ser reidentificável indiretamente — daí a regra de só publicar agregado quando houver massa mínima (<code>[HIPÓTESE]</code> corte sugerido: mínimo de 10 avaliações no período para publicar média específica; abaixo disso, exibir só "amostra ainda insuficiente").</p>
+<hr />
+<h2 id="10-retencao">10. Retenção<a class="headerlink" href="#10-retencao" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> A LGPD não fixa prazo numérico; art. 15 diz que o tratamento termina quando a finalidade se exaure ou quando o titular solicita eliminação (o que, aqui, é limitado pelo anonimato).</p>
+<p><code>[RECOMENDAÇÃO]</code> Política de retenção proposta:</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Prazo</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nota + motivos + PcD + metadados de serviço</td>
+<td>24 meses no estado bruto; após, retenção indefinida em forma agregada</td>
+<td>2 ciclos anuais permitem análise de sazonalidade; agregado histórico não é dado pessoal</td>
+</tr>
+<tr>
+<td>Comentário aberto</td>
+<td>12 meses no estado bruto (pós-triagem); após, descarte ou consolidação em relatório qualitativo agregado</td>
+<td>Texto tem maior potencial de reidentificação; ciclo mais curto</td>
+</tr>
+<tr>
+<td>IP truncado + user-agent</td>
+<td>90 dias</td>
+<td>Suficiente para antifraude/deduplicação; padrão conservador</td>
+</tr>
+<tr>
+<td>Logs de auditoria (quem acessou painel gestor, quando)</td>
+<td>5 anos</td>
+<td>Boa prática de segurança para trilha de auditoria</td>
+</tr>
+</tbody>
+</table>
+<p><code>[INTERPRETAÇÃO]</code> Diretriz ANPD para setor público: reter pelo prazo necessário à finalidade, documentar a decisão. Os prazos acima são recomendação — não obrigação legal específica.</p>
+<hr />
+<h2 id="11-compartilhamento">11. Compartilhamento<a class="headerlink" href="#11-compartilhamento" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code></p>
+<table>
+<thead>
+<tr>
+<th>Com quem</th>
+<th>O que compartilhar</th>
+<th>Base</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Órgão setorial dono do serviço</td>
+<td>Notas, motivos e comentários referentes aos seus serviços</td>
+<td>Execução de política pública</td>
+<td>Painel restrito por perfil</td>
+</tr>
+<tr>
+<td>Ouvidoria estadual</td>
+<td>Estatísticas agregadas e alertas de temas críticos recorrentes no campo aberto</td>
+<td>Art. 26 LGPD (compartilhamento entre entes públicos para execução de política pública)</td>
+<td>Relatório periódico</td>
+</tr>
+<tr>
+<td>ANPD</td>
+<td>Sob demanda, em caso de incidente ou fiscalização</td>
+<td>Obrigação legal</td>
+<td>Ofício formal</td>
+</tr>
+<tr>
+<td>SGD/MGI (federal)</td>
+<td>Se e quando houver integração com API gov.br</td>
+<td>A definir em convênio</td>
+<td>Convênio específico</td>
+</tr>
+<tr>
+<td>Público em geral (dados abertos)</td>
+<td><strong>Apenas agregado</strong>: nota média por serviço/órgão/período, distribuição de motivos, série temporal</td>
+<td>Transparência ativa (Lei 12.527/2011 + Lei 13.460 art. 23 §2º)</td>
+<td>CSV/JSON em portal de dados abertos</td>
+</tr>
+<tr>
+<td>Terceiros privados (fornecedores, empresas)</td>
+<td><strong>Nada</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><code>[RECOMENDAÇÃO]</code> Se houver fornecedor operando a infraestrutura (nuvem, plataforma), formalizar como <strong>operador</strong> (art. 5º VII LGPD) em contrato com cláusula específica de tratamento, e não como controlador.</p>
+<hr />
+<h2 id="12-publicacao-dados-abertos">12. Publicação (dados abertos)<a class="headerlink" href="#12-publicacao-dados-abertos" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> Lei 13.460/2017 art. 23 §2º: os resultados da avaliação devem ser "integralmente publicados no sítio do órgão ou entidade, incluindo o ranking das entidades com maior incidência de reclamação". A publicação, portanto, é obrigatória — não facultativa.</p>
+<p><code>[RECOMENDAÇÃO]</code></p>
+<ol>
+<li><strong>Página pública de cada serviço no Portal MS</strong>: nota média + nº de avaliações no período visível (padrão gov.br).</li>
+<li><strong>Painel público consolidado</strong>: nota média por órgão, ranking, série temporal.</li>
+<li><strong>Dataset em dados abertos</strong>: CSV mensal com colunas <code>servico_id, orgao, mes, n_avaliacoes, nota_media, distribuicao_motivos, pct_pcd</code>. Sem coluna de comentário aberto.</li>
+<li><strong>Corte mínimo de amostra</strong>: só publicar média específica quando houver ≥10 avaliações no período. Abaixo disso, exibir "amostra ainda insuficiente" (evita ranking injusto e reduz risco de reidentificação em serviços pequenos).</li>
+</ol>
+<hr />
+<h2 id="13-governanca">13. Governança<a class="headerlink" href="#13-governanca" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Papéis explícitos:</p>
+<ul>
+<li><strong>Controlador:</strong> Governo do Estado do MS (pessoa jurídica). Cada órgão setorial é corresponsável pelos dados dos serviços que oferta.</li>
+<li><strong>Encarregado / DPO:</strong> DPO do Estado do MS. <strong>Não identificado</strong> publicamente o nome/e-mail atual — precisa ser confirmado junto à SETDIG e publicado no aviso de privacidade.</li>
+<li><strong>Operador:</strong> eventual fornecedor de infraestrutura (nuvem, plataforma de avaliação), formalizado em contrato.</li>
+<li><strong>Autoridade fiscalizadora:</strong> ANPD (Autoridade Nacional de Proteção de Dados).</li>
+<li><strong>Canal de manifestação identificada do cidadão:</strong> Ouvidoria Estadual — não o instrumento de avaliação.</li>
+</ul>
+<p><code>[RECOMENDAÇÃO]</code> Rotinas mínimas de governança:</p>
+<ol>
+<li><strong>Revisão anual do desenho do instrumento</strong> com participação do DPO e da Ouvidoria.</li>
+<li><strong>Log de acesso ao painel gestor</strong> com trilha de auditoria (5 anos).</li>
+<li><strong>Plano de resposta a incidente</strong> documentado — quem notifica ANPD e cidadão (via aviso público, dado o anonimato) em caso de vazamento.</li>
+<li><strong>Relatório de Impacto à Proteção de Dados (RIPD)</strong> — art. 38 LGPD. Recomendável elaborar antes do go-live, mesmo não sendo obrigatório para dado majoritariamente anonimizado, porque a autodeclaração PcD é dado sensível.</li>
+</ol>
+<hr />
+<h2 id="14-cidadao-vulneravel">14. Cidadão vulnerável<a class="headerlink" href="#14-cidadao-vulneravel" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> Cuidados específicos:</p>
+<ul>
+<li><strong>PcD:</strong> bloco de acessibilidade opcional e binário (Sim/Não), sem detalhar tipo de deficiência. Uso: analisar se a experiência varia entre PcD e não-PcD. Nunca cruzar com serviço específico em publicação quando amostra for pequena.</li>
+<li><strong>Idoso:</strong> priorizar linguagem simples, fontes maiores, alto contraste no formulário. Não perguntar idade — não é necessária ao instrumento.</li>
+<li><strong>Criança:</strong> avaliação de serviço público digital, por design, é para o usuário adulto do serviço. Se responsável legal responde por menor, a avaliação continua sendo do serviço, não da criança — não coletar dados do menor.</li>
+<li><strong>Não-alfabetizado digital:</strong> considerar canal alternativo (totem físico com pictogramas, ou avaliação verbal via atendente do Fácil MS) — fora do escopo digital deste documento, mas registrado para consistência de política.</li>
+</ul>
+<hr />
+<h2 id="15-base-legal-usada-pelo-govbr-mgi">15. Base legal usada pelo gov.br (MGI)<a class="headerlink" href="#15-base-legal-usada-pelo-govbr-mgi" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> gov.br opera a Ferramenta de Avaliação como instrumento anônimo por design, apoiado em Portaria SGD/ME 548/2022 e Portaria SGD/MGI 1.083/2025 — ambas normatizam a coleta como parte do Modelo de Qualidade dos Serviços Públicos federais, o que se enquadra em execução de política pública (LGPD art. 7º III). Fontes: <a href="https://www.in.gov.br/en/web/dou/-/portaria-sgd/me-n-548-de-24-de-janeiro-de-2022-375784151">Portaria 548/2022</a>; <a href="https://bibliotecadigital.gestao.gov.br/handle/123456789/533149">Portaria 1083/2025 — Biblioteca Digital MGI</a>.</p>
+<p><code>[INTERPRETAÇÃO]</code> MS pode reproduzir a mesma lógica: uma norma estadual (decreto ou resolução SETDIG) que institua o Modelo de Qualidade dos Serviços Digitais do Estado dá lastro jurídico direto à execução de política pública como base LGPD.</p>
+<p><code>[RECOMENDAÇÃO]</code> Publicar ato normativo estadual instituindo o Modelo de Qualidade dos Serviços Digitais do MS antes do go-live do instrumento. Estrutura enxuta, espelhando a lógica das portarias federais.</p>
+<hr />
+<h2 id="16-legislacao-estadual-de-ms-sobre-protecao-de-dados">16. Legislação estadual de MS sobre proteção de dados<a class="headerlink" href="#16-legislacao-estadual-de-ms-sobre-protecao-de-dados" title="Permanent link">&para;</a></h2>
+<p><code>[FATO]</code> <strong>Não identificado</strong> nesta rodada de pesquisa lei ou decreto estadual específico de MS regulamentando LGPD no Poder Executivo estadual, nem o nome público do Encarregado (DPO) do Governo do Estado. Requer confirmação em rodada de validação com a Procuradoria-Geral do Estado e/ou com a área jurídica da SETDIG.</p>
+<p><code>[RECOMENDAÇÃO]</code> Ações de fechamento dessa lacuna:</p>
+<ol>
+<li>Consultar a <strong>PGE-MS</strong> sobre existência de decreto estadual de LGPD.</li>
+<li>Identificar publicamente o <strong>DPO/Encarregado do Estado</strong> e seu canal de contato — o nome precisa constar no aviso de privacidade.</li>
+<li>Verificar se há <strong>Comitê de Governança de Dados</strong> estadual — se sim, submeter o instrumento à apreciação antes do go-live.</li>
+</ol>
+<hr />
+<h2 id="17-riscos-identificados">17. Riscos identificados<a class="headerlink" href="#17-riscos-identificados" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Risco</th>
+<th>Probabilidade</th>
+<th>Impacto</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cidadão escreve dado identificável no campo aberto (nome, CPF, telefone)</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Triagem periódica com substituição por <code>[dado suprimido]</code> antes de disponibilizar em painel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Reidentificação por cruzamento em serviço de baixo volume</td>
+<td>Baixa</td>
+<td>Médio</td>
+<td>Corte mínimo de 10 avaliações para publicar média específica</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Uso do painel gestor por pessoa não autorizada</td>
+<td>Baixa</td>
+<td>Alto</td>
+<td>Perfis, autenticação forte, log de acesso 5 anos</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Desvio de finalidade (usar dados para outra coisa, ex.: treinar IA)</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Finalidade específica declarada; qualquer novo uso exige reavaliação formal e ajuste do aviso</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Falta de DPO/Encarregado publicado</td>
+<td>Alta hoje</td>
+<td>Médio</td>
+<td>Ação prévia ao go-live: identificar e publicar contato do DPO estadual</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ausência de norma estadual que fundamente "execução de política pública"</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Publicar decreto/resolução instituindo o Modelo de Qualidade do MS</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Retenção prolongada sem revisão</td>
+<td>Média</td>
+<td>Baixo</td>
+<td>Revisão anual da política de retenção; rotina automática de descarte após prazo</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Vazamento de comentários abertos brutos pré-triagem</td>
+<td>Baixa</td>
+<td>Alto</td>
+<td>Criptografia em repouso; acesso restrito à área de triagem; janela curta (12 meses)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Coleta involuntária de IP completo por camada de infraestrutura</td>
+<td>Média</td>
+<td>Médio</td>
+<td>Truncamento no ponto de entrada (edge), auditável</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ranking público prejudicando serviços com amostra pequena</td>
+<td>Alta</td>
+<td>Baixo</td>
+<td>Corte mínimo de amostra + rotulagem "amostra insuficiente"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="18-lacunas-de-pesquisa">18. Lacunas de pesquisa<a class="headerlink" href="#18-lacunas-de-pesquisa" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Não identificado</strong> decreto estadual de MS sobre LGPD no Poder Executivo (checar PGE-MS).</li>
+<li><strong>Não identificado</strong> DPO/Encarregado publicamente indicado para o Estado do MS.</li>
+<li><strong>Não identificado</strong> existência de Comitê de Governança de Dados estadual.</li>
+<li><strong>Não identificado</strong> política de retenção específica da Ferramenta de Avaliação gov.br (prazos exatos de descarte de IP e comentários no lado do MGI). Prazos aqui são recomendação por analogia e boa prática ANPD.</li>
+<li><code>[HIPÓTESE]</code> A ANPD deve emitir, em algum momento, orientação específica sobre pesquisas de satisfação no setor público — vale monitorar para revisar este documento.</li>
+</ul>
+<hr />
+<h2 id="fontes">Fontes<a class="headerlink" href="#fontes" title="Permanent link">&para;</a></h2>
+<p>Consolidadas em <a href="../../pesquisa/fontes.md#lgpd--governança">pesquisa/fontes.md — seção LGPD / Governança</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.setdig.ms.gov.br/" target="_blank" rel="noopener" title="SETDIG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

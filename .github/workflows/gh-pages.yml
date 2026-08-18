@@ -1,43 +1,57 @@
-name: mkdocs-pages
+name: 📚 Deploy MkDocs
 
 on:
   push:
     branches:
       - main
       - master
-  workflow_dispatch: # Permite rodar o workflow manualmente
+
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   deploy:
+    name: 🚀 Publicar documentação
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Busca todo o histórico para infos de data de última modificação
-      
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          
-      - name: Setup Python
+          fetch-depth: 0
+
+      - name: 🐍 Configurar Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-          
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          path: ~/.cache/pip
-          restore-keys: |
-            ${{ runner.os }}-pip-
-            
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      - name: Deploy MkDocs
-        run: mkdocs gh-deploy --force
+          python-version: "3.x"
+          cache: pip
+
+      - name: 📦 Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔎 Validar configuração
+        run: |
+          mkdocs config
+
+      - name: 🏗️ Validar build
+        run: |
+          mkdocs build --strict
+
+      - name: 🚀 Publicar no GitHub Pages
+        run: |
+          mkdocs gh-deploy --force
+
+      - name: 🌐 URL da documentação
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📚 DOCUMENTAÇÃO PUBLICADA COM SUCESSO"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "🔗 https://fabioramos-02.github.io/avaliacao-de-servicos/"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

@@ -1,14 +1,18 @@
 site_name: Avaliação dos Serviços — Portal MS
 site_description: Estudo sobre modelos, benchmark e proposta de avaliação de serviços do Portal de Serviços do MS
 site_author: SETDIG — Secretaria-Executiva de Transformação Digital
+site_url: https://fabioramos-02.github.io/avaliacao-de-servicos/
+
 docs_dir: docs
 
 theme:
   name: material
   language: pt-BR
+
   logo: assets/img/segov-logo.svg
   favicon: assets/img/brasao-ms.svg
   font: false
+
   palette:
     - scheme: default
       primary: custom
@@ -16,12 +20,14 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Modo escuro
+
     - scheme: slate
       primary: custom
       accent: custom
       toggle:
         icon: material/weather-night
         name: Modo claro
+
   features:
     - navigation.tabs
     - navigation.sections
@@ -38,6 +44,7 @@ extra_css:
 
 extra:
   generator: false
+
   social:
     - icon: material/web
       link: https://www.setdig.ms.gov.br/
@@ -49,33 +56,42 @@ markdown_extensions:
   - def_list
   - footnotes
   - tables
+
   - toc:
       permalink: true
+
   - pymdownx.details
+
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
   - pymdownx.tabbed:
       alternate_style: true
+
   - pymdownx.tasklist:
       custom_checkbox: true
+
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.emoji
 
 nav:
   - Início: index.md
+
   - Contexto:
       - Feature: 01-contexto/feature.md
       - Objetivos: 01-contexto/objetivos.md
+
   - Modelos de Avaliação:
       - Visão geral: 02-modelos/modelos-avaliacao.md
       - NPS: 02-modelos/nps.md
       - CSAT: 02-modelos/csat.md
       - CES: 02-modelos/ces.md
       - Comparativo: 02-modelos/comparativo.md
+
   - Benchmark:
       - Visão geral: 03-benchmark/visao-geral.md
       - gov.br (referência principal): 03-benchmark/gov-br.md
@@ -88,11 +104,13 @@ nav:
       - Amazon: 03-benchmark/amazon.md
       - GOV.UK: 03-benchmark/gov-uk.md
       - Comparativo: 03-benchmark/comparativo.md
+
   - O que coletar do cidadão:
       - O que coletar: 04-cidadao/o-que-coletar.md
       - Perguntas: 04-cidadao/perguntas.md
       - Dados obrigatórios: 04-cidadao/dados-obrigatorios.md
       - LGPD: 04-cidadao/lgpd.md
+
   - Proposta:
       - Modelo proposto: 05-proposta/modelo-proposto.md
       - Perguntas: 05-proposta/perguntas.md
@@ -100,11 +118,13 @@ nav:
       - Fluxo: 05-proposta/fluxo.md
       - Indicadores: 05-proposta/indicadores.md
       - Matriz de decisão: 05-proposta/matriz-decisao.md
+
   - Validação:
       - Estratégia: 06-validacao/estrategia.md
       - Stakeholders: 06-validacao/stakeholders.md
       - Critérios de aceite: 06-validacao/criterios-aceite.md
+
   - Conclusão:
       - Recomendação: 07-conclusao/recomendacao.md
       - Decisões: 07-conclusao/decisoes.md
-      - Próximos passos: 07-conclusao/proximos-passos.md
+      - Próximos passos: 07-conclusos/proximos-passos.md
