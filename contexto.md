@@ -51,20 +51,21 @@ Documentação navegável via MkDocs (`http://127.0.0.1:8000` local).
 | # | Onda | Escopo | Status |
 |---|------|--------|--------|
 | 1a | Modelos de avaliação | NPS/CSAT/CES/SUS/ACSI, escalas, adequação a serviço público | ✅ Concluída |
-| 1b | Benchmark mercado | iFood, Uber, Airbnb, Google, Amazon (referência secundária) | ⏳ Em andamento |
-| 1c | Benchmark governo | GOV.UK, gov.br federal, USDS (contexto global) | ⏳ Em andamento |
+| 1b | Benchmark mercado | iFood, Uber, Airbnb, Google, Amazon (referência secundária) | ✅ Concluída |
+| 1c | Benchmark governo | GOV.UK, gov.br federal, USDS (contexto global) | ✅ Concluída |
 | 1d | Deep dive gov.br | Central de Qualidade + Ferramenta de Avaliação (âncora) | ✅ Concluída |
 | 2a | UX/Service Design | Momento ideal, tamanho de formulário, taxa de resposta | ✅ Concluída |
 | 2b | Dados/Analytics | Indicadores, dimensões, estrutura BI | ✅ Concluída |
 | 2c | LGPD/Governança | Base legal, minimização, retenção | ✅ Concluída |
 | 3 | Proposta + Validação | Modelo para MS + matriz decisão + estratégia validação | ✅ Concluída |
 | 4 | Empacotamento MkDocs | Build, revisão navegação, ajustes finais | ✅ Concluída |
+| 5 | Especificação TO BE | Pacote de documentação para a Xvia (campos, regras, RBAC, pendências) | ✅ v1 escrita, aguardando validação |
 
 ---
 
 ## Onde paramos
 
-**Estudo concluído.** Todas as ondas finalizadas. `mkdocs build --strict` passa (0 warnings). CI GitHub Pages configurado em `.github/workflows/gh-pages.yml`.
+**Estudo concluído. Especificação TO BE v1 escrita.** Todas as ondas finalizadas. `mkdocs build --strict` passa (0 warnings). CI GitHub Pages configurado em `.github/workflows/gh-pages.yml`.
 
 **Entregas prontas para validação:**
 
@@ -74,6 +75,13 @@ Documentação navegável via MkDocs (`http://127.0.0.1:8000` local).
 - Estratégia de validação em `docs/06-validacao/estrategia.md`.
 - Corte LGPD em `docs/04-cidadao/lgpd.md`.
 - Documentação navegável rodando com tema SEGOV.
+- **Especificação TO BE** em `docs/08-to-be/avaliacao-de-servico-to-be.md` — pacote para a Xvia, no formato dos pacotes já aceitos pelo fornecedor (*Carta de Serviço — TO BE v5*).
+
+### Direcionamento da gestão (ago/2026)
+
+- O MS opera **instrumento próprio** de avaliação, hospedado no Portal Único — não integração com a ferramenta federal.
+- Os dados serão **cedidos ao gov.br via API quando necessário**. Escopo de documento separado, fora do pacote TO BE atual.
+- As métricas devem **apoiar o contrato de gestão do Governo do Estado** — indicadores propostos na Seção 7.4 do TO BE, pendentes de pactuação formal.
 
 **Próximos passos (fora deste estudo):**
 
