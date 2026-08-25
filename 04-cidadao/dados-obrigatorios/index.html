@@ -1917,6 +1917,9 @@
 
 
 <h1 id="dados-coletados-o-que-e-obrigatorio-opcional-e-proibido">Dados coletados — o que é obrigatório, opcional e proibido<a class="headerlink" href="#dados-coletados-o-que-e-obrigatorio-opcional-e-proibido" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Decisão SGD 2026-08-25: avaliação passa a ser <strong>identificada</strong>. O cidadão já está logado no Portal para acessar o serviço via orquestrador X-VIA; a avaliação usa a mesma sessão e registra id do usuário + município do serviço finalístico. Base LGPD sai de "anonimato + consentimento" e vai para <strong>execução de política pública</strong> (art. 7º III + art. 11 II "b").</p>
+</blockquote>
 <p>Tabela orientadora do que a avaliação do Portal MS pode e não pode capturar, com base legal e retenção. Detalhamento em <a href="../lgpd/">LGPD</a>.</p>
 <h2 id="tabela">Tabela<a class="headerlink" href="#tabela" title="Permanent link">&para;</a></h2>
 <table>
@@ -1934,43 +1937,64 @@
 <td>Nota (1–5 estrelas)</td>
 <td><strong>Obrigatório</strong> para envio</td>
 <td>Execução de política pública (art. 7º III) + Lei 13.460/2017</td>
-<td>Bruto: 5 anos. Agregado: indefinido</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
 <td>Inteiro 1–5</td>
 </tr>
 <tr>
 <td>Motivos positivos (6 cards, até 3)</td>
 <td>Opcional</td>
-<td>Consentimento tácito ao enviar (art. 7º I)</td>
-<td>Bruto: 5 anos. Agregado: indefinido</td>
+<td>Execução de política pública (art. 7º III)</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
 <td>Array de códigos</td>
 </tr>
 <tr>
 <td>Comentário aberto</td>
 <td>Opcional</td>
-<td>Consentimento (art. 7º I)</td>
-<td>Bruto: 5 anos (com moderação)</td>
+<td>Execução de política pública (art. 7º III)</td>
+<td>Bruto: 12 meses (com triagem)</td>
 <td>Texto até 2000 chars</td>
 </tr>
 <tr>
 <td>Autodeclaração PcD</td>
 <td>Opcional</td>
-<td><strong>Consentimento explícito</strong> (art. 11 I) — dado sensível</td>
-<td>Bruto: 3 anos</td>
+<td><strong>Execução de política pública para dado sensível</strong> (art. 11 II "b")</td>
+<td>Bruto: 24 meses</td>
 <td>Booleano</td>
 </tr>
 <tr>
-<td>id_serviço</td>
+<td>id_usuario (Portal / gov.br)</td>
+<td><strong>Sempre</strong> (vem do login)</td>
+<td>Execução de política pública (art. 7º III)</td>
+<td>Bruto: 24 meses. Após: pseudonimizado em agregados históricos</td>
+<td>Identificador do IdP</td>
+</tr>
+<tr>
+<td>Município do serviço finalístico</td>
+<td><strong>Sempre</strong> (vem do orquestrador X-VIA)</td>
+<td>Execução de política pública (art. 7º III)</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
+<td>Código IBGE do município</td>
+</tr>
+<tr>
+<td>id_servico</td>
 <td>Sempre (metadado)</td>
 <td>Não é dado pessoal</td>
 <td>Indefinido</td>
 <td>UUID/inteiro</td>
 </tr>
 <tr>
-<td>id_órgão</td>
+<td>id_orgao</td>
 <td>Sempre (metadado)</td>
 <td>Não é dado pessoal</td>
 <td>Indefinido</td>
 <td>UUID/inteiro</td>
+</tr>
+<tr>
+<td>id_execucao_orquestrador (X-VIA)</td>
+<td>Sempre (metadado)</td>
+<td>Necessário para vincular avaliação à execução do serviço e evitar duplicidade</td>
+<td>24 meses</td>
+<td>UUID</td>
 </tr>
 <tr>
 <td>Canal (web/mobile)</td>
@@ -1983,18 +2007,11 @@
 <td>Timestamp</td>
 <td>Sempre (metadado)</td>
 <td>Necessário para agregação temporal</td>
-<td>Bruto: 5 anos</td>
+<td>Bruto: 24 meses</td>
 <td>ISO-8601</td>
 </tr>
 <tr>
-<td>id_sessão (hash)</td>
-<td>Sempre, para deduplicação</td>
-<td>Interesse legítimo — evitar spam</td>
-<td>90 dias</td>
-<td>SHA-256 truncado</td>
-</tr>
-<tr>
-<td>IP do cidadão</td>
+<td>IP completo</td>
 <td><strong>Não coletar</strong></td>
 <td>—</td>
 <td>—</td>
@@ -2002,60 +2019,75 @@
 </tr>
 <tr>
 <td>CPF</td>
-<td><strong>Não coletar</strong></td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>E-mail</td>
-<td><strong>Não coletar</strong></td>
+<td><strong>Não coletar</strong> (o vínculo com o cidadão é feito pelo id do IdP, não pelo CPF em claro)</td>
 <td>—</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr>
 <td>Nome</td>
+<td><strong>Não coletar</strong> no formulário (vem por referência via id do IdP, se necessário para retorno)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>E-mail</td>
+<td><strong>Não coletar</strong> no formulário (usado apenas pelo disparador de e-mail transacional, via id do IdP)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Telefone</td>
 <td><strong>Não coletar</strong></td>
 <td>—</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Município (exato/CEP)</td>
+<td>Endereço</td>
 <td><strong>Não coletar</strong></td>
 <td>—</td>
 <td>—</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Município agregado (mesorregião)</td>
-<td>Opcional futuro</td>
-<td>Anonimizado (art. 12)</td>
-<td>Agregado</td>
-<td>Enum</td>
+<td>Geolocalização precisa (GPS)</td>
+<td><strong>Não coletar</strong></td>
+<td>Município do serviço finalístico já cobre a necessidade</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tipo específico de deficiência</td>
+<td><strong>Não coletar</strong></td>
+<td>Autodeclaração fica em Sim/Não</td>
+<td>—</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
 <h2 id="principios">Princípios<a class="headerlink" href="#principios" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Anônimo por default.</strong> Cidadão nunca precisa se identificar para avaliar. Convergente com gov.br.</li>
-<li><strong>Minimização.</strong> Se um dado não vira ação, não coleta (LGPD art. 6º III).</li>
-<li><strong>Sensível só com consentimento explícito.</strong> Autodeclaração PcD é o único dado sensível — bloco visualmente separado, com aviso claro de finalidade.</li>
-<li><strong>Metadados técnicos não identificam.</strong> id_serviço, id_órgão, canal e timestamp são operacionais, não pessoais.</li>
-<li><strong>Retenção proporcional.</strong> Dado bruto 5 anos (auditoria + série histórica); dado sensível 3 anos (uso mais restrito).</li>
+<li><strong>Identificação vem do login, não de campo extra.</strong> Cidadão já está logado no Portal para acessar o serviço via X-VIA — o formulário não pede CPF, nome ou e-mail. A identificação é derivada do id do IdP.</li>
+<li><strong>Minimização.</strong> Se um dado não vira ação ou indicador, não coleta (LGPD art. 6º III). A identificação existe para permitir retorno ao cidadão, análise por perfil/localização e prevenção de duplicidade — não para expor dado pessoal em painel.</li>
+<li><strong>Sensível com base específica.</strong> Autodeclaração PcD entra por execução de política pública para dado sensível (art. 11 II "b"), em bloco visualmente separado, com aviso claro de finalidade.</li>
+<li><strong>Metadados técnicos não identificam sozinhos.</strong> id_servico, id_orgao, canal e timestamp são operacionais, não pessoais.</li>
+<li><strong>Retenção proporcional.</strong> Dado bruto 24 meses; agregado indefinido; comentário aberto 12 meses (janela mais curta pelo risco maior de reidentificação por texto livre).</li>
+<li><strong>Publicação sempre agregada.</strong> Painel público e dados abertos só exibem agregados com corte mínimo de amostra (≥10 avaliações).</li>
 </ol>
 <h2 id="o-que-fica-de-fora-e-por-que">O que fica de fora — e por quê<a class="headerlink" href="#o-que-fica-de-fora-e-por-que" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>IP:</strong> identifica indiretamente. Não usamos para nada (dedupe é feito por hash de sessão). Não coletar.</li>
-<li><strong>CPF/e-mail/nome:</strong> quebrariam o anonimato e criariam expectativa de retorno que órgão nem sempre pode cumprir. Se cidadão quer resposta formal, canal é Ouvidoria / Fala.MS.</li>
-<li><strong>Geolocalização precisa:</strong> sem uso operacional; agrega risco. Se algum dia for útil, coletar só mesorregião (agregado).</li>
-<li><strong>Perfil demográfico (idade, escolaridade, renda):</strong> não usamos; aumenta drop-off; risco LGPD.</li>
+<li><strong>IP completo:</strong> sem uso; a prevenção de duplicidade usa <code>id_usuario + id_execucao_orquestrador</code>.</li>
+<li><strong>CPF em claro no formulário:</strong> o vínculo com o cidadão vem do id do IdP; não há necessidade de circular CPF no payload de avaliação.</li>
+<li><strong>Geolocalização precisa:</strong> município do serviço finalístico é suficiente para a análise regional; GPS é excessivo.</li>
+<li><strong>Perfil demográfico (idade, escolaridade, renda):</strong> não usamos; aumenta drop-off; risco LGPD sem contrapartida.</li>
 </ul>
 <h2 id="compromisso-publico">Compromisso público<a class="headerlink" href="#compromisso-publico" title="Permanent link">&para;</a></h2>
 <p>O Portal MS assume, na tela de avaliação, aviso claro:</p>
 <blockquote>
-<p><strong>Sua avaliação é anônima.</strong> Não coletamos CPF, e-mail ou nome. Seu comentário e sua nota são usados para melhorar este serviço. Você pode não avaliar sem prejuízo ao serviço.</p>
+<p><strong>Sua avaliação é identificada.</strong> Como você está logado no Portal MS para acessar este serviço, sabemos que é você quem está avaliando e sabemos em qual município o serviço foi prestado. Usamos isso para melhorar o serviço, entender diferenças regionais e — se você quiser — voltar a falar com você sobre esta avaliação. Não pedimos CPF, telefone ou endereço novos. Base legal: execução de política pública (LGPD art. 7º III e art. 11 II "b") em cumprimento à Lei 13.460/2017. Você pode não avaliar sem prejuízo ao serviço.</p>
 </blockquote>
 <p>Ver texto completo em <a href="../lgpd/">LGPD — Aviso de privacidade no ato</a>.</p>
 

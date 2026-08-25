@@ -2105,7 +2105,7 @@
 <p><strong>Justificativa:</strong> replica gov.br. Permite segmentar satisfação por público PcD sem exigir dado sensível no fluxo principal. Bloco separado sinaliza opcionalidade.</p>
 <p><strong>Tempo estimado:</strong> ~5 segundos.</p>
 <p><strong>Impacto em drop-off:</strong> nulo (opcional e visualmente separado do bloco principal).</p>
-<p><strong>Regra LGPD:</strong> dado sobre deficiência é <strong>dado pessoal sensível</strong> (LGPD art. 5º II). Base legal: consentimento explícito (art. 11 I) — cidadão só responde se quiser, e o campo tem aviso claro de finalidade. Não vincular à identificação (fica anônimo). Ver detalhes em <code>docs/04-cidadao/dados-obrigatorios.md</code>.</p>
+<p><strong>Regra LGPD:</strong> dado sobre deficiência é <strong>dado pessoal sensível</strong> (LGPD art. 5º II). Base legal: <strong>execução de política pública para dado sensível (art. 11 II "b")</strong> — decisão SGD 2026-08-25. Cidadão só responde se quiser, e o campo tem aviso claro de finalidade. Como a avaliação passou a ser identificada, o registro é vinculável ao id do usuário; a autodeclaração PcD entra segregada e só é usada de forma agregada em painéis. Ver detalhes em <code>docs/04-cidadao/dados-obrigatorios.md</code> e <a href="../lgpd/">LGPD</a>.</p>
 <hr />
 <h2 id="botao-de-envio">Botão de envio<a class="headerlink" href="#botao-de-envio" title="Permanent link">&para;</a></h2>
 <p><strong>Rótulo:</strong> <em>"Enviar avaliação"</em> — botão único, primário, cor azul SEGOV (#004F9F).</p>
@@ -2145,7 +2145,7 @@
 </tr>
 <tr>
 <td>"Deseja ser contatado?" + e-mail</td>
-<td>Quebra anonimato, cria expectativa que órgão pode não cumprir. Se cidadão quiser retorno, existe canal formal: Ouvidoria / Fala.MS.</td>
+<td>Não é necessário — cidadão já está logado no Portal e o retorno acontece pelo canal formal (Ouvidoria / Fala.MS) quando for manifestação, não pela avaliação.</td>
 </tr>
 </tbody>
 </table>

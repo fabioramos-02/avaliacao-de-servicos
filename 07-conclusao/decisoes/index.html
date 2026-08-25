@@ -1975,6 +1975,27 @@
 <td>Estudo (Onda 3)</td>
 <td>Reduz risco + gera dado para calibração</td>
 </tr>
+<tr>
+<td>D10</td>
+<td>2026-08-25</td>
+<td><strong>Revoga D4.</strong> Avaliação passa a ser identificada (usuário logado no Portal + município do serviço finalístico). Base LGPD: execução de política pública (art. 7º III + art. 11 II "b"), não mais anonimato.</td>
+<td>SGD</td>
+<td>Permite retorno ao cidadão, análise por perfil/localização e integração com histórico do Portal</td>
+</tr>
+<tr>
+<td>D11</td>
+<td>2026-08-25</td>
+<td>Escopo restrito a serviços que nascem no orquestrador X-VIA. Serviços fora ficam de fora desta onda.</td>
+<td>SGD</td>
+<td>Sem orquestrador não há sinal confiável de conclusão do serviço</td>
+</tr>
+<tr>
+<td>D12</td>
+<td>2026-08-25</td>
+<td>Ajuste da retenção: 24 meses no estado identificado, 12 meses comentário aberto, pseudonimização em agregado histórico. Revoga D8.</td>
+<td>SGD</td>
+<td>Combina exercício de direitos do titular, análise anual e redução de risco</td>
+</tr>
 </tbody>
 </table>
 <h2 id="decisoes-pendentes-a-tomar-na-validacao">Decisões pendentes (a tomar na validação)<a class="headerlink" href="#decisoes-pendentes-a-tomar-na-validacao" title="Permanent link">&para;</a></h2>
@@ -1996,13 +2017,13 @@
 </tr>
 <tr>
 <td>P2</td>
-<td>Escolher serviço piloto</td>
+<td>Escolher serviço piloto (obrigatoriamente entre os que nascem no orquestrador X-VIA)</td>
 <td>SGD + órgão setorial</td>
 <td>4 semanas</td>
 </tr>
 <tr>
 <td>P3</td>
-<td>Aprovar texto do aviso LGPD</td>
+<td>Aprovar texto do aviso LGPD (versão identificada) + validar RIPD</td>
 <td>Jurídico + DPO</td>
 <td>2 semanas</td>
 </tr>
@@ -2014,15 +2035,39 @@
 </tr>
 <tr>
 <td>P5</td>
-<td>Definir se integração futura com API gov.br entra em fase 2</td>
+<td>Definir se integração futura com API gov.br entra em fase 2 (nota: divergência de identificação exige alinhamento)</td>
 <td>Direção SETDIG</td>
 <td>Pós-piloto</td>
 </tr>
 <tr>
 <td>P6</td>
-<td>Definir cadência de publicação em dados abertos MS</td>
+<td>Definir cadência de publicação em dados abertos MS (somente agregado)</td>
 <td>SETDIG + órgão de dados abertos estadual</td>
 <td>Pós-piloto</td>
+</tr>
+<tr>
+<td>P7</td>
+<td><strong>Reunião com Maycon:</strong> entender como o sistema do órgão sinaliza ao X-VIA que o serviço foi concluído. Bloqueia proposta prévia de retorno por e-mail.</td>
+<td>SGD + X-VIA</td>
+<td>Imediato</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>Definir caminho de retorno do cidadão ao Portal após uso do serviço: <strong>proposta prévia é envio de e-mail com link único de avaliação</strong> (alternativa considerada e menos preferida: tela de retorno ao Portal). Confirmar após P7.</td>
+<td>SGD</td>
+<td>Após P7</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>Publicar ato normativo estadual instituindo o Modelo de Qualidade dos Serviços Digitais do MS com previsão expressa de coleta identificada</td>
+<td>SETDIG + PGE-MS</td>
+<td>Antes do go-live</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>Publicar contato do DPO estadual (bloqueio para aviso de privacidade)</td>
+<td>SETDIG + PGE-MS</td>
+<td>Antes do go-live</td>
 </tr>
 </tbody>
 </table>

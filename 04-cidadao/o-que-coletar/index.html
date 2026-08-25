@@ -2063,7 +2063,7 @@
 <p><code>[FATO]</code> Estudos de mercado 2024–2025 mostram que microsurveys de <strong>2 a 3 perguntas</strong> atingem taxa mediana de conclusão de <strong>86,8%</strong>, contra <strong>77,4%</strong> em formulários de 4 a 6 perguntas (<a href="https://survicate.com/reports/survey-completion-rate-benchmarks/">Survicate — Benchmark 2025</a>).</p>
 <p><code>[FATO]</code> A <strong>Portaria SGD/ME 548/2022, art. 7º § 3º</strong> determina: <em>"a avaliação de satisfação não poderá ser uma etapa obrigatória da jornada do usuário"</em>. Ou seja: cidadão nunca é bloqueado por não avaliar. Base do modelo gov.br (<a href="https://legislacao.contabil.business/1643134772">Portaria 548/2022</a>).</p>
 <p><code>[FATO]</code> A <strong>LGPD (Lei 13.709/2018), art. 6º III</strong> exige <strong>minimização</strong>: coletar apenas o necessário para a finalidade declarada. Aplicado a avaliação de serviço público, isso reforça o modelo enxuto do gov.br.</p>
-<p><code>[INTERPRETAÇÃO]</code> A soma dessas três forças aponta para o mesmo desenho: <strong>uma pergunta obrigatória + poucos qualificadores opcionais + campo livre opcional + zero identificação pessoal</strong>.</p>
+<p><code>[INTERPRETAÇÃO]</code> A soma dessas três forças aponta para o mesmo desenho: <strong>uma pergunta obrigatória + poucos qualificadores opcionais + campo livre opcional + nenhum campo novo de identificação no formulário</strong> (a identificação é derivada do login do cidadão no Portal — decisão SGD 2026-08-25; ver <a href="../lgpd/">LGPD</a>).</p>
 <hr />
 <h2 id="2-o-que-faz-sentido-perguntar">2. O que faz sentido perguntar<a class="headerlink" href="#2-o-que-faz-sentido-perguntar" title="Permanent link">&para;</a></h2>
 <h3 id="21-nota-geral-do-servico-obrigatoria-unica-exigida">2.1. Nota geral do serviço (obrigatória, única exigida)<a class="headerlink" href="#21-nota-geral-do-servico-obrigatoria-unica-exigida" title="Permanent link">&para;</a></h3>
@@ -2089,8 +2089,8 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>CPF, nome, e-mail, telefone</strong></td>
-<td>Anonimato reduz atrito e é exigência de minimização LGPD. Modelo gov.br não pede. Não há uso de gestão que compense o custo.</td>
+<td><strong>Novos campos de CPF, nome, e-mail, telefone no formulário</strong></td>
+<td>A avaliação é identificada via login do Portal (decisão SGD 2026-08-25). Não há por que pedir de novo no formulário — é ruído, atrito e risco LGPD sem contrapartida. Dado de contato existente na conta gov.br é usado apenas pelo disparador de e-mail transacional.</td>
 </tr>
 <tr>
 <td><strong>Idade, gênero, escolaridade, renda</strong></td>
@@ -2176,7 +2176,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>[RECOMENDAÇÃO]</code> <strong>Sem identificação. Sem login obrigatório. Sem dado de perfil.</strong> Estas três decisões, juntas, são o que sustenta taxa de resposta comparável ao gov.br.</p>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Nenhum campo novo de identificação. Nenhum dado de perfil pedido no formulário.</strong> A identificação vem do login já existente no Portal (obrigatório para acessar o serviço via X-VIA). Isso preserva a taxa de resposta alta sem quebrar o princípio de minimização.</p>
 <hr />
 <h2 id="fontes">Fontes<a class="headerlink" href="#fontes" title="Permanent link">&para;</a></h2>
 <p>Referências consolidadas em <a href="../../pesquisa/fontes/"><code>pesquisa/fontes.md</code></a>, seção "UX / Service Design".</p>

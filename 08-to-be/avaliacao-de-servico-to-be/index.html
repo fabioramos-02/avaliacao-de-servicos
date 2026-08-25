@@ -1691,6 +1691,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mudancas-da-v2-em-relacao-a-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mudanças da v2 em relação à v1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-objetivo" class="md-nav__link">
     <span class="md-ellipsis">
       1. Objetivo
@@ -2148,6 +2157,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mudancas-da-v2-em-relacao-a-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mudanças da v2 em relação à v1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-objetivo" class="md-nav__link">
     <span class="md-ellipsis">
       1. Objetivo
@@ -2493,7 +2511,7 @@
 <tbody>
 <tr>
 <td><strong>Versão</strong></td>
-<td>v1 — rascunho para validação</td>
+<td>v2 — incorpora decisões SGD de 2026-08-25</td>
 </tr>
 <tr>
 <td><strong>Área demandante</strong></td>
@@ -2509,12 +2527,21 @@
 </tr>
 </tbody>
 </table>
+<h3 id="mudancas-da-v2-em-relacao-a-v1">Mudanças da v2 em relação à v1<a class="headerlink" href="#mudancas-da-v2-em-relacao-a-v1" title="Permanent link">&para;</a></h3>
+<p>Duas decisões da SGD de <strong>2026-08-25</strong> alteram premissas centrais da v1 e estão refletidas seção a seção:</p>
+<ol>
+<li><strong>Escopo restrito ao orquestrador X-VIA.</strong> O instrumento vale apenas para serviços que nascem no orquestrador da X-VIA. Serviços fora do orquestrador ficam de fora nesta onda. Justificativa: sem X-VIA, o Portal não tem sinal confiável de conclusão do serviço nem de quem o executou. Isso simplifica a Pendência P6 (ponto de disparo em serviço externo) — a resposta passa a ser: fora do X-VIA, não há disparo nesta onda.</li>
+<li><strong>Avaliação identificada.</strong> O cidadão já está logado no Portal para acessar o serviço via X-VIA — a avaliação usa a mesma sessão e registra id do usuário e município do serviço finalístico. <strong>Nenhum campo novo de identificação é pedido no formulário.</strong> A base LGPD deixa de se apoiar em anonimato e passa a se apoiar em execução de política pública (art. 7º III + art. 11 II "b" para PcD) + finalidade específica declarada.</li>
+<li><strong>Proposta prévia de retorno por e-mail.</strong> Quando o cidadão sai do Portal para o sistema do órgão, o retorno para avaliar é feito por e-mail transacional com link único, disparado pelo Portal após o sistema do órgão avisar o X-VIA que o serviço terminou. Depende de definição técnica com o time do X-VIA (nova pendência P12).</li>
+</ol>
+<p>Onde a v1 falava em "anônimo por design", a v2 fala em "identificado, minimizado e com base legal declarada". Os campos do formulário permanecem os mesmos — a mudança está no metadado, no aviso de privacidade e na governança.</p>
 <hr />
 <h2 id="1-objetivo">1. Objetivo<a class="headerlink" href="#1-objetivo" title="Permanent link">&para;</a></h2>
 <p>Especificar como o Portal Único do MS deve coletar, apresentar, triar e reportar a avaliação que o cidadão faz dos serviços digitais do Estado.</p>
 <p>A <strong>coleta</strong> compreende o formulário que o cidadão preenche ao concluir um serviço; a <strong>apresentação</strong> é como a nota resultante aparece na página pública do serviço; a <strong>triagem</strong> é o tratamento do comentário aberto antes de qualquer uso; os <strong>painéis e indicadores</strong> são a leitura gerencial que sustenta a decisão de melhoria e alimenta o contrato de gestão do Governo do Estado.</p>
 <p>O Estado opera <strong>instrumento próprio</strong>, hospedado no Portal Único. O formulário federal do gov.br é a <strong>base inicial</strong> do desenho — ponto de partida já validado em escala nacional, que dá comparabilidade desde o primeiro dia. <strong>Não é uma camisa de força:</strong> o instrumento é do Estado e pode receber novos campos conforme a necessidade da gestão, respeitadas as regras da Seção <a href="#37-extensibilidade-do-formulario">3.7</a>.</p>
-<p><strong>Fora deste pacote:</strong> definição de perfis e permissões de acesso; cessão de dados ao gov.br via API.</p>
+<p><strong>Escopo (decisão SGD 2026-08-25):</strong> somente serviços que nascem no <strong>orquestrador X-VIA</strong>. Avaliação <strong>identificada</strong> — cidadão logado no Portal + município do serviço finalístico. Detalhes na Seção 3.</p>
+<p><strong>Fora deste pacote:</strong> definição de perfis e permissões de acesso; cessão de dados ao gov.br via API; serviços legados fora do orquestrador X-VIA.</p>
 <hr />
 <h2 id="2-escopos-cobertos">2. Escopos cobertos<a class="headerlink" href="#2-escopos-cobertos" title="Permanent link">&para;</a></h2>
 <table>
@@ -2557,8 +2584,13 @@
 <hr />
 <h2 id="3-escopo-1-coleta-da-avaliacao">3. Escopo 1 — Coleta da avaliação<a class="headerlink" href="#3-escopo-1-coleta-da-avaliacao" title="Permanent link">&para;</a></h2>
 <h3 id="31-ponto-de-disparo">3.1. Ponto de disparo<a class="headerlink" href="#31-ponto-de-disparo" title="Permanent link">&para;</a></h3>
-<p>Ao concluir um serviço, o cidadão vê na tela de confirmação um convite discreto: <strong>"Avalie este serviço"</strong>.</p>
-<p><strong>Regra jurídica que condiciona todo este escopo:</strong> a avaliação <strong>nunca</strong> pode ser etapa obrigatória da jornada (art. 7º, §3º, Portaria SGD/ME nº 548/2022, mantido pela Portaria SGD/MGI nº 1.083/2025). Fechar, pular ou ignorar o convite deve estar sempre disponível, sem prejuízo algum ao serviço.</p>
+<p>O serviço nasce no orquestrador X-VIA. O cidadão está logado no Portal para iniciá-lo e, na maior parte dos casos, é redirecionado ao sistema do órgão finalístico para executar o serviço. Dois caminhos de disparo do convite convivem:</p>
+<ol>
+<li><strong>Retorno pelo Portal.</strong> Quando o cidadão retorna ao Portal ao final do serviço, a tela de confirmação exibe o convite discreto: <strong>"Avalie este serviço"</strong>.</li>
+<li><strong>Retorno por e-mail (proposta prévia — SGD 2026-08-25).</strong> Quando o cidadão termina o serviço no sistema do órgão e não retorna ao Portal, o Portal dispara um e-mail transacional com <strong>link único</strong> para a página de avaliação daquele serviço específico. O disparo depende de o sistema do órgão avisar o X-VIA que o serviço terminou. Regras operacionais do link único (validade, uso único, opt-out) definidas na <a href="#8-pendencias">Pendência P12</a>.</li>
+</ol>
+<p><strong>Regra jurídica que condiciona todo este escopo:</strong> a avaliação <strong>nunca</strong> pode ser etapa obrigatória da jornada (art. 7º, §3º, Portaria SGD/ME nº 548/2022, mantido pela Portaria SGD/MGI nº 1.083/2025). Fechar, pular ou ignorar o convite — na tela ou por e-mail — deve estar sempre disponível, sem prejuízo algum ao serviço.</p>
+<p><strong>Convite único por execução.</strong> Uma execução do serviço = um convite. Tela <strong>ou</strong> e-mail, não os dois. Se o cidadão avaliar pela tela, o e-mail não é disparado; se o e-mail já foi disparado e o cidadão avaliar pela tela, o link único do e-mail é invalidado.</p>
 <h3 id="32-cabecalho-do-formulario">3.2. Cabeçalho do formulário<a class="headerlink" href="#32-cabecalho-do-formulario" title="Permanent link">&para;</a></h3>
 <p>Texto fixo:</p>
 <blockquote>
@@ -2644,6 +2676,30 @@
 </tr>
 <tr>
 <td>3</td>
+<td>id_usuario</td>
+<td>ref. ao IdP gov.br</td>
+<td>Sim</td>
+<td>Identificador do cidadão logado, obtido do IdP (gov.br / conta do Portal). <strong>Não é CPF em claro</strong> — é o identificador opaco do provedor de identidade. Base LGPD: art. 7º, III (execução de política pública).</td>
+<td>u_9c4e2f…</td>
+</tr>
+<tr>
+<td>4</td>
+<td>municipio_servico_ibge</td>
+<td>código IBGE</td>
+<td>Sim</td>
+<td>Município do serviço finalístico, obtido do orquestrador X-VIA (não é a residência do cidadão). Alimenta análise regional.</td>
+<td>5002704</td>
+</tr>
+<tr>
+<td>5</td>
+<td>id_execucao_orquestrador</td>
+<td>UUID (X-VIA)</td>
+<td>Sim</td>
+<td>Identificador da execução do serviço no orquestrador X-VIA. Vincula a avaliação à execução do serviço e é a chave de deduplicação.</td>
+<td>e17b3a2c-…</td>
+</tr>
+<tr>
+<td>6</td>
 <td>canal</td>
 <td>enum — web / mobile</td>
 <td>Sim</td>
@@ -2651,7 +2707,15 @@
 <td>web</td>
 </tr>
 <tr>
-<td>4</td>
+<td>7</td>
+<td>origem_convite</td>
+<td>enum — tela / email</td>
+<td>Sim</td>
+<td>Como o cidadão chegou ao formulário: retorno pelo Portal ou clique no link único do e-mail transacional. Permite medir efetividade dos dois caminhos.</td>
+<td>email</td>
+</tr>
+<tr>
+<td>8</td>
 <td>data_hora</td>
 <td>datetime ISO-8601</td>
 <td>Sim</td>
@@ -2659,15 +2723,7 @@
 <td>2026-08-21T14:32:07-04:00</td>
 </tr>
 <tr>
-<td>5</td>
-<td>hash_sessao</td>
-<td>SHA-256 truncado</td>
-<td>Sim</td>
-<td>Identificador efêmero da sessão, usado <strong>apenas</strong> para deduplicação. Não permite identificar o cidadão. Descartado em 90 dias.</td>
-<td>a91f3c…</td>
-</tr>
-<tr>
-<td>6</td>
+<td>9</td>
 <td>versao_formulario</td>
 <td>inteiro</td>
 <td>Sim</td>
@@ -2705,16 +2761,18 @@
 </table>
 <h3 id="36-regras-de-negocio">3.6. Regras de negócio<a class="headerlink" href="#36-regras-de-negocio" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Convite único.</strong> Um serviço concluído gera <strong>um</strong> convite. Não há retry, lembrete, pop-up recorrente ou segunda tentativa na mesma sessão.</li>
+<li><strong>Convite único por execução.</strong> Uma execução do serviço no X-VIA gera <strong>um</strong> convite — tela <strong>ou</strong> e-mail, nunca os dois. Não há retry, lembrete, pop-up recorrente ou segunda tentativa.</li>
 <li><strong>Nunca bloquear.</strong> Nenhum passo do fluxo pode impedir, atrasar ou condicionar a conclusão do serviço.</li>
-<li><strong>Anônimo por design.</strong> Nenhuma etapa exige login, CPF, e-mail, telefone ou nome. Esses campos <strong>não existem</strong> no formulário.</li>
-<li><strong>Uma única obrigatoriedade.</strong> A nota é o único campo obrigatório. Nenhum campo adicional pode ser tornado obrigatório (ver Seção 3.7).</li>
+<li><strong>Identificação vem do login, não de campo novo.</strong> O cidadão já está logado no Portal para acessar o serviço via X-VIA — a avaliação usa a mesma sessão. O formulário <strong>não pede</strong> CPF, nome, e-mail, telefone ou endereço. O vínculo com o cidadão é gravado como <code>id_usuario</code> (identificador do IdP), não como CPF em claro.</li>
+<li><strong>Uma única obrigatoriedade no formulário.</strong> A nota é o único campo do formulário obrigatório. Nenhum campo adicional pode ser tornado obrigatório (ver Seção 3.7).</li>
 <li><strong>Envio parcial é envio válido.</strong> Nota preenchida e demais campos em branco é uma avaliação completa e deve ser gravada normalmente.</li>
-<li><strong>Deduplicação.</strong> Uma avaliação por <code>hash_sessao</code> + <code>id_servico</code>. Tentativa repetida retorna a tela de agradecimento sem gravar novo registro.</li>
-<li><strong>Registro imutável.</strong> Avaliação enviada não é editável nem excluível pelo cidadão nem pelo órgão.</li>
+<li><strong>Deduplicação por execução.</strong> Uma avaliação por <code>id_usuario</code> + <code>id_execucao_orquestrador</code>. Tentativa repetida retorna a tela de agradecimento sem gravar novo registro.</li>
+<li><strong>Escopo obrigatório X-VIA.</strong> A API de coleta rejeita avaliações sem <code>id_execucao_orquestrador</code> válido — serviços fora do orquestrador não têm ponto de disparo previsto nesta onda.</li>
+<li><strong>Registro editável e excluível pelo titular.</strong> O cidadão pode, via canal do DPO, acessar, retificar ou pedir exclusão das próprias avaliações (art. 18 LGPD). O órgão não edita — o titular sim.</li>
 <li><strong>Desempenho.</strong> A API de coleta deve responder em menos de 500 ms no p95. O cidadão nunca espera para enviar.</li>
 <li><strong>Falha silenciosa.</strong> Se a gravação falhar, o cidadão ainda vê a tela de agradecimento. O erro é logado para o time técnico — nunca exibido como obstáculo ao cidadão.</li>
 <li><strong>Tela de agradecimento.</strong> Após o envio: <em>"Obrigado. Sua opinião foi registrada."</em> Sem nova pergunta, sem convite a compartilhar, sem redirecionamento automático.</li>
+<li><strong>Link único do e-mail.</strong> Assinado, validade limitada, uso único, invalidado se a avaliação já foi feita pela tela de retorno. Só grava com sessão autenticada do titular indicado no token.</li>
 </ol>
 <h3 id="37-extensibilidade-do-formulario">3.7. Extensibilidade do formulário<a class="headerlink" href="#37-extensibilidade-do-formulario" title="Permanent link">&para;</a></h3>
 <p>O formulário <strong>não é fixo</strong>. A composição de campos é parametrizável — a gestão pode incluir, remover, reordenar ou reetiquetar campos sem alteração de código ou deploy, seguindo o mesmo princípio já adotado no cadastro da carta de serviço.</p>
@@ -2722,7 +2780,7 @@
 <p><strong>Regras que qualquer campo novo deve respeitar:</strong></p>
 <ol>
 <li><strong>Opcional sempre.</strong> A nota permanece o único campo obrigatório. Nenhum campo adicionado pode bloquear o envio.</li>
-<li><strong>Sem dado identificável.</strong> Campo novo não pode pedir nome, CPF, e-mail, telefone, endereço, localização precisa ou qualquer dado que identifique o cidadão, direta ou indiretamente. Isso é limite legal, não preferência de desenho (LGPD art. 6º, III).</li>
+<li><strong>Sem coleta de dado pessoal novo no formulário.</strong> A identificação do cidadão já vem do login no Portal (<code>id_usuario</code>); nenhum campo novo pode pedir CPF, nome, e-mail, telefone, endereço, localização precisa ou repetir dado pessoal já disponível. Isso é limite de minimização (LGPD art. 6º, III) e mantém o formulário enxuto.</li>
 <li><strong>Uso declarado antes da criação.</strong> Todo campo precisa ter, no ato da criação, um indicador ou decisão de gestão que ele alimenta. Campo sem uso definido não entra — é coleta sem finalidade.</li>
 <li><strong>Dado sensível exige avaliação prévia.</strong> Campo que trate de dado sensível (LGPD art. 5º, II) só entra após parecer do Encarregado (DPO), com bloco visualmente separado e aviso de finalidade, como já ocorre com a autodeclaração de PcD.</li>
 <li><strong>Custo cognitivo é orçamento fechado.</strong> Formulário longo derruba a taxa de resposta. Recomendação: no máximo <strong>6 campos visíveis</strong> simultaneamente. Acima disso, avaliar substituir um campo existente em vez de somar mais um.</li>
@@ -2735,7 +2793,8 @@
 <p>Link <strong>"Como tratamos seus dados"</strong> logo abaixo do botão de envio, abrindo o texto resumido. Conteúdo integral em <a href="../../04-cidadao/lgpd/">LGPD</a>.</p>
 <p>Resumo obrigatório na tela:</p>
 <blockquote>
-<p><strong>Sua avaliação é anônima.</strong> Não coletamos CPF, e-mail, telefone ou nome. Sua nota e seu comentário são usados para melhorar este serviço. Você pode não avaliar, sem prejuízo ao atendimento.</p>
+<p><strong>Sua avaliação é identificada.</strong> Como você está logado no Portal MS para acessar este serviço, sabemos que é você quem avalia e em qual município o serviço foi prestado. Não pedimos CPF, nome, telefone ou endereço nesta tela — usamos apenas o vínculo com a sua conta. Sua nota e seu comentário são usados para melhorar o serviço; se aplicável, o Portal pode voltar a falar com você sobre esta avaliação. Você pode não avaliar, sem prejuízo ao atendimento.</p>
+<p>Você pode acessar, corrigir, exportar ou pedir a exclusão das suas avaliações a qualquer momento pelo Encarregado pelo Tratamento de Dados (DPO) do Estado do MS — link abaixo.</p>
 <p>Base legal: Lei nº 13.709/2018 (LGPD), art. 7º, III e art. 11, II, "b" — execução de política pública prevista na Lei nº 13.460/2017.</p>
 </blockquote>
 <p>O aviso precisa refletir a composição vigente do formulário: incluir um campo novo implica revisar este texto.</p>
@@ -2787,7 +2846,7 @@
 </ol>
 <hr />
 <h2 id="5-escopo-3-triagem-do-comentario-aberto">5. Escopo 3 — Triagem do comentário aberto<a class="headerlink" href="#5-escopo-3-triagem-do-comentario-aberto" title="Permanent link">&para;</a></h2>
-<p>O comentário aberto é o único campo em que o cidadão pode, por iniciativa própria, escrever um dado que o identifique (nome, CPF, telefone, número de protocolo). Por isso passa por triagem antes de qualquer uso.</p>
+<p>O comentário aberto é o único campo em que o cidadão pode, por iniciativa própria, escrever dado identificável de <strong>terceiros</strong> (nome, CPF, telefone de outra pessoa, número de protocolo alheio) ou detalhes sensíveis que não deveriam entrar em painel gerencial. Por isso passa por triagem antes de qualquer uso.</p>
 <h3 id="51-estados-do-comentario">5.1. Estados do comentário<a class="headerlink" href="#51-estados-do-comentario" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2805,12 +2864,12 @@
 </tr>
 <tr>
 <td>Triado</td>
-<td>Revisado, sem dado identificável, liberado para os painéis.</td>
+<td>Revisado, sem dado identificável de terceiros, liberado para os painéis.</td>
 <td>Área de triagem</td>
 </tr>
 <tr>
 <td>Suprimido parcialmente</td>
-<td>Dado identificável substituído por <code>[dado suprimido]</code>. Liberado para os painéis.</td>
+<td>Dado identificável de terceiros substituído por <code>[dado suprimido]</code>. Liberado para os painéis.</td>
 <td>Área de triagem</td>
 </tr>
 <tr>
@@ -2830,9 +2889,9 @@
 <ol>
 <li><strong>Nota independe de triagem.</strong> A nota média é computada e publicada imediatamente. Só o texto do comentário fica retido até a triagem.</li>
 <li><strong>Cadência.</strong> Fila de triagem processada no mínimo uma vez por semana.</li>
-<li><strong>Supressão, não exclusão.</strong> Dado identificável é substituído pelo marcador <code>[dado suprimido]</code>. O restante do texto é preservado.</li>
-<li><strong>Detecção automática como apoio.</strong> O sistema pré-sinaliza padrões de CPF, telefone e e-mail, e palavras-chave críticas (fraude, ilegal, discriminação). A pré-sinalização <strong>sugere</strong>, não decide — a triagem é sempre humana.</li>
-<li><strong>Comentário nunca é publicado bruto.</strong> Pode ser citado em relatório interno com trecho e serviço, jamais com identificador.</li>
+<li><strong>Supressão, não exclusão.</strong> Dado identificável de terceiros é substituído pelo marcador <code>[dado suprimido]</code>. O texto do próprio cidadão sobre si mesmo é preservado — a avaliação é identificada e o cidadão pode falar de si.</li>
+<li><strong>Detecção automática como apoio.</strong> O sistema pré-sinaliza padrões de CPF, telefone e e-mail que não pertençam ao autor da avaliação, e palavras-chave críticas (fraude, ilegal, discriminação). A pré-sinalização <strong>sugere</strong>, não decide — a triagem é sempre humana.</li>
+<li><strong>Comentário nunca é publicado bruto.</strong> Pode ser citado em relatório interno com trecho e serviço, jamais com identificador do cidadão. Painel público exibe apenas agregado (Seção 4).</li>
 <li><strong>Rastreabilidade.</strong> Toda ação de triagem registra autor, data/hora e estado anterior.</li>
 </ol>
 <hr />
@@ -2856,7 +2915,7 @@
 <tr>
 <td>Gestão do serviço</td>
 <td>Órgão responsável, restrito aos próprios serviços</td>
-<td>Nota média, % satisfeitos e N do mês e do mês anterior; distribuição; ranking dos motivos; últimos 50 comentários triados com filtro por nota; série temporal de 12 meses; alertas ativos</td>
+<td>Nota média, % satisfeitos e N do mês e do mês anterior; distribuição; ranking dos motivos; últimos 50 comentários triados com filtro por nota; série temporal de 12 meses; distribuição por município; alertas ativos. Identificador do cidadão <strong>não</strong> aparece no painel — permanece na base para exercício de direitos do titular e envio de e-mail transacional.</td>
 </tr>
 <tr>
 <td>Triagem</td>
@@ -2921,7 +2980,7 @@
 <tr>
 <td>5</td>
 <td>Taxa de resposta</td>
-<td>avaliações ÷ conclusões de serviço × 100</td>
+<td>avaliações ÷ conclusões de serviço no X-VIA × 100</td>
 <td>Saúde do instrumento</td>
 </tr>
 <tr>
@@ -2947,6 +3006,18 @@
 <td>% de avaliações de PcD</td>
 <td>n_pcd ÷ N × 100</td>
 <td>Recorte de acessibilidade</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Nota média por município</td>
+<td>agregada por <code>municipio_servico_ibge</code>, com N mínimo de 10 por município</td>
+<td>Diferenças regionais na prestação</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Efetividade do convite</td>
+<td>avaliações por <code>origem_convite</code> (tela vs. email) ÷ convites emitidos × 100</td>
+<td>Ajuste do disparador e do link único</td>
 </tr>
 </tbody>
 </table>
@@ -3117,7 +3188,7 @@
 </tr>
 <tr>
 <td>P4</td>
-<td><strong>Divergência de retenção no estudo de origem.</strong> O estudo apresenta dois cortes distintos — 24 meses com IP truncado, e 5 anos sem coleta de IP. Este documento adotou a versão mais restritiva (24 meses, zero coleta de IP, deduplicação por hash de sessão). Precisa de confirmação formal.</td>
+<td><strong>Retenção dos dados identificados.</strong> Adotado: 24 meses no estado identificado; após, pseudonimização com destruição da tabela de mapeamento <code>id_usuario</code>↔avaliação; comentário aberto 12 meses; token do link único do e-mail ≤ 30 dias. Precisa de confirmação formal do DPO e registro no RIPD.</td>
 <td>Encarregado (DPO) + SGD</td>
 </tr>
 <tr>
@@ -3127,7 +3198,7 @@
 </tr>
 <tr>
 <td>P6</td>
-<td><strong>Ponto de disparo em serviço externo.</strong> Quando o serviço redireciona para link externo ou roda em iframe (X-Form, X-Flow, sistema de terceiro), o Portal não observa a conclusão da jornada e não sabe quando convidar. Definir a estratégia por tipo de integração.</td>
+<td><strong>Ponto de disparo em serviço externo — resolução parcial.</strong> Nesta onda, o escopo está restrito a serviços que nascem no orquestrador X-VIA (decisão SGD 2026-08-25). Serviços fora do X-VIA ficam de fora do instrumento e da meta de cobertura desta onda. Para os serviços cobertos que executam em sistema do órgão, a estratégia de disparo é o e-mail transacional após o X-VIA receber o sinal de conclusão (ver P12). Definir plano para serviços fora do X-VIA em onda futura.</td>
 <td>Xvia (arquitetura)</td>
 </tr>
 <tr>
@@ -3154,6 +3225,26 @@
 <td>P11</td>
 <td><strong>Origem do nome do serviço e do órgão</strong> exibidos no cabeçalho do formulário — confirmar que vêm do mesmo cadastro usado pela carta de serviço, evitando divergência de nomenclatura.</td>
 <td>Xvia</td>
+</tr>
+<tr>
+<td>P12</td>
+<td><strong>Sinal de conclusão do serviço vindo do sistema do órgão para o X-VIA.</strong> O e-mail transacional com link único de avaliação (Seção 3.1) depende de o sistema do órgão avisar o X-VIA que o serviço terminou. Confirmar se todos os sistemas finalísticos cobertos pelo X-VIA publicam esse evento; definir padrão do evento; reunião com Maycon.</td>
+<td>X-VIA + STI</td>
+</tr>
+<tr>
+<td>P13</td>
+<td><strong>Política do link único do e-mail transacional.</strong> Definir validade do token, política de reenvio, opt-out específico do e-mail de avaliação (separado do opt-out geral do Portal), comportamento se o cidadão avaliar pela tela antes do e-mail chegar.</td>
+<td>SGD + Xvia</td>
+</tr>
+<tr>
+<td>P14</td>
+<td><strong>RIPD (Relatório de Impacto à Proteção de Dados).</strong> Obrigatório antes do go-live pela combinação de tratamento identificado em larga escala + dado sensível (PcD) + uso para retorno individual ao cidadão via e-mail.</td>
+<td>Encarregado (DPO) + SGD</td>
+</tr>
+<tr>
+<td>P15</td>
+<td><strong>Direitos do titular (art. 18 LGPD).</strong> Definir procedimento operacional para acesso, retificação, exportação e exclusão de avaliações pelo próprio cidadão logado. Prazo alvo: 15 dias corridos.</td>
+<td>Encarregado (DPO) + SGD</td>
 </tr>
 </tbody>
 </table>
@@ -3216,7 +3307,7 @@
 </tr>
 <tr>
 <td>5 Triagem</td>
-<td><a href="../../04-cidadao/lgpd/">LGPD — anonimização</a></td>
+<td><a href="../../04-cidadao/lgpd/">LGPD — pseudonimização e triagem</a></td>
 </tr>
 <tr>
 <td>6 Indicadores</td>
