@@ -26,15 +26,16 @@ Quem precisa concordar antes de a avaliação ir a escala.
 ## Stakeholders LGPD em detalhe
 
 ### DPO estadual
-- Valida base legal do tratamento (Lei 13.709/2018 art. 7º III + consentimento no PcD).
+- Valida base legal do tratamento (Lei 13.709/2018 art. 7º III + art. 11 II "b" para PcD — decisão SGD 2026-08-25, avaliação identificada).
 - Aprova prazo de retenção.
 - Aprova texto do aviso de privacidade.
-- Aprova política de anonimização/pseudonimização.
+- Aprova política de pseudonimização em agregados históricos e regra de publicação (só agregado, corte ≥ 10).
+- Valida o Relatório de Impacto à Proteção de Dados (RIPD) — necessário pela combinação de identificação + dado sensível (PcD).
 
 ### Ouvidoria
-- Valida que comentários abertos não geram expectativa de resposta individual (avaliação é anônima, não é canal de manifestação).
+- Valida que comentários abertos não substituem canal formal de manifestação (Fala.MS continua sendo o canal para manifestações formais identificadas com garantia de resposta).
 - Alinha regra de encaminhamento quando comentário revela problema grave (fraude, discriminação).
-- Confirma que Fala.MS / canais formais continuam sendo o canal para manifestações identificadas.
+- Como a avaliação é identificada, definir com a Ouvidoria se e quando comentário aberto vira insumo para uma tratativa individual (por default, não — segue como sinal agregado para melhoria do serviço).
 
 ### ANPD
 - Não valida diretamente, mas serve como referência de boas práticas para setor público.

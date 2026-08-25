@@ -1252,6 +1252,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#escopo-decisao-sgd-2026-08-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escopo — decisão SGD 2026-08-25
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resumo-em-uma-tela" class="md-nav__link">
     <span class="md-ellipsis">
       Resumo em uma tela
@@ -1817,6 +1826,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#escopo-decisao-sgd-2026-08-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escopo — decisão SGD 2026-08-25
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resumo-em-uma-tela" class="md-nav__link">
     <span class="md-ellipsis">
       Resumo em uma tela
@@ -1916,6 +1934,12 @@
 <blockquote>
 <p>Se o Portal ligar a avaliação amanhã, é isso.</p>
 </blockquote>
+<h2 id="escopo-decisao-sgd-2026-08-25">Escopo — decisão SGD 2026-08-25<a class="headerlink" href="#escopo-decisao-sgd-2026-08-25" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Somente serviços que nascem no orquestrador da X-VIA.</strong> Serviços legados fora do orquestrador ficam de fora nesta onda.</li>
+<li><strong>Avaliação identificada.</strong> Cidadão é identificado no ato (usuário logado + localização do serviço finalístico). Não é mais anônima.</li>
+<li>Base LGPD deixa de se apoiar em anonimato e passa a se apoiar em <strong>execução de política pública</strong> (art. 7º III + art. 11 II "b" para dado sensível) + <strong>finalidade específica</strong> declarada. Ver <a href="../../04-cidadao/lgpd/">LGPD</a>.</li>
+</ul>
 <h2 id="resumo-em-uma-tela">Resumo em uma tela<a class="headerlink" href="#resumo-em-uma-tela" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Pergunta:</strong> <em>"Como foi a sua experiência com o serviço?"</em></li>
@@ -1923,15 +1947,15 @@
 <li><strong>Perguntas 2 e 3 (opcionais):</strong> motivos positivos (6 cards, até 3) + campo aberto (2000 chars).</li>
 <li><strong>Bloco 4 (opcional):</strong> autodeclaração PcD.</li>
 <li><strong>Momento:</strong> convite único ao concluir o serviço. <strong>Nunca bloqueia.</strong></li>
-<li><strong>Anônimo por default.</strong> Sem CPF, e-mail ou nome.</li>
+<li><strong>Identificação:</strong> cidadão logado no Portal MS. Registram-se id do usuário e município do serviço finalístico. Sem coletar CPF/e-mail/nome novos — a identificação vem da conta gov.br/Portal MS já usada para acessar o serviço.</li>
 <li><strong>Métrica principal:</strong> nota média (1–5) + % satisfeitos (nota 4+5).</li>
 </ul>
 <p>Detalhamento em <a href="../perguntas/">Perguntas</a>, <a href="../escala/">Escala</a>, <a href="../fluxo/">Fluxo</a>, <a href="../indicadores/">Indicadores</a>.</p>
 <h2 id="justificativa-em-tres-frases">Justificativa em três frases<a class="headerlink" href="#justificativa-em-tres-frases" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Réplica do padrão gov.br</strong> (Portaria SGD/MGI 1.083/2025 e antecessora 548/2022): comparabilidade nacional garantida, custo de decisão baixo, alinhamento com política pública federal.</li>
+<li><strong>Réplica do padrão gov.br</strong> (Portaria SGD/MGI 1.083/2025 e antecessora 548/2022) no formulário: comparabilidade nacional, custo de decisão baixo, alinhamento com política pública federal. <strong>Divergência consciente:</strong> MS adota avaliação identificada (gov.br é anônima) para permitir retorno ao cidadão via e-mail e análise por perfil/localização — justificativa em <a href="../matriz-decisao/">Matriz de decisão</a> e <a href="../../04-cidadao/lgpd/">LGPD</a>.</li>
 <li><strong>Menos é mais</strong>: 1 pergunta obrigatória + 3 opcionais. Cidadão apressado envia em ~5 segundos, engajado gasta até 80 segundos.</li>
-<li><strong>LGPD e Lei 13.460/2017 atendidas</strong>: anônimo, minimizado, retenção proporcional, obrigatoriedade legal cumprida.</li>
+<li><strong>LGPD e Lei 13.460/2017 atendidas</strong>: execução de política pública como base legal, finalidade específica declarada, minimização mantida (nada de dado novo coletado do cidadão além do que já entra pela conta), retenção proporcional.</li>
 </ol>
 <h2 id="como-funciona-amanha">Como funciona amanhã<a class="headerlink" href="#como-funciona-amanha" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TD
@@ -1941,7 +1965,7 @@
     D -- Sim --&gt; E[Formulário de avaliação&lt;br/&gt;1 obrigatória + 3 opcionais]
     D -- Não --&gt; Z[Fluxo termina — sem prejuízo]
     E --&gt; F[Cidadão envia]
-    F --&gt; G[Registro anônimo em fato_avaliacao]
+    F --&gt; G[Registro identificado em fato_avaliacao&lt;br/&gt;id_usuario + id_servico + municipio]
     G --&gt; H1[Nota agregada atualiza página do serviço]
     G --&gt; H2[Painel do gestor atualiza]
     G --&gt; H3[Ouvidoria triaga comentários]
@@ -1963,7 +1987,12 @@
 </tr>
 <tr>
 <td>API de coleta</td>
-<td>Recebe POST anônimo, valida, grava</td>
+<td>Recebe POST identificado (token do usuário logado), valida, grava</td>
+<td>Backend Portal MS</td>
+</tr>
+<tr>
+<td>Disparador de e-mail</td>
+<td>Envia link único de avaliação após o sistema do órgão avisar que o serviço terminou (proposta prévia, ver <a href="../fluxo/#retorno-por-e-mail-proposta-previa">Fluxo</a>)</td>
 <td>Backend Portal MS</td>
 </tr>
 <tr>
@@ -1999,7 +2028,7 @@
 <li>6 cards de motivos positivos.</li>
 <li>Campo aberto opcional, 2000 chars.</li>
 <li>Bloco de acessibilidade opcional.</li>
-<li>Anonimato por default.</li>
+<li>Convite único, nunca bloqueia (art. 7º §3º Portaria 548/2022).</li>
 </ul>
 <h2 id="o-que-difere-do-govbr-com-justificativa">O que difere do gov.br (com justificativa)<a class="headerlink" href="#o-que-difere-do-govbr-com-justificativa" title="Permanent link">&para;</a></h2>
 <table>
@@ -2019,6 +2048,18 @@
 <td>Adesão federal para subnacionais não formalizada. Replica-se o modelo.</td>
 </tr>
 <tr>
+<td>Identificação</td>
+<td>Anônima por default</td>
+<td><strong>Identificada</strong> — usuário logado no Portal + município do serviço finalístico</td>
+<td>Decisão SGD 2026-08-25. Permite retorno ao cidadão via e-mail, análise por perfil/localização e integração com histórico do usuário no Portal. Base LGPD: execução de política pública (não consentimento).</td>
+</tr>
+<tr>
+<td>Escopo</td>
+<td>Todo serviço federal integrado</td>
+<td>Apenas serviços que nascem no orquestrador X-VIA</td>
+<td>Sem orquestrador não há sinal confiável de conclusão do serviço.</td>
+</tr>
+<tr>
 <td>Publicação</td>
 <td>Painel Central de Qualidade</td>
 <td>Nota na página + painel MS</td>
@@ -2027,7 +2068,7 @@
 <tr>
 <td>Exportação</td>
 <td>dados.gov.br</td>
-<td>dados.ms.gov.br (fase 2)</td>
+<td>dados.ms.gov.br (fase 2) — sempre em forma agregada</td>
 <td>Depende de maturidade do portal estadual de dados abertos.</td>
 </tr>
 </tbody>

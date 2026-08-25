@@ -12,7 +12,7 @@
 
 `[FATO]` A **LGPD (Lei 13.709/2018), art. 6º III** exige **minimização**: coletar apenas o necessário para a finalidade declarada. Aplicado a avaliação de serviço público, isso reforça o modelo enxuto do gov.br.
 
-`[INTERPRETAÇÃO]` A soma dessas três forças aponta para o mesmo desenho: **uma pergunta obrigatória + poucos qualificadores opcionais + campo livre opcional + zero identificação pessoal**.
+`[INTERPRETAÇÃO]` A soma dessas três forças aponta para o mesmo desenho: **uma pergunta obrigatória + poucos qualificadores opcionais + campo livre opcional + nenhum campo novo de identificação no formulário** (a identificação é derivada do login do cidadão no Portal — decisão SGD 2026-08-25; ver [LGPD](lgpd.md)).
 
 ---
 
@@ -48,7 +48,7 @@
 
 | O que evitar | Por quê |
 |---|---|
-| **CPF, nome, e-mail, telefone** | Anonimato reduz atrito e é exigência de minimização LGPD. Modelo gov.br não pede. Não há uso de gestão que compense o custo. |
+| **Novos campos de CPF, nome, e-mail, telefone no formulário** | A avaliação é identificada via login do Portal (decisão SGD 2026-08-25). Não há por que pedir de novo no formulário — é ruído, atrito e risco LGPD sem contrapartida. Dado de contato existente na conta gov.br é usado apenas pelo disparador de e-mail transacional. |
 | **Idade, gênero, escolaridade, renda** | Dados sensíveis ou de perfil que não serão usados para decisão operacional. Pertencem a pesquisa qualitativa pontual, não a survey contínua. |
 | **NPS ("Você recomendaria?")** | Serviço público não tem lógica de recomendação — cidadão não "escolhe" a Receita Estadual. `[INTERPRETAÇÃO]` NPS mede intenção comercial, não satisfação com política pública. Ver `docs/02-modelos/`. |
 | **Múltiplas escalas simultâneas (CSAT + CES + Likert)** | Aumenta cansaço sem ganho de sinal. Escolher uma escala e sustentar. |
@@ -93,7 +93,7 @@
 | **Total mínimo (só obrigatório)** | — | **~5 segundos** |
 | **Total máximo (tudo preenchido)** | — | **~80 segundos** |
 
-`[RECOMENDAÇÃO]` **Sem identificação. Sem login obrigatório. Sem dado de perfil.** Estas três decisões, juntas, são o que sustenta taxa de resposta comparável ao gov.br.
+`[RECOMENDAÇÃO]` **Nenhum campo novo de identificação. Nenhum dado de perfil pedido no formulário.** A identificação vem do login já existente no Portal (obrigatório para acessar o serviço via X-VIA). Isso preserva a taxa de resposta alta sem quebrar o princípio de minimização.
 
 ---
 

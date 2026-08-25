@@ -15,6 +15,7 @@ Por consequência, o padrão do estudo é: **adotar o modelo gov.br como base e 
 ## Recorte
 
 - Serviços **digitais** publicados no Portal MS (não engloba atendimento presencial).
+- **Somente serviços que nascem no orquestrador da X-VIA.** Serviços legados fora do orquestrador ficam de fora desta primeira onda — decisão SGD de 2026-08-25. Justificativa: o orquestrador é o único ponto em que o Portal tem sinal confiável de que o serviço foi acessado e de quem o acessou; sem esse sinal, não há como fechar o ciclo cidadão → avaliação.
 - Avaliação **transacional** — após o cidadão usar um serviço específico.
 - Avaliação **relacional** do Portal como marca fica separada (candidata a NPS periódico).
 

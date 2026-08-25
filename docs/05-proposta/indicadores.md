@@ -88,7 +88,7 @@ Dataset mensal em `dados.ms.gov.br` (quando maduro):
 - % Satisfeitos
 - Top 3 motivos positivos
 
-Nunca publicar dado bruto individual — apenas agregado ≥ 10 avaliações por corte, para preservar anonimato.
+Nunca publicar dado bruto individual — apenas agregado ≥ 10 avaliações por corte. A avaliação é identificada internamente (decisão SGD 2026-08-25), mas painel público e dados abertos só saem em forma agregada, para evitar reidentificação em serviços de baixo volume.
 
 ## Referência
 

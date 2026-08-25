@@ -2095,6 +2095,12 @@
 <h1 id="lgpd-e-governanca-do-dado-da-avaliacao">LGPD e governança do dado da avaliação<a class="headerlink" href="#lgpd-e-governanca-do-dado-da-avaliacao" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Este documento fixa o corte de LGPD e governança do dado do instrumento de avaliação do Portal de Serviços do MS. Ele complementa — não substitui — a Política de Privacidade geral do Governo do Estado. Referência âncora: gov.br (Central de Qualidade + Ferramenta de Avaliação).</p>
+<p><strong>Atualização 2026-08-25 (decisão SGD).</strong> Duas mudanças de escopo alteram o desenho anterior deste documento:</p>
+<ol>
+<li><strong>Escopo:</strong> o instrumento vale apenas para serviços que nascem no <strong>orquestrador X-VIA</strong>. Serviços legados fora do orquestrador ficam de fora desta onda.</li>
+<li><strong>Identificação:</strong> a avaliação <strong>deixa de ser anônima</strong>. O cidadão já está logado no Portal MS (via conta gov.br) para acessar o serviço via X-VIA — a avaliação usa a mesma sessão e registra id do usuário e município do serviço finalístico. Nenhum campo novo de identificação é pedido no formulário.</li>
+</ol>
+<p>Consequência jurídica: a base LGPD deixa de se apoiar em anonimato e passa a se apoiar em <strong>execução de política pública</strong> (art. 7º III + art. 11 II "b" para dado sensível) + <strong>finalidade específica declarada</strong>. Isso é o que este documento sustenta, seção a seção. Onde havia argumento centrado em anonimato, foi substituído por argumento centrado em base legal, finalidade e minimização.</p>
 </blockquote>
 <hr />
 <h2 id="1-enquadramento-legal">1. Enquadramento legal<a class="headerlink" href="#1-enquadramento-legal" title="Permanent link">&para;</a></h2>
@@ -2132,30 +2138,40 @@
 <td>Deficiência é <strong>dado pessoal sensível</strong> (art. 5º II); requer base específica</td>
 </tr>
 <tr>
-<td>Dados de sessão técnica (IP, timestamp)</td>
+<td>id_usuario (do IdP gov.br/Portal) + município do serviço finalístico</td>
+<td>Art. 7º, III — execução de política pública</td>
+<td>Identificação vem do login já existente; município vem do orquestrador X-VIA. Usados para (a) prevenir duplicidade, (b) permitir retorno ao cidadão via e-mail, (c) análise por perfil/localização.</td>
+</tr>
+<tr>
+<td>Metadados técnicos (timestamp, id_execucao_orquestrador)</td>
 <td>Art. 7º, III + art. 16, II</td>
-<td>Necessários para operação e prevenção de fraude/duplicidade</td>
+<td>Necessários para operação, agregação temporal e prevenção de duplicidade</td>
 </tr>
 </tbody>
 </table>
-<p><code>[RECOMENDAÇÃO]</code> <strong>Evitar consentimento (art. 7º I)</strong> como base primária. Consentimento cria expectativa de que o cidadão pode revogar e exigir eliminação individual — inviável em base anonimizada. Além disso, "consentimento" cobrado como pré-condição de avaliar um serviço público é frágil juridicamente (não é livre nem informado no sentido pleno da lei).</p>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Evitar consentimento (art. 7º I)</strong> como base primária. Em serviço público, "consentimento" cobrado como pré-condição de avaliar é frágil juridicamente (não é livre nem informado no sentido pleno da lei) e mistura duas relações — a de acesso ao serviço e a de melhoria do serviço. A execução de política pública cobre exatamente esse caso.</p>
 <p><code>[RECOMENDAÇÃO]</code> <strong>Não usar legítimo interesse (art. 7º IX)</strong>. A ANPD desestimula seu uso pelo Poder Público quando há hipótese específica disponível (execução de política pública cobre o caso).</p>
+<p><code>[INTERPRETAÇÃO]</code> Por que <strong>não anonimato</strong> (mudança 2026-08-25). O modelo anterior sustentava o instrumento em anonimato por design. A SGD decidiu identificar a avaliação porque (a) o orquestrador X-VIA já garante que o cidadão está logado, então "não identificar" seria descartar informação já disponível; (b) sem identificação não é possível fechar o ciclo com o cidadão (por exemplo, disparo de e-mail com link único de avaliação após conclusão do serviço no sistema do órgão); (c) sem localização não é possível ver diferenças regionais que orientem decisão de política pública. A troca é legítima desde que a base legal correta seja declarada (execução de política pública) e a minimização e a finalidade específica sejam mantidas — o que este documento faz.</p>
 <hr />
 <h2 id="3-principio-da-minimizacao-aplicado-ao-instrumento">3. Princípio da minimização aplicado ao instrumento<a class="headerlink" href="#3-principio-da-minimizacao-aplicado-ao-instrumento" title="Permanent link">&para;</a></h2>
 <p><code>[FATO]</code> LGPD art. 6º III: "limitação ao mínimo necessário para a realização de suas finalidades".</p>
-<p><code>[RECOMENDAÇÃO]</code> Traduzir a minimização em três regras práticas para o formulário:</p>
+<p><code>[RECOMENDAÇÃO]</code> Traduzir a minimização em quatro regras práticas para o formulário:</p>
 <ol>
-<li><strong>Toda pergunta precisa justificar seu próprio uso.</strong> Se um dado não vai virar decisão ou indicador publicado, ele não entra no formulário.</li>
-<li><strong>Opcionalidade por default.</strong> Único campo obrigatório: a nota. Motivos, comentário e acessibilidade são opcionais.</li>
-<li><strong>Anonimato por default.</strong> Sem CPF, sem login, sem e-mail, sem nome. O cidadão que quiser retorno individual usa a Ouvidoria (canal próprio) — não a avaliação.</li>
+<li><strong>Toda pergunta precisa justificar seu próprio uso.</strong> Se um dado não vai virar decisão, indicador ou retorno ao cidadão, ele não entra.</li>
+<li><strong>Opcionalidade por default nas perguntas de conteúdo.</strong> Único campo obrigatório: a nota. Motivos, comentário e acessibilidade são opcionais.</li>
+<li><strong>Nenhum campo novo de identificação no formulário.</strong> A identificação vem do login já existente no Portal MS (via IdP gov.br) — não se pede CPF, nome, telefone, e-mail nem endereço no ato da avaliação. Isso preserva minimização mesmo com avaliação identificada.</li>
+<li><strong>Município do serviço vem do X-VIA, não do cidadão.</strong> O município registrado é o do serviço finalístico (dado da operação), não a residência do cidadão (dado pessoal adicional).</li>
 </ol>
 <hr />
 <h2 id="4-finalidade">4. Finalidade<a class="headerlink" href="#4-finalidade" title="Permanent link">&para;</a></h2>
 <p><code>[RECOMENDAÇÃO]</code> Redigir a finalidade em uma frase única, replicável em todos os pontos de contato:</p>
 <blockquote>
-<p>"Coletar avaliações do cidadão sobre serviços digitais do Estado, para diagnosticar qualidade, priorizar melhorias e cumprir o art. 23 da Lei 13.460/2017."</p>
+<p>"Coletar avaliações identificadas do cidadão logado no Portal MS sobre serviços digitais que nascem no orquestrador X-VIA, para diagnosticar qualidade, priorizar melhorias, viabilizar retorno ao próprio cidadão quando aplicável e cumprir o art. 23 da Lei 13.460/2017."</p>
 </blockquote>
-<p><code>[INTERPRETAÇÃO]</code> Finalidade específica (art. 6º I) blinda o dado contra desvio de uso posterior. Se, no futuro, alguém quiser usar o comentário aberto para outra coisa (por exemplo, treinar modelo de IA de atendimento), essa nova finalidade precisará ser reavaliada — não está automaticamente autorizada.</p>
+<p><code>[INTERPRETAÇÃO]</code> Finalidade específica (art. 6º I) blinda o dado contra desvio de uso posterior. Três consequências práticas:
+1. Usar o comentário aberto para outra coisa (por exemplo, treinar modelo de IA de atendimento) exige nova finalidade e reavaliação — não está automaticamente autorizado.
+2. Usar o id do usuário para marketing, ranking individual público ou perfil comercial está fora da finalidade — vedado.
+3. Cruzar avaliação com outros dados do cidadão em outros serviços do Estado depende de finalidade explícita e proporcional — não é livre por padrão.</p>
 <hr />
 <h2 id="5-dados-que-serao-tratados">5. Dados que serão tratados<a class="headerlink" href="#5-dados-que-serao-tratados" title="Permanent link">&para;</a></h2>
 <table>
@@ -2174,20 +2190,20 @@
 <td>Sim, obrigatório</td>
 <td>Art. 7º III</td>
 <td>Bruto: 24 meses. Agregado: indefinido</td>
-<td>Numérica anônima</td>
+<td>Numérica</td>
 </tr>
 <tr>
 <td>Motivos positivos (até 3 cards)</td>
 <td>Sim, opcional</td>
 <td>Art. 7º III</td>
 <td>Bruto: 24 meses. Agregado: indefinido</td>
-<td>Categórica anônima</td>
+<td>Categórica</td>
 </tr>
 <tr>
 <td>Comentário aberto (até 2000 caracteres)</td>
 <td>Sim, opcional</td>
 <td>Art. 7º III</td>
-<td>Bruto: 12 meses. Anonimizado (pós-triagem): indefinido</td>
+<td>Bruto: 12 meses. Pseudonimizado pós-triagem: até 24 meses</td>
 <td>Texto — passa por triagem</td>
 </tr>
 <tr>
@@ -2195,14 +2211,35 @@
 <td>Sim, opcional</td>
 <td>Art. 11 II "b"</td>
 <td>Bruto: 24 meses. Agregado: indefinido</td>
-<td>Booleano anônimo</td>
+<td>Booleano</td>
 </tr>
 <tr>
-<td>ID de serviço avaliado</td>
+<td>id_usuario (referência ao IdP gov.br / conta Portal MS)</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III</td>
+<td>Bruto: 24 meses. Após: pseudonimizado em agregados históricos</td>
+<td>Identificador do IdP (não é CPF em claro)</td>
+</tr>
+<tr>
+<td>Município do serviço finalístico</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III</td>
+<td>Bruto: 24 meses. Agregado: indefinido</td>
+<td>Código IBGE do município</td>
+</tr>
+<tr>
+<td>id_servico + id_orgao</td>
 <td>Sim, obrigatório</td>
 <td>Art. 7º III</td>
 <td>Enquanto o serviço existir</td>
 <td>Chave técnica</td>
+</tr>
+<tr>
+<td>id_execucao_orquestrador (X-VIA)</td>
+<td>Sim, obrigatório</td>
+<td>Art. 7º III + art. 16 II</td>
+<td>24 meses</td>
+<td>UUID — vincula avaliação à execução do serviço, previne duplicidade</td>
 </tr>
 <tr>
 <td>Timestamp da avaliação</td>
@@ -2210,13 +2247,6 @@
 <td>Art. 7º III</td>
 <td>Igual à nota</td>
 <td>Metadado técnico</td>
-</tr>
-<tr>
-<td>IP truncado (últimos octetos removidos)</td>
-<td>Sim, obrigatório</td>
-<td>Art. 7º III + art. 16 II</td>
-<td>90 dias</td>
-<td>Antifraude/deduplicação</td>
 </tr>
 <tr>
 <td>User-agent (navegador/SO)</td>
@@ -2227,7 +2257,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>[FATO]</code> <code>[HIPÓTESE]</code> sobre o IP: gov.br não publica seu esquema exato de retenção de IP na avaliação. <strong>Não identificado</strong>. A prática recomendada aqui é conservadora — truncar e reter só o suficiente para antifraude.</p>
+<p><code>[INTERPRETAÇÃO]</code> A identificação não passa por CPF em claro. O vínculo com o cidadão é o id do IdP (identificador opaco, próprio da conta gov.br/Portal). CPF, nome, e-mail e telefone só saem da conta quando um serviço específico os solicita — o instrumento de avaliação não solicita.</p>
 <hr />
 <h2 id="6-dados-que-nao-serao-coletados">6. Dados que NÃO serão coletados<a class="headerlink" href="#6-dados-que-nao-serao-coletados" title="Permanent link">&para;</a></h2>
 <p><code>[RECOMENDAÇÃO]</code> Lista negativa explícita, publicada no aviso de privacidade:</p>
@@ -2240,32 +2270,32 @@
 </thead>
 <tbody>
 <tr>
-<td>CPF</td>
-<td>gov.br não exige; identifica o cidadão sem necessidade; risco desproporcional</td>
+<td>CPF em claro no payload da avaliação</td>
+<td>O vínculo com o cidadão é feito pelo id do IdP; circular CPF em claro seria desnecessário</td>
 </tr>
 <tr>
 <td>Nome</td>
-<td>Identificação direta sem finalidade proporcional</td>
+<td>Não é pedido no formulário; se necessário para retorno, é obtido por referência via id do IdP</td>
 </tr>
 <tr>
 <td>E-mail</td>
-<td>Cria expectativa de retorno individual (é papel da Ouvidoria, não da avaliação)</td>
+<td>Não é pedido no formulário; o disparador de e-mail transacional usa o e-mail cadastrado na conta gov.br via id do IdP, sem duplicar o dado</td>
 </tr>
 <tr>
 <td>Telefone</td>
-<td>Idem e-mail</td>
+<td>Sem uso na avaliação</td>
 </tr>
 <tr>
 <td>Endereço</td>
-<td>Sem uso na análise agregada</td>
+<td>Município do serviço finalístico já cobre a necessidade regional</td>
 </tr>
 <tr>
 <td>Geolocalização precisa (GPS)</td>
-<td>Município do serviço é suficiente; GPS é excessivo</td>
+<td>Município é suficiente; GPS é excessivo</td>
 </tr>
 <tr>
 <td>IP completo</td>
-<td>Truncado é suficiente para deduplicação</td>
+<td>Prevenção de duplicidade usa <code>id_usuario + id_execucao_orquestrador</code>, não IP</td>
 </tr>
 <tr>
 <td>Tipo específico de deficiência</td>
@@ -2281,54 +2311,84 @@
 </tr>
 </tbody>
 </table>
-<p><code>[INTERPRETAÇÃO]</code> A lista negativa é tão importante quanto a positiva: comunica ao cidadão o que ele <strong>não vai</strong> entregar ao clicar em "Enviar avaliação" — e vincula juridicamente o órgão.</p>
+<p><code>[INTERPRETAÇÃO]</code> A lista negativa é tão importante quanto a positiva: comunica ao cidadão o que ele <strong>não vai</strong> entregar ao clicar em "Enviar avaliação" — e vincula juridicamente o órgão. A regra permanece mesmo com a mudança para avaliação identificada: identificar não é a mesma coisa que coletar dado novo.</p>
 <hr />
 <h2 id="7-direitos-do-titular">7. Direitos do titular<a class="headerlink" href="#7-direitos-do-titular" title="Permanent link">&para;</a></h2>
 <p><code>[FATO]</code> LGPD art. 18 garante ao titular: confirmação de tratamento, acesso, correção, anonimização/bloqueio/eliminação, portabilidade, informação sobre compartilhamentos, revogação de consentimento e revisão de decisões automatizadas.</p>
-<p><code>[INTERPRETAÇÃO]</code> Em avaliação <strong>anônima por design</strong>, a operacionalização é limitada — e isso precisa ser dito com honestidade:</p>
-<p><code>[RECOMENDAÇÃO]</code> Texto padrão no aviso de privacidade:</p>
+<p><code>[INTERPRETAÇÃO]</code> Como a avaliação passou a ser identificada (decisão SGD 2026-08-25), os direitos do titular são <strong>plenamente operáveis</strong> — o cidadão logado pode ser localizado pelo id do IdP e ter sua avaliação acessada, retificada ou eliminada individualmente. A operacionalização deixa de ter a limitação do modelo anônimo anterior.</p>
+<p><code>[RECOMENDAÇÃO]</code> Procedimento mínimo para atender direitos do titular:</p>
+<ol>
+<li><strong>Canal:</strong> DPO estadual (contato <strong>não identificado</strong> publicamente hoje — pendência a resolver antes do go-live).</li>
+<li><strong>Prazo:</strong> 15 dias corridos após solicitação, conforme prática ANPD.</li>
+<li><strong>Escopo do acesso:</strong> cidadão consegue ver suas próprias avaliações (por serviço, data, nota, motivos, comentário, PcD, município).</li>
+<li><strong>Retificação:</strong> permitida para nota, motivos, comentário e PcD. Não para dados de operação (id_servico, timestamp, id_execucao_orquestrador).</li>
+<li><strong>Eliminação:</strong> apaga o registro individual do dado bruto. Estatísticas agregadas já publicadas não são recomputadas retroativamente (o dado agregado, após pseudonimização, não é dado pessoal — art. 12).</li>
+<li><strong>Portabilidade:</strong> exportação em CSV/JSON das próprias avaliações.</li>
+<li><strong>Revisão de decisão automatizada:</strong> não se aplica — o instrumento não toma decisão automatizada sobre o cidadão.</li>
+</ol>
+<p><code>[RECOMENDAÇÃO]</code> Texto padrão no aviso de privacidade sobre direitos:</p>
 <blockquote>
-<p>"Esta avaliação é anônima. Não coletamos seu nome, CPF ou dados que permitam identificá-lo. Por isso, após o envio, não conseguimos localizar sua avaliação específica para atender pedidos de acesso, correção ou exclusão individual. Se você deseja registrar uma manifestação identificada (elogio, reclamação, sugestão, denúncia ou solicitação de acesso à informação), use a Ouvidoria do Estado: [link]. Encarregado (DPO) do Estado do MS para questões de proteção de dados: [contato]."</p>
+<p>"Você pode consultar, corrigir, exportar ou pedir a exclusão das avaliações que enviou. Como você está logado no Portal MS, conseguimos identificar suas avaliações e atender essas solicitações em até 15 dias. Fale com o Encarregado pelo Tratamento de Dados (DPO) do Estado do MS: [contato]. Se você quiser fazer uma manifestação formal (elogio, reclamação, sugestão, denúncia, solicitação de acesso à informação), o canal é a Ouvidoria do Estado: [link] — a avaliação de serviço não substitui a Ouvidoria."</p>
 </blockquote>
-<p><code>[RECOMENDAÇÃO]</code> Para o campo aberto (único caminho em que o cidadão pode se autoidentificar voluntariamente ao escrever): manter procedimento de <strong>triagem para anonimização</strong> — ver seção 9.</p>
+<p><code>[RECOMENDAÇÃO]</code> Para o campo aberto: manter procedimento de <strong>triagem</strong> para pseudonimizar dados que o próprio cidadão eventualmente escreva sobre terceiros (nome, CPF, telefone de outra pessoa) — ver seção 9.</p>
 <hr />
 <h2 id="8-aviso-de-privacidade-no-ato-rascunho-de-texto">8. Aviso de privacidade no ato — rascunho de texto<a class="headerlink" href="#8-aviso-de-privacidade-no-ato-rascunho-de-texto" title="Permanent link">&para;</a></h2>
 <p><code>[RECOMENDAÇÃO]</code> Texto curto, visível <strong>antes</strong> do envio (link "Como tratamos seus dados" logo abaixo do botão "Enviar avaliação"):</p>
 <div class="highlight"><pre><span></span><code>Como tratamos seus dados nesta avaliação
 
-Esta avaliação é anônima. Coletamos: a nota que você deu, os motivos
-positivos que você marcou (se marcou), o comentário que você escreveu
-(se escreveu) e a autodeclaração de deficiência (se respondeu).
-Guardamos também o identificador do serviço avaliado, a data e um
-dado técnico truncado para evitar duplicidade.
+Esta avaliação é identificada. Como você está logado no Portal MS
+para acessar este serviço, sabemos que é você quem está avaliando e
+sabemos em qual município o serviço foi prestado. Não pedimos seu
+CPF, nome, telefone ou endereço nesta tela — usamos apenas o vínculo
+com a sua conta.
 
-Não coletamos seu nome, CPF, e-mail, telefone, endereço nem sua
-localização exata.
+Coletamos: a nota que você deu, os motivos positivos que você marcou
+(se marcou), o comentário que você escreveu (se escreveu), a
+autodeclaração de deficiência (se respondeu) e o município do serviço.
+Guardamos também o identificador da sua conta, o identificador do
+serviço avaliado, o identificador da execução do serviço no
+orquestrador X-VIA e a data.
 
-Usamos essas informações para melhorar o serviço avaliado — publicamos
-a nota média na página do serviço e o resumo consolidado em painéis
-de gestão. Dados brutos ficam guardados por até 24 meses; comentários
-abertos por até 12 meses; dados técnicos por 90 dias.
+Usamos essas informações para: (1) melhorar o serviço avaliado,
+publicando nota média agregada na página do serviço e resumos em
+painéis de gestão; (2) permitir análise por perfil e localização;
+(3) prevenir avaliações duplicadas da mesma execução do serviço;
+(4) se aplicável, voltar a falar com você sobre esta avaliação (por
+exemplo, envio do link de avaliação por e-mail após conclusão do
+serviço no sistema do órgão).
+
+Dados brutos ficam guardados por até 24 meses; comentários abertos
+por até 12 meses; user-agent técnico por 90 dias. Depois desses
+prazos, os dados são pseudonimizados em séries agregadas ou apagados.
+
+Não compartilhamos seus dados com empresas privadas. Publicamos em
+painéis públicos e em dados abertos apenas resultados agregados
+(nunca sua avaliação individual).
+
+Você pode acessar, corrigir, exportar ou pedir a exclusão das suas
+avaliações a qualquer momento — fale com o Encarregado pelo
+Tratamento de Dados (DPO) do Estado do MS: [contato].
 
 Base legal: Lei 13.709/2018 (LGPD), art. 7º III e art. 11 II "b" —
 execução de política pública prevista na Lei 13.460/2017 (Código de
 Defesa do Usuário de Serviços Públicos).
 
-Encarregado pelo Tratamento de Dados (DPO) do Estado do MS: [contato]
-Ouvidoria do Estado (para manifestações identificadas): [link]
+Ouvidoria do Estado (para manifestações formais): [link]
 Política de Privacidade completa: [link]
 </code></pre></div>
-<p><code>[INTERPRETAÇÃO]</code> O texto propositalmente evita jargão jurídico salvo nas citações legais. Boa prática ANPD: aviso "em camadas" — resumo curto no ato, política completa em link.</p>
+<p><code>[INTERPRETAÇÃO]</code> O texto propositalmente evita jargão jurídico salvo nas citações legais. Boa prática ANPD: aviso "em camadas" — resumo curto no ato, política completa em link. Como a avaliação é identificada, o texto <strong>descreve o que é feito com a identificação</strong> (retorno, análise, prevenção de duplicidade) para que a base legal seja transparente ao cidadão.</p>
 <hr />
 <h2 id="9-anonimizacao-e-pseudonimizacao">9. Anonimização e pseudonimização<a class="headerlink" href="#9-anonimizacao-e-pseudonimizacao" title="Permanent link">&para;</a></h2>
-<p><code>[FATO]</code> LGPD art. 5º III define <strong>anonimização</strong>: "utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo". Art. 12 diz que dado anonimizado <strong>não é considerado dado pessoal</strong> — salvo se a anonimização puder ser revertida com esforço razoável.</p>
+<p><code>[FATO]</code> LGPD art. 5º III define <strong>anonimização</strong>: "utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo". Art. 12 diz que dado anonimizado <strong>não é considerado dado pessoal</strong> — salvo se a anonimização puder ser revertida com esforço razoável. LGPD art. 13 §4º define <strong>pseudonimização</strong>: dado que só pode ser atribuído a um titular específico mediante informação adicional mantida separadamente.</p>
+<p><code>[INTERPRETAÇÃO]</code> A avaliação passou a ser identificada na coleta. A camada de anonimização/pseudonimização se desloca da coleta para o <strong>ciclo de vida do dado</strong>: entra identificado, é usado identificado enquanto necessário, e sai pseudonimizado ou agregado quando a finalidade que exige identificação se exaure.</p>
 <p><code>[RECOMENDAÇÃO]</code> Três camadas de tratamento do dado:</p>
 <ol>
-<li><strong>Coleta:</strong> já entra anônima (sem identificador direto). IP truncado no momento da coleta, nunca armazenado inteiro.</li>
-<li><strong>Triagem do comentário aberto:</strong> rotina periódica (<code>[RECOMENDAÇÃO]</code> semanal) que revisa comentários buscando dado identificável escrito pelo próprio cidadão (nome, CPF, telefone, e-mail, número de protocolo) e substitui por marcador <code>[dado suprimido]</code>. Comentário só entra em dashboard consolidado após triagem.</li>
-<li><strong>Publicação:</strong> só sai do órgão em forma agregada (nota média, contagem de motivos, série temporal). Comentário individual <strong>nunca</strong> é publicado bruto — pode ser citado em relatório interno com trecho e serviço, mas sem identificador.</li>
+<li><strong>Coleta e uso corrente (0–24 meses):</strong> o dado é identificado pelo id do IdP. Uso restrito a: retorno ao cidadão, análise por perfil/localização, prevenção de duplicidade, atendimento aos direitos do titular.</li>
+<li><strong>Triagem do comentário aberto:</strong> rotina periódica (<code>[RECOMENDAÇÃO]</code> semanal) que revisa comentários buscando dado identificável <strong>de terceiros</strong> escrito pelo próprio cidadão (nome, CPF, telefone, e-mail, número de protocolo de outra pessoa) e substitui por marcador <code>[dado suprimido]</code>. O texto do próprio cidadão sobre si mesmo permanece, já que a avaliação é identificada.</li>
+<li><strong>Pseudonimização em agregados históricos (&gt; 24 meses):</strong> id do usuário é substituído por hash irreversível antes de ir para a base analítica histórica. A tabela de mapeamento (id_usuario → hash) é destruída — a partir dali o dado deixa de ser dado pessoal (art. 12).</li>
+<li><strong>Publicação:</strong> só sai em forma agregada (nota média, contagem de motivos, série temporal por serviço/órgão/município). Avaliação individual, com ou sem identificação, <strong>nunca</strong> é publicada — pode ser citada em relatório interno com trecho e serviço, mas sem identificador do cidadão.</li>
 </ol>
-<p><code>[INTERPRETAÇÃO]</code> Nota + motivo + serviço + timestamp, isoladamente, não permitem reidentificar em serviços de alto volume. Em serviços de baixíssimo volume (por exemplo, um serviço com 3 avaliações no ano), a combinação pode ser reidentificável indiretamente — daí a regra de só publicar agregado quando houver massa mínima (<code>[HIPÓTESE]</code> corte sugerido: mínimo de 10 avaliações no período para publicar média específica; abaixo disso, exibir só "amostra ainda insuficiente").</p>
+<p><code>[INTERPRETAÇÃO]</code> Corte mínimo de amostra para publicação: em serviços de baixíssimo volume (por exemplo, um serviço com 3 avaliações no ano), agregar por município ou por perfil pode reidentificar indiretamente. Daí a regra <code>[HIPÓTESE]</code> mínimo de <strong>10 avaliações no período por corte</strong> para publicar média específica; abaixo disso, exibir só "amostra ainda insuficiente".</p>
 <hr />
 <h2 id="10-retencao">10. Retenção<a class="headerlink" href="#10-retencao" title="Permanent link">&para;</a></h2>
 <p><code>[FATO]</code> A LGPD não fixa prazo numérico; art. 15 diz que o tratamento termina quando a finalidade se exaure ou quando o titular solicita eliminação (o que, aqui, é limitado pelo anonimato).</p>
@@ -2343,19 +2403,34 @@ Política de Privacidade completa: [link]
 </thead>
 <tbody>
 <tr>
-<td>Nota + motivos + PcD + metadados de serviço</td>
-<td>24 meses no estado bruto; após, retenção indefinida em forma agregada</td>
-<td>2 ciclos anuais permitem análise de sazonalidade; agregado histórico não é dado pessoal</td>
+<td>Nota + motivos + PcD + município + metadados de serviço</td>
+<td>24 meses no estado identificado; após, pseudonimização + retenção indefinida em forma agregada</td>
+<td>2 ciclos anuais permitem análise de sazonalidade; agregado histórico pseudonimizado não é dado pessoal</td>
+</tr>
+<tr>
+<td>Vínculo id_usuario ↔ avaliação</td>
+<td>24 meses</td>
+<td>Prazo suficiente para retorno ao cidadão, atendimento a direitos do titular e análise por perfil; após, pseudonimização com destruição da tabela de mapeamento</td>
 </tr>
 <tr>
 <td>Comentário aberto</td>
-<td>12 meses no estado bruto (pós-triagem); após, descarte ou consolidação em relatório qualitativo agregado</td>
+<td>12 meses no estado bruto (pós-triagem); após, descarte ou consolidação em relatório qualitativo agregado pseudonimizado</td>
 <td>Texto tem maior potencial de reidentificação; ciclo mais curto</td>
 </tr>
 <tr>
-<td>IP truncado + user-agent</td>
+<td>id_execucao_orquestrador (X-VIA)</td>
+<td>24 meses</td>
+<td>Necessário para prevenção de duplicidade dentro da janela ativa</td>
+</tr>
+<tr>
+<td>User-agent</td>
 <td>90 dias</td>
-<td>Suficiente para antifraude/deduplicação; padrão conservador</td>
+<td>Diagnóstico técnico de acessibilidade; padrão conservador</td>
+</tr>
+<tr>
+<td>Token do link único de e-mail (proposta prévia)</td>
+<td>Duração do token (por padrão ≤ 30 dias)</td>
+<td>Após uso ou expiração, apagado</td>
 </tr>
 <tr>
 <td>Logs de auditoria (quem acessou painel gestor, quando)</td>
@@ -2364,7 +2439,7 @@ Política de Privacidade completa: [link]
 </tr>
 </tbody>
 </table>
-<p><code>[INTERPRETAÇÃO]</code> Diretriz ANPD para setor público: reter pelo prazo necessário à finalidade, documentar a decisão. Os prazos acima são recomendação — não obrigação legal específica.</p>
+<p><code>[INTERPRETAÇÃO]</code> Diretriz ANPD para setor público: reter pelo prazo necessário à finalidade, documentar a decisão. Os prazos acima são recomendação — não obrigação legal específica. A janela de 24 meses para dado identificado combina (a) atendimento aos direitos do titular, (b) análise anual + comparação ano-contra-ano, (c) redução de risco pela pseudonimização antes de virar histórico permanente.</p>
 <hr />
 <h2 id="11-compartilhamento">11. Compartilhamento<a class="headerlink" href="#11-compartilhamento" title="Permanent link">&para;</a></h2>
 <p><code>[RECOMENDAÇÃO]</code></p>
@@ -2442,7 +2517,7 @@ Política de Privacidade completa: [link]
 <li><strong>Revisão anual do desenho do instrumento</strong> com participação do DPO e da Ouvidoria.</li>
 <li><strong>Log de acesso ao painel gestor</strong> com trilha de auditoria (5 anos).</li>
 <li><strong>Plano de resposta a incidente</strong> documentado — quem notifica ANPD e cidadão (via aviso público, dado o anonimato) em caso de vazamento.</li>
-<li><strong>Relatório de Impacto à Proteção de Dados (RIPD)</strong> — art. 38 LGPD. Recomendável elaborar antes do go-live, mesmo não sendo obrigatório para dado majoritariamente anonimizado, porque a autodeclaração PcD é dado sensível.</li>
+<li><strong>Relatório de Impacto à Proteção de Dados (RIPD)</strong> — art. 38 LGPD. <strong>Obrigatório antes do go-live</strong> pela combinação de (a) tratamento identificado em larga escala de dados de cidadãos usando serviço público, (b) dado sensível (autodeclaração PcD) na mesma base, (c) uso do dado para retorno individual ao cidadão (disparo de e-mail transacional).</li>
 </ol>
 <hr />
 <h2 id="14-cidadao-vulneravel">14. Cidadão vulnerável<a class="headerlink" href="#14-cidadao-vulneravel" title="Permanent link">&para;</a></h2>
@@ -2455,9 +2530,14 @@ Política de Privacidade completa: [link]
 </ul>
 <hr />
 <h2 id="15-base-legal-usada-pelo-govbr-mgi">15. Base legal usada pelo gov.br (MGI)<a class="headerlink" href="#15-base-legal-usada-pelo-govbr-mgi" title="Permanent link">&para;</a></h2>
-<p><code>[FATO]</code> gov.br opera a Ferramenta de Avaliação como instrumento anônimo por design, apoiado em Portaria SGD/ME 548/2022 e Portaria SGD/MGI 1.083/2025 — ambas normatizam a coleta como parte do Modelo de Qualidade dos Serviços Públicos federais, o que se enquadra em execução de política pública (LGPD art. 7º III). Fontes: <a href="https://www.in.gov.br/en/web/dou/-/portaria-sgd/me-n-548-de-24-de-janeiro-de-2022-375784151">Portaria 548/2022</a>; <a href="https://bibliotecadigital.gestao.gov.br/handle/123456789/533149">Portaria 1083/2025 — Biblioteca Digital MGI</a>.</p>
-<p><code>[INTERPRETAÇÃO]</code> MS pode reproduzir a mesma lógica: uma norma estadual (decreto ou resolução SETDIG) que institua o Modelo de Qualidade dos Serviços Digitais do Estado dá lastro jurídico direto à execução de política pública como base LGPD.</p>
-<p><code>[RECOMENDAÇÃO]</code> Publicar ato normativo estadual instituindo o Modelo de Qualidade dos Serviços Digitais do MS antes do go-live do instrumento. Estrutura enxuta, espelhando a lógica das portarias federais.</p>
+<p><code>[FATO]</code> gov.br opera a Ferramenta de Avaliação como instrumento <strong>anônimo por design</strong>, apoiado em Portaria SGD/ME 548/2022 e Portaria SGD/MGI 1.083/2025 — ambas normatizam a coleta como parte do Modelo de Qualidade dos Serviços Públicos federais, o que se enquadra em execução de política pública (LGPD art. 7º III). Fontes: <a href="https://www.in.gov.br/en/web/dou/-/portaria-sgd/me-n-548-de-24-de-janeiro-de-2022-375784151">Portaria 548/2022</a>; <a href="https://bibliotecadigital.gestao.gov.br/handle/123456789/533149">Portaria 1083/2025 — Biblioteca Digital MGI</a>.</p>
+<p><code>[INTERPRETAÇÃO]</code> MS <strong>diverge</strong> do gov.br nesse ponto (decisão SGD 2026-08-25): a avaliação estadual é identificada. A base LGPD continua sendo a mesma (execução de política pública), mas o desenho é mais amplo. A divergência precisa ser sustentada em três frentes:</p>
+<ol>
+<li><strong>Ato normativo estadual próprio</strong> que institua o Modelo de Qualidade dos Serviços Digitais do MS e reconheça expressamente a coleta identificada como parte da política pública.</li>
+<li><strong>RIPD (Relatório de Impacto à Proteção de Dados)</strong> documentando por que a identificação é necessária, proporcional e minimizada.</li>
+<li><strong>Transparência ativa</strong> — o aviso de privacidade do MS diz explicitamente que a avaliação é identificada e o que se faz com a identificação, para que o cidadão não seja surpreendido pela diferença em relação ao gov.br federal.</li>
+</ol>
+<p><code>[RECOMENDAÇÃO]</code> Publicar ato normativo estadual instituindo o Modelo de Qualidade dos Serviços Digitais do MS antes do go-live do instrumento. Estrutura enxuta, espelhando a lógica das portarias federais, mas com previsão explícita de coleta identificada via IdP gov.br e finalidades autorizadas.</p>
 <hr />
 <h2 id="16-legislacao-estadual-de-ms-sobre-protecao-de-dados">16. Legislação estadual de MS sobre proteção de dados<a class="headerlink" href="#16-legislacao-estadual-de-ms-sobre-protecao-de-dados" title="Permanent link">&para;</a></h2>
 <p><code>[FATO]</code> <strong>Não identificado</strong> nesta rodada de pesquisa lei ou decreto estadual específico de MS regulamentando LGPD no Poder Executivo estadual, nem o nome público do Encarregado (DPO) do Governo do Estado. Requer confirmação em rodada de validação com a Procuradoria-Geral do Estado e/ou com a área jurídica da SETDIG.</p>
@@ -2482,52 +2562,52 @@ Política de Privacidade completa: [link]
 <tbody>
 <tr>
 <td>1</td>
-<td>Cidadão escreve dado identificável no campo aberto (nome, CPF, telefone)</td>
+<td>Cidadão escreve dado identificável de terceiros no campo aberto</td>
 <td>Média</td>
 <td>Médio</td>
 <td>Triagem periódica com substituição por <code>[dado suprimido]</code> antes de disponibilizar em painel</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Reidentificação por cruzamento em serviço de baixo volume</td>
+<td>Reidentificação por cruzamento em serviço de baixo volume em publicação</td>
 <td>Baixa</td>
 <td>Médio</td>
-<td>Corte mínimo de 10 avaliações para publicar média específica</td>
+<td>Corte mínimo de 10 avaliações para publicar média específica; publicação sempre agregada</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Uso do painel gestor por pessoa não autorizada</td>
+<td>Uso do painel gestor por pessoa não autorizada (agora com acesso a dado identificado)</td>
 <td>Baixa</td>
 <td>Alto</td>
-<td>Perfis, autenticação forte, log de acesso 5 anos</td>
+<td>Perfis restritos por órgão, autenticação forte, log de acesso 5 anos, escopo do painel definido no aceite</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Desvio de finalidade (usar dados para outra coisa, ex.: treinar IA)</td>
+<td>Desvio de finalidade (usar id do usuário para marketing, ranking individual público, treinar IA)</td>
 <td>Média</td>
 <td>Alto</td>
-<td>Finalidade específica declarada; qualquer novo uso exige reavaliação formal e ajuste do aviso</td>
+<td>Finalidade específica declarada; qualquer novo uso exige reavaliação formal, atualização do aviso e, se necessário, novo RIPD</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Falta de DPO/Encarregado publicado</td>
+<td>Falta de DPO/Encarregado publicado (bloqueio para exercício de direitos do titular)</td>
 <td>Alta hoje</td>
-<td>Médio</td>
-<td>Ação prévia ao go-live: identificar e publicar contato do DPO estadual</td>
+<td>Alto</td>
+<td>Ação prévia ao go-live: identificar e publicar contato do DPO estadual — pré-requisito, não opcional</td>
 </tr>
 <tr>
 <td>6</td>
 <td>Ausência de norma estadual que fundamente "execução de política pública"</td>
 <td>Média</td>
 <td>Médio</td>
-<td>Publicar decreto/resolução instituindo o Modelo de Qualidade do MS</td>
+<td>Publicar decreto/resolução instituindo o Modelo de Qualidade do MS antes do go-live</td>
 </tr>
 <tr>
 <td>7</td>
 <td>Retenção prolongada sem revisão</td>
 <td>Média</td>
-<td>Baixo</td>
-<td>Revisão anual da política de retenção; rotina automática de descarte após prazo</td>
+<td>Médio</td>
+<td>Revisão anual da política de retenção; rotina automática de pseudonimização aos 24 meses</td>
 </tr>
 <tr>
 <td>8</td>
@@ -2538,10 +2618,10 @@ Política de Privacidade completa: [link]
 </tr>
 <tr>
 <td>9</td>
-<td>Coleta involuntária de IP completo por camada de infraestrutura</td>
+<td>Retenção indevida do vínculo id_usuario ↔ avaliação além de 24 meses</td>
 <td>Média</td>
-<td>Médio</td>
-<td>Truncamento no ponto de entrada (edge), auditável</td>
+<td>Alto</td>
+<td>Job automático de pseudonimização + destruição da tabela de mapeamento; auditoria trimestral</td>
 </tr>
 <tr>
 <td>10</td>
@@ -2550,16 +2630,40 @@ Política de Privacidade completa: [link]
 <td>Baixo</td>
 <td>Corte mínimo de amostra + rotulagem "amostra insuficiente"</td>
 </tr>
+<tr>
+<td>11</td>
+<td>Uso indevido do e-mail transacional de avaliação (proposta prévia) para comunicação de marketing ou massa</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Canal técnico separado, opt-out específico, template fechado, auditoria de disparo</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Link único da avaliação por e-mail sendo compartilhado por engano com terceiro</td>
+<td>Baixa</td>
+<td>Médio</td>
+<td>Token curto, uso único, validade limitada, avaliação só é gravada com sessão autenticada do titular</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Serviço fora do orquestrador X-VIA sendo avaliado por engano</td>
+<td>Baixa</td>
+<td>Baixo</td>
+<td>Validação de escopo no widget e na API: rejeita avaliação sem <code>id_execucao_orquestrador</code> válido</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="18-lacunas-de-pesquisa">18. Lacunas de pesquisa<a class="headerlink" href="#18-lacunas-de-pesquisa" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Não identificado</strong> decreto estadual de MS sobre LGPD no Poder Executivo (checar PGE-MS).</li>
-<li><strong>Não identificado</strong> DPO/Encarregado publicamente indicado para o Estado do MS.</li>
+<li><strong>Não identificado</strong> DPO/Encarregado publicamente indicado para o Estado do MS — <strong>bloqueia</strong> publicar o aviso de privacidade completo.</li>
 <li><strong>Não identificado</strong> existência de Comitê de Governança de Dados estadual.</li>
-<li><strong>Não identificado</strong> política de retenção específica da Ferramenta de Avaliação gov.br (prazos exatos de descarte de IP e comentários no lado do MGI). Prazos aqui são recomendação por analogia e boa prática ANPD.</li>
-<li><code>[HIPÓTESE]</code> A ANPD deve emitir, em algum momento, orientação específica sobre pesquisas de satisfação no setor público — vale monitorar para revisar este documento.</li>
+<li><strong>Não identificado</strong> política de retenção específica da Ferramenta de Avaliação gov.br. Prazos aqui são recomendação por analogia e boa prática ANPD.</li>
+<li><strong>Não identificado</strong> como cada sistema do órgão finalístico sinaliza ao orquestrador X-VIA que o serviço foi concluído (pendência técnica com Maycon). Sem esse sinal, a proposta prévia de retorno por e-mail não pode ser implementada com prazo estimado.</li>
+<li><strong>Não identificado</strong> política de retenção e opt-out do e-mail transacional do Portal MS que seria reutilizada pelo disparador de link de avaliação.</li>
+<li><strong>Não identificado</strong> se a Ouvidoria estadual quer ser destinatária de alertas quando um comentário aberto identificado revelar problema grave (fluxo a definir).</li>
+<li><code>[HIPÓTESE]</code> A ANPD deve emitir, em algum momento, orientação específica sobre pesquisas de satisfação identificadas no setor público — vale monitorar para revisar este documento.</li>
 </ul>
 <hr />
 <h2 id="fontes">Fontes<a class="headerlink" href="#fontes" title="Permanent link">&para;</a></h2>

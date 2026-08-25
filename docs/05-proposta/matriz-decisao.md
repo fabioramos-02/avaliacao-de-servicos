@@ -60,3 +60,16 @@ Ver [Modelo proposto](modelo-proposto.md) para o desenho completo.
 - **Dependência do padrão federal.** Se SGD/MGI mudar a Portaria, o MS precisa acompanhar. Mitigação: monitorar publicações da SGD trimestralmente.
 - **Painel próprio exige capacidade analítica.** Mitigação: schema conceitual já definido em [Indicadores](indicadores.md) reduz esforço de projeto.
 - **Não integração automática com Painel Central de Qualidade federal.** Mitigação: fase 2 explora API `porOrgao` para envio opcional.
+
+## Ajustes de escopo — decisão SGD 2026-08-25
+
+A alternativa B permanece vencedora, mas duas decisões estreitam o escopo e alteram o desenho:
+
+1. **Escopo restrito ao orquestrador X-VIA.** Só serviços que nascem no X-VIA são elegíveis nesta onda. Isso reforça o critério `Qualidade do dado` (só entra o que temos sinal confiável de conclusão) e simplifica `Custo operacional` (integração única pelo orquestrador).
+2. **Avaliação identificada.** Diverge do padrão gov.br federal (anônimo). Impacto na matriz:
+   - `Compatibilidade gov.br` cai de 5 → 4 (a divergência é justificada e documentada, mas existe).
+   - `Aderência à LGPD` permanece 5 desde que a base legal (execução de política pública, art. 7º III + art. 11 II "b"), o RIPD e o ato normativo estadual sejam publicados antes do go-live.
+   - `Capacidade analítica` sobe de 5 → 5+ (não muda o score, mas amplia a base de análise por perfil e por município).
+   - Novo risco residual: **desvio de finalidade da identificação** — mitigado por finalidade específica declarada e RIPD.
+
+Novo score ponderado da alternativa B após ajuste: `5×4 + 4×4 + 5×4 + 5×3 + 5×5 + 4×3 + 5×4 + 4×5 + 5×4 = 20 + 16 + 20 + 15 + 25 + 12 + 20 + 20 + 20 = 158`. Continua acima de A (158), C (117) e D (131) — B permanece a recomendação.

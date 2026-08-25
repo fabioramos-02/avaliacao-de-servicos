@@ -95,7 +95,7 @@
 
 **Impacto em drop-off:** nulo (opcional e visualmente separado do bloco principal).
 
-**Regra LGPD:** dado sobre deficiência é **dado pessoal sensível** (LGPD art. 5º II). Base legal: consentimento explícito (art. 11 I) — cidadão só responde se quiser, e o campo tem aviso claro de finalidade. Não vincular à identificação (fica anônimo). Ver detalhes em `docs/04-cidadao/dados-obrigatorios.md`.
+**Regra LGPD:** dado sobre deficiência é **dado pessoal sensível** (LGPD art. 5º II). Base legal: **execução de política pública para dado sensível (art. 11 II "b")** — decisão SGD 2026-08-25. Cidadão só responde se quiser, e o campo tem aviso claro de finalidade. Como a avaliação passou a ser identificada, o registro é vinculável ao id do usuário; a autodeclaração PcD entra segregada e só é usada de forma agregada em painéis. Ver detalhes em `docs/04-cidadao/dados-obrigatorios.md` e [LGPD](lgpd.md).
 
 ---
 
@@ -127,7 +127,7 @@
 | "Quanto esforço foi necessário?" (CES) | Duplica informação da nota geral em serviço simples. Útil só em fluxos longos e transacionais (bancário, checkout). |
 | "Qual seu grau de escolaridade / faixa etária?" | Dado de perfil sem uso operacional. Aumenta drop-off e risco LGPD. |
 | "Por que você deu essa nota?" com radio de motivos negativos | Piora experiência de quem já teve má experiência. Gov.br pergunta só positivo, deliberadamente. |
-| "Deseja ser contatado?" + e-mail | Quebra anonimato, cria expectativa que órgão pode não cumprir. Se cidadão quiser retorno, existe canal formal: Ouvidoria / Fala.MS. |
+| "Deseja ser contatado?" + e-mail | Não é necessário — cidadão já está logado no Portal e o retorno acontece pelo canal formal (Ouvidoria / Fala.MS) quando for manifestação, não pela avaliação. |
 
 ---
 

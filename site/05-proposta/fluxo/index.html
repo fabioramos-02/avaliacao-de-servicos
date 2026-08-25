@@ -1324,6 +1324,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#retorno-por-e-mail-proposta-previa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retorno por e-mail (proposta prévia)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fluxo-do-dado" class="md-nav__link">
     <span class="md-ellipsis">
       Fluxo do dado
@@ -1790,6 +1799,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#retorno-por-e-mail-proposta-previa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retorno por e-mail (proposta prévia)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fluxo-do-dado" class="md-nav__link">
     <span class="md-ellipsis">
       Fluxo do dado
@@ -1841,31 +1859,56 @@
 
 
 <h1 id="fluxo-da-avaliacao">Fluxo da avaliação<a class="headerlink" href="#fluxo-da-avaliacao" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Escopo desde 2026-08-25 (SGD): apenas serviços que nascem no orquestrador X-VIA. Avaliação identificada — cidadão logado no Portal MS. Base LGPD: execução de política pública (art. 7º III + art. 11 II "b"). Ver <a href="../../04-cidadao/lgpd/">LGPD</a>.</p>
+</blockquote>
 <h2 id="fluxo-do-cidadao">Fluxo do cidadão<a class="headerlink" href="#fluxo-do-cidadao" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TD
-    A[Cidadão inicia serviço] --&gt; B[Cidadão conclui serviço]
-    B --&gt; C[Tela de confirmação com convite discreto:&lt;br/&gt;'Avalie este serviço']
-    C --&gt; D{Cidadão clica?}
-    D -- Sim --&gt; E[Formulário abre em modal ou tela dedicada]
-    D -- Não --&gt; Z1[Fluxo termina. Cidadão prossegue sem prejuízo.]
-    E --&gt; F[Bloco 1: nota obrigatória]
-    F --&gt; G[Blocos 2, 3, 4 opcionais — cidadão preenche o que quiser]
-    G --&gt; H[Botão 'Enviar avaliação']
-    H --&gt; I[Registro anônimo gravado]
-    I --&gt; J[Tela de agradecimento:&lt;br/&gt;'Obrigado. Sua opinião foi registrada.']
-    J --&gt; K[Cidadão sai]</code></pre>
+    A[Cidadão logado inicia serviço no Portal MS] --&gt; B[Portal envia cidadão ao sistema do órgão via orquestrador X-VIA]
+    B --&gt; C[Serviço executado no sistema do órgão]
+    C --&gt; D[Sistema do órgão avisa X-VIA: serviço concluído]
+    D --&gt; E{Cidadão retorna ao Portal?}
+    E -- Sim retorna --&gt; F[Tela de retorno no Portal com convite:&lt;br/&gt;'Avalie este serviço']
+    E -- Não retorna --&gt; G[Portal dispara e-mail com link único&lt;br/&gt;proposta prévia — depende do sinal de conclusão]
+    F --&gt; H{Cidadão clica?}
+    G --&gt; H
+    H -- Sim --&gt; I[Formulário abre em modal ou tela dedicada]
+    H -- Não --&gt; Z1[Fluxo termina. Cidadão prossegue sem prejuízo.]
+    I --&gt; J[Bloco 1: nota obrigatória]
+    J --&gt; K[Blocos 2, 3, 4 opcionais — cidadão preenche o que quiser]
+    K --&gt; L[Botão 'Enviar avaliação']
+    L --&gt; M[Registro identificado gravado&lt;br/&gt;id_usuario + id_servico + municipio]
+    M --&gt; N[Tela de agradecimento:&lt;br/&gt;'Obrigado. Sua opinião foi registrada.']
+    N --&gt; O[Cidadão sai]</code></pre>
+<h2 id="retorno-por-e-mail-proposta-previa">Retorno por e-mail (proposta prévia)<a class="headerlink" href="#retorno-por-e-mail-proposta-previa" title="Permanent link">&para;</a></h2>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Proposta prévia da SGD (2026-08-25):</strong> quando o cidadão clica em <em>Acessar serviço</em> no Portal MS, ele sai do Portal e conclui o serviço no sistema do órgão finalístico. Sem caminho de retorno, ele não avalia. Solução proposta:</p>
+<ol>
+<li>O sistema do órgão avisa o orquestrador X-VIA que o serviço terminou.</li>
+<li>O Portal dispara <strong>e-mail transacional</strong> para o cidadão logado, com <strong>link único</strong> para a página de avaliação daquele serviço específico.</li>
+<li>Link é assinado (token curto, validade limitada) para vincular a avaliação ao serviço correto e evitar reuso.</li>
+</ol>
+<p><strong>Dependência técnica em aberto:</strong> o sinal de conclusão do serviço vem do sistema do órgão para o X-VIA. Hoje <strong>não identificado</strong> se todos os sistemas finalísticos publicam esse evento com padrão único. Precisa ser confirmado com <strong>Maycon</strong> antes de estimar prazo.</p>
+<p><strong>Alternativa considerada:</strong> tela de retorno ao Portal ao final do serviço no sistema do órgão. Fica descartada como caminho principal porque exige que cada sistema do órgão implemente a chamada de volta — custo distribuído, prazo imprevisível. E-mail centraliza a orquestração no Portal.</p>
+<p><code>[HIPÓTESE]</code> Envio de e-mail deve ocorrer em janela curta (5–60 min) após a conclusão, para preservar a recência da experiência do cidadão. Ajustar após piloto.</p>
+<p><strong>Pendências desta proposta:</strong></p>
+<ul>
+<li>Confirmar com Maycon como o sistema do órgão sinaliza conclusão do serviço.</li>
+<li>Definir padrão do evento de conclusão que o X-VIA vai consumir.</li>
+<li>Definir política do link único: validade, número máximo de reenvios, comportamento se cidadão avaliar via tela de retorno antes do e-mail chegar.</li>
+<li>Definir opt-out específico deste e-mail (não confundir com opt-out geral do Portal).</li>
+</ul>
 <h2 id="fluxo-do-dado">Fluxo do dado<a class="headerlink" href="#fluxo-do-dado" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph LR
     subgraph Coleta
-        A1[Frontend widget] --&gt;|POST anônimo| A2[API]
-        A2 --&gt;|valida + dedupe hash sessão| A3[fato_avaliacao]
+        A1[Frontend widget] --&gt;|POST autenticado| A2[API]
+        A2 --&gt;|valida token + previne duplicidade por id_usuario+id_servico| A3[fato_avaliacao]
     end
 
     subgraph Consumo
         A3 --&gt; B1[Cache página do serviço&lt;br/&gt;nota média + N]
-        A3 --&gt; B2[Painel do gestor&lt;br/&gt;filtros, drill-down]
+        A3 --&gt; B2[Painel do gestor&lt;br/&gt;filtros, drill-down por município]
         A3 --&gt; B3[Painel Ouvidoria&lt;br/&gt;triagem comentários]
-        A3 --&gt; B4[Exportação mensal&lt;br/&gt;dados abertos MS]
+        A3 --&gt; B4[Exportação mensal&lt;br/&gt;dados abertos MS — só agregado]
     end
 
     subgraph Melhoria
@@ -1875,12 +1918,13 @@
     end</code></pre>
 <h2 id="regras-criticas-do-fluxo">Regras críticas do fluxo<a class="headerlink" href="#regras-criticas-do-fluxo" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Convite único.</strong> Um serviço concluído = um convite. Sem retry, sem lembrete.</li>
+<li><strong>Convite único.</strong> Um serviço concluído = um convite (tela de retorno <strong>ou</strong> e-mail, não os dois). Sem retry, sem lembrete.</li>
 <li><strong>Nunca bloquear.</strong> Fechar/pular sempre disponível. Cumpre art. 7º §3º Portaria 548/2022.</li>
-<li><strong>Anônimo.</strong> Nenhum passo do fluxo requer identificação.</li>
-<li><strong>Dedupe.</strong> Hash de sessão evita spam mas não identifica cidadão.</li>
+<li><strong>Identificação vem do login.</strong> Cidadão já está logado no Portal para acessar o serviço via X-VIA — a avaliação usa a mesma sessão. Nenhum campo novo de identificação é solicitado no formulário.</li>
+<li><strong>Prevenção de duplicidade.</strong> Chave <code>id_usuario + id_servico + janela</code> impede múltiplas avaliações da mesma execução do serviço.</li>
 <li><strong>Moderação.</strong> Comentário aberto passa por moderação antes de publicação (se publicado). Nota agregada não depende de moderação.</li>
 <li><strong>Tempo de resposta da API &lt; 500ms.</strong> Cidadão nunca deve esperar para enviar.</li>
+<li><strong>Publicação sempre agregada.</strong> A identificação existe no dado bruto para uso interno (retorno, análise, ouvidoria). O painel público e os dados abertos só mostram agregados (ver <a href="../../04-cidadao/lgpd/">LGPD</a> e <a href="../indicadores/">Indicadores</a>).</li>
 </ol>
 <h2 id="onde-a-avaliacao-e-exibida">Onde a avaliação é exibida<a class="headerlink" href="#onde-a-avaliacao-e-exibida" title="Permanent link">&para;</a></h2>
 <table>

@@ -13,12 +13,14 @@ O que precisa ser verdadeiro para declararmos a proposta validada e pronta para 
 
 ## Aceite jurídico (Jurídico / DPO)
 
-- [ ] Base legal LGPD documentada: art. 7º III (política pública) + art. 11 I (consentimento para PcD).
-- [ ] Aviso de privacidade escrito e aprovado.
-- [ ] Política de retenção formalizada: 5 anos bruto (nota/comentário), 3 anos PcD.
-- [ ] Anonimização confirmada: nada que identifique cidadão é coletado.
-- [ ] Publicação em dados abertos respeita threshold mínimo (≥ 10 avaliações por corte).
-- [ ] Direitos do titular endereçados via canal formal (Fala.MS / DPO), já que avaliação é anônima.
+- [ ] Base legal LGPD documentada: art. 7º III (execução de política pública) + art. 11 II "b" (política pública para dado sensível — PcD). Decisão SGD 2026-08-25.
+- [ ] Aviso de privacidade escrito e aprovado — texto reflete que a avaliação é identificada via login do Portal.
+- [ ] Política de retenção formalizada: 24 meses bruto (nota/motivos/PcD/metadados/id_usuario), 12 meses comentário aberto, agregado indefinido em forma pseudonimizada.
+- [ ] Escopo confirmado: apenas serviços que nascem no orquestrador X-VIA.
+- [ ] Publicação em painel público e dados abertos respeita threshold mínimo (≥ 10 avaliações por corte) e só sai em forma agregada.
+- [ ] Direitos do titular (art. 18 LGPD) endereçados: cidadão logado consegue solicitar acesso/retificação/eliminação da própria avaliação via canal do DPO estadual; procedimento documentado.
+- [ ] RIPD (Relatório de Impacto à Proteção de Dados) elaborado — necessário pela combinação de identificação + dado sensível.
+- [ ] Política do link único de e-mail definida (validade, escopo, opt-out específico) — depende da definição da proposta prévia de retorno por e-mail.
 
 ## Aceite operacional (SGD + órgão piloto)
 

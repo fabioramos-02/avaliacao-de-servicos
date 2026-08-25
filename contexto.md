@@ -64,7 +64,9 @@ Documentação navegável via MkDocs (`http://127.0.0.1:8000` local).
 
 ## Onde paramos
 
-**Estudo concluído.** Todas as ondas finalizadas. `mkdocs build --strict` passa (0 warnings). CI GitHub Pages configurado em `.github/workflows/gh-pages.yml`.
+**Estudo concluído + atualização 2026-08-25.** Todas as ondas finalizadas. `mkdocs build --strict` passa. CI GitHub Pages configurado em `.github/workflows/gh-pages.yml`.
+
+Atualização de 2026-08-25 aplicada nas seções afetadas pelas duas decisões da SGD (escopo X-VIA + avaliação identificada + proposta prévia de retorno por e-mail): `01-contexto/feature.md`, `04-cidadao/o-que-coletar.md`, `04-cidadao/perguntas.md`, `04-cidadao/dados-obrigatorios.md`, `04-cidadao/lgpd.md`, `05-proposta/modelo-proposto.md`, `05-proposta/fluxo.md`, `05-proposta/matriz-decisao.md`, `05-proposta/indicadores.md`, `06-validacao/stakeholders.md`, `06-validacao/criterios-aceite.md`, `07-conclusao/decisoes.md`.
 
 **Entregas prontas para validação:**
 
@@ -121,6 +123,20 @@ python -m mkdocs build
 4. **Fechar o ciclo.** Feedback sem uso vira ruído.
 5. **Comparável.** Indicador precisa permitir comparação entre serviços e no tempo.
 6. **Linguagem simples.** Documento voltado a decisor, não a especialista.
+
+## Decisões de escopo — 2026-08-25 (SGD)
+
+Duas decisões da SGD alteram o desenho original:
+
+1. **Escopo restrito ao orquestrador X-VIA.** A avaliação vale apenas para serviços que nascem no orquestrador da X-VIA. Serviços fora dele ficam de fora nesta onda.
+2. **Avaliação identificada.** O cidadão é identificado no ato da avaliação (usuário logado + localização do serviço finalístico). Não é mais anônima. A base LGPD deixa de se apoiar em anonimato e passa a se apoiar em **execução de política pública** (art. 7º III + art. 11 II "b") + **finalidade específica** declarada.
+
+Impactos:
+
+- LGPD (`docs/04-cidadao/lgpd.md`): reescrita da base legal, dos direitos do titular e do texto público de aviso.
+- Dados coletados (`docs/04-cidadao/dados-obrigatorios.md`): passa a incluir id do cidadão logado + município do serviço finalístico.
+- Fluxo (`docs/05-proposta/fluxo.md`, `modelo-proposto.md`): registro deixa de ser anônimo.
+- Proposta prévia em aberto: retorno ao cidadão via **e-mail com link de avaliação** disparado após conclusão do serviço no sistema do órgão. Depende de o sistema do órgão avisar o Portal que o serviço terminou — pendência a resolver em reunião com Maycon.
 
 ## Marcadores usados
 
