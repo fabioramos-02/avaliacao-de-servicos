@@ -1,58 +1,48 @@
 # Avaliação dos Serviços do Portal MS
 
-Estudo estratégico da **SETDIG** para definir como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão.
+Estudo estratégico da **Secretaria-Executiva de Transformação Digital — SETDIG** para definir como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão. Coordenação: Superintendência de Governo Digital (SGD).
 
-## A pergunta central
+## Pergunta central
 
-> Como o cidadão do MS deve avaliar cada serviço digital que ele usa no Portal?
+> Como o Portal MS deve pedir ao cidadão que avalie cada serviço digital que ele usa?
 
-## A resposta em uma frase
+## Recomendação em uma linha
 
-Adotar o **modelo padrão do gov.br** — Central de Qualidade + Ferramenta de Avaliação (Portaria SGD/ME 548/2022) — adaptado ao contexto estadual, e evoluir de forma incremental a partir dele.
+Adotar no Portal MS um **modelo de avaliação simples, voluntário e alinhado ao gov.br** (Portaria SGD/MGI nº 1.083/2025), com adaptação institucional mínima e piloto controlado antes da expansão.
 
-## Por onde começar a leitura
+## Por onde começar
 
 | Se você é… | Comece por… |
 |---|---|
-| Diretor/gestor querendo a recomendação | [Recomendação](07-conclusao/recomendacao.md) |
-| Analista técnico querendo o modelo | [Modelo proposto](05-proposta/modelo-proposto.md) |
-| Equipe do Portal querendo o padrão gov.br | [gov.br — Central de Qualidade](03-benchmark/gov-br.md) |
-| Jurídico/DPO querendo o corte LGPD | [LGPD](04-cidadao/lgpd.md) |
-| Alguém novo no assunto | [Modelos de Avaliação](02-modelos/modelos-avaliacao.md) |
+| Diretor / gestor sênior | [7. Recomendação](07-recomendacao.md) |
+| Comitê de governança | [1. Contexto](01-contexto.md) + [7. Recomendação](07-recomendacao.md) |
+| Órgão setorial dono de serviço | [3. Modelo proposto](03-modelo-proposto.md) |
+| Equipe do Portal (SGD + STI + Xvia) | [3. Modelo proposto](03-modelo-proposto.md) + [5. Indicadores](05-indicadores.md) |
+| Jurídico / DPO | [4. Dados e privacidade](04-dados-e-privacidade.md) |
+| Alguém novo no assunto | [1. Contexto](01-contexto.md) → [2. Referência](02-referencia.md) |
 
-## Por que este estudo
+## Os sete documentos
 
-Serviço público bem avaliado é serviço mais bem gerido. A Lei 13.460/2017 (Código de Defesa do Usuário) já exige avaliação. O gov.br federal já padronizou o instrumento. Falta o MS operacionalizar isso no seu Portal com um modelo que:
+1. **[Contexto](01-contexto.md)** — Por que avaliar. Escopo. Público. Base legal.
+2. **[Referência adotada](02-referencia.md)** — gov.br como âncora. Modelos de escala. Cases secundários.
+3. **[Modelo proposto](03-modelo-proposto.md)** — O desenho. Perguntas, escala, fluxo, regras.
+4. **[Dados e privacidade](04-dados-e-privacidade.md)** — O que coletar, o que não coletar, LGPD.
+5. **[Indicadores](05-indicadores.md)** — O que a gestão vai acompanhar.
+6. **[Validação](06-validacao.md)** — Plano para testar antes de escalar.
+7. **[Recomendação](07-recomendacao.md)** — A decisão, com registro e próximos passos.
 
-1. Seja simples para o cidadão (não afugenta).
-2. Gere dado útil para o gestor (não vira ruído).
-3. Cumpra a LGPD (só coleta o que usa).
-4. Permita comparação (entre serviços, no tempo).
+## Marcadores usados
 
-## Escopo
+- `[FATO]` — informação confirmada por fonte primária.
+- `[INTERPRETAÇÃO]` — análise apoiada em evidência.
+- `[HIPÓTESE]` — proposição a validar.
+- `[RECOMENDAÇÃO]` — sugestão do estudo.
+- `**Não identificado**` — buscado sem evidência conclusiva.
 
-- Levantamento de modelos e cases.
-- Análise da referência principal (gov.br).
-- Definição do que perguntar ao cidadão.
-- Proposta concreta para o Portal MS.
-- Estratégia para validar a proposta.
+## Fontes
 
-Fora do escopo: implementação técnica, dashboard pronto, pesquisa qualitativa com cidadãos.
+Bibliografia consolidada em [`pesquisa/fontes.md`](pesquisa/fontes.md).
 
-## Como este documento está organizado
+## Apresentação executiva
 
-```mermaid
-graph LR
-    A[Contexto] --> B[Modelos]
-    B --> C[Benchmark gov.br]
-    C --> D[O que perguntar]
-    D --> E[Proposta MS]
-    E --> F[Validação]
-    F --> G[Recomendação]
-```
-
-## Convenções
-
-Cada afirmação factual é marcada `[FATO]` + fonte. Interpretações, hipóteses e recomendações são sinalizadas explicitamente. Quando algo não pôde ser confirmado, aparece `**Não identificado**` com a explicação.
-
-Fontes completas em [`pesquisa/fontes.md`](pesquisa/fontes.md).
+Versão em slides para diretoria: [apresentacoes/avaliacao-servicos-portal-ms.html](https://github.com/fabioramos-02/avaliacao-de-servicos/blob/main/apresentacoes/avaliacao-servicos-portal-ms.html).

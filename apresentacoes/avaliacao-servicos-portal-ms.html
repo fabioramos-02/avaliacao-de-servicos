@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<!--
+  Apresentação executiva — Avaliação dos Serviços · Portal MS
+  SETDIG · SGD · Agosto/2026
+
+  Tokens espelhados de @design-system-ms/ds-sis@^0.1.0 no bloco :root abaixo
+  (namespace --color-*, --header-*, --tag-*, --spacing-*, --radius-*).
+
+  Quando integrar ao Portal MS ou a qualquer app web do Estado, substituir o
+  bloco :root por:
+
+      @import "@design-system-ms/ds-sis/css";
+
+  Nenhuma cor está hardcoded fora do :root — todo componente consome token DS.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação dos Serviços · Portal MS · SETDIG</title>
+<style>
+  /* ============================================================
+     Tokens — @design-system-ms/ds-sis (espelho para standalone)
+     ============================================================ */
+  :root {
+    /* Cor — brand */
+    --color-primary-100: #e6f0fa;
+    --color-primary-200: #cfe0f2;
+    --color-primary-300: #a8c9e8;
+    --color-primary-400: #4a8fd0;
+    --color-primary-500: #004f9f;
+    --color-primary-600: #003a76;
+    --color-primary-700: #002b57;
+
+    /* Cor — neutros */
+    --color-neutral-050: #ffffff;
+    --color-neutral-100: #f7f9fc;
+    --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-400: #94a3b8;
+    --color-neutral-500: #64748b;
+    --color-neutral-600: #334155;
+    --color-neutral-700: #0f172a;
+
+    /* Cor — status */
+    --color-success-500: #15803d;
+    --color-warning-500: #b45309;
+    --color-error-500:   #b91c1c;
+    --color-info-500:    #1a67b5;
+
+    /* Tipografia */
+    --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto,
+                        "Helvetica Neue", "Noto Sans", "Liberation Sans",
+                        Arial, sans-serif;
+    --font-family-mono: "SF Mono", Consolas, "Liberation Mono", monospace;
+
+    /* Espaçamento */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+
+    /* Raio */
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+    --radius-pill: 999px;
+
+    /* Sombra */
+    --shadow-sm: 0 8px 30px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 25px 50px rgba(15, 23, 42, 0.12);
+
+    /* Componente — header */
+    --header-bg: var(--color-neutral-050);
+    --header-fg: var(--color-neutral-700);
+    --header-accent: var(--color-primary-500);
+
+    /* Componente — tag */
+    --tag-bg: var(--color-primary-100);
+    --tag-fg: var(--color-primary-500);
+
+    /* Componente — card */
+    --card-bg: var(--color-neutral-050);
+    --card-border-top: var(--color-primary-500);
+    --card-radius: var(--radius-md);
+
+    /* Componente — btn */
+    --btn-primary-bg: var(--color-primary-500);
+    --btn-primary-fg: var(--color-neutral-050);
+    --btn-primary-hover-bg: var(--color-primary-600);
+  }
+
+  /* ============================================================
+     Reset + tipografia base
+     ============================================================ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-neutral-700);
+  }
+  body {
+    font-family: var(--font-family-base);
+    color: var(--color-neutral-700);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+  h1 {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-4);
+  }
+  h1 .accent { color: var(--color-primary-500); display: block; font-weight: 700; }
+  h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-6);
+  }
+  h2 .underline {
+    color: var(--color-primary-500);
+    box-shadow: inset 0 -0.3em 0 rgba(0, 79, 159, 0.12);
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: var(--color-primary-600);
+    margin-bottom: var(--spacing-2);
+  }
+
+  /* ============================================================
+     Deck / slides
+     ============================================================ */
+  #deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    padding: 5.5rem 5rem 4rem;
+    background: var(--color-neutral-100);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(30px);
+    transition: opacity .4s ease, transform .4s ease;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ============================================================
+     Componente — .ds-header (topo institucional)
+     ============================================================ */
+  .ds-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3.5rem;
+    background: var(--header-bg);
+    border-bottom: 3px solid var(--header-accent);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-8);
+    gap: var(--spacing-5);
+    z-index: 5;
+  }
+  .ds-header__logo {
+    height: 2.3rem;
+    width: auto;
+    display: block;
+    background: var(--color-primary-500);
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius-sm);
+    box-sizing: content-box;
+  }
+  .ds-header__divider {
+    width: 1px;
+    height: 1.75rem;
+    background: var(--color-neutral-200);
+  }
+  .ds-header__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+  .ds-header__l1 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-primary-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .ds-header__l2 {
+    font-size: 0.7rem;
+    color: var(--color-neutral-500);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .ds-header__spacer { flex: 1; }
+  .ds-header__doc-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Header em fundo escuro (capa e fechamento) */
+  .slide.cover .ds-header {
+    background: rgba(255,255,255,0.08);
+    border-bottom-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+  }
+  .slide.cover .ds-header__logo {
+    filter: brightness(0) invert(1);
+    background: transparent;
+    padding: 0;
+  }
+  .slide.cover .ds-header__l1 { color: var(--color-neutral-050); }
+  .slide.cover .ds-header__l2 { color: rgba(255,255,255,0.7); }
+  .slide.cover .ds-header__divider { background: rgba(255,255,255,0.25); }
+  .slide.cover .ds-header__doc-tag { color: rgba(255,255,255,0.75); }
+
+  /* ============================================================
+     Componente — .tag (badge de seção)
+     ============================================================ */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--tag-fg);
+    padding: 0.4rem 0.9rem;
+    background: var(--tag-bg);
+    border-radius: var(--radius-md);
+    align-self: flex-start;
+    margin-bottom: var(--spacing-5);
+  }
+  .tag::before {
+    content: '';
+    width: 4px; height: 14px;
+    background: var(--tag-fg);
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--color-neutral-600);
+    line-height: 1.55;
+    margin-bottom: var(--spacing-8);
+    max-width: 60rem;
+  }
+
+  /* ============================================================
+     Capa institucional
+     ============================================================ */
+  .cover {
+    background: linear-gradient(135deg,
+                                var(--color-primary-600) 0%,
+                                var(--color-primary-500) 100%);
+    color: var(--color-neutral-050);
+    justify-content: center;
+  }
+  .cover h1 { color: var(--color-neutral-050); }
+  .cover h1 .accent { color: var(--color-primary-300); }
+  .cover .subtitle { color: rgba(255,255,255,0.9); font-size: 1.25rem; max-width: 55rem; }
+  .cover-rec {
+    display: block;
+    margin-top: var(--spacing-8);
+    padding: 1.25rem 1.75rem;
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid var(--color-primary-300);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    color: var(--color-neutral-050);
+    max-width: 60rem;
+    line-height: 1.5;
+  }
+  .cover-rec strong { color: var(--color-primary-300); }
+  .cover-meta {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-10);
+  }
+
+  /* ============================================================
+     Componente — .card (padrão DS)
+     ============================================================ */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border-top: 5px solid var(--card-border-top);
+  }
+  .card--info { border-top-color: var(--color-info-500); }
+  .card__tag {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: var(--color-primary-100);
+    color: var(--color-primary-500);
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-3);
+  }
+  .card--info .card__tag {
+    background: #e8f0fb;
+    color: var(--color-info-500);
+  }
+  .card h3 {
+    font-size: 1.3rem;
+    color: var(--color-neutral-700);
+    margin-bottom: var(--spacing-2);
+    font-weight: 800;
+  }
+  .card p {
+    color: var(--color-neutral-600);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .card ul { list-style: none; padding: 0; margin-top: var(--spacing-2); }
+  .card li {
+    padding: 0.4rem 0;
+    color: var(--color-neutral-600);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+  }
+  .card li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--color-primary-500);
+    border-radius: 50%;
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-6); margin: var(--spacing-4) 0 var(--spacing-6); }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-5); margin: var(--spacing-4) 0 var(--spacing-6); }
+
+  /* ============================================================
+     Frase-âncora — padrão StoryCard (storytelling-bi)
+     entrega conclusão em texto antes do dado ser decodificado
+     ============================================================ */
+  .anchor {
+    background: var(--color-primary-500);
+    padding: 3px;
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-4) 0;
+  }
+  .anchor__inner {
+    background: var(--color-neutral-050);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-8) var(--spacing-10);
+    text-align: center;
+  }
+  .anchor__headline {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-neutral-700);
+    margin-bottom: var(--spacing-3);
+    letter-spacing: -0.02em;
+  }
+  .anchor__caption {
+    font-size: 1.05rem;
+    color: var(--color-neutral-500);
+    max-width: 55rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .anchor__caption strong { color: var(--color-neutral-700); }
+
+  /* Bloco de frase-âncora simples (uma linha) */
+  .anchor-line {
+    background: var(--color-neutral-050);
+    padding: var(--spacing-10) 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    margin: var(--spacing-6) auto 0;
+    max-width: 60rem;
+    border-top: 6px solid var(--color-primary-500);
+  }
+  .anchor-line__text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary-500);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  /* ============================================================
+     Tabela
+     ============================================================ */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-neutral-050);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    font-size: 0.98rem;
+    margin-top: var(--spacing-4);
+  }
+  th, td {
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  th {
+    background: var(--color-primary-600);
+    color: var(--color-neutral-050);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--color-neutral-100); }
+  td.center, th.center { text-align: center; }
+  td strong { color: var(--color-neutral-700); }
+
+  .signal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .signal--ok { color: var(--color-success-500); }
+  .signal--mid { color: var(--color-warning-500); }
+  .signal--bad { color: var(--color-error-500); }
+  .signal::before {
+    content: '';
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* ============================================================
+     Fluxo — etapas do caminho do cidadão
+     ============================================================ */
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-3);
+    align-items: stretch;
+    margin: var(--spacing-6) 0;
+  }
+  .flow-step {
+    background: var(--color-neutral-050);
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border-top: 4px solid var(--color-primary-500);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .flow-step__n {
+    font-size: 0.7rem;
+    color: var(--color-primary-500);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  .flow-step__t {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-neutral-700);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .flow-step__d {
+    font-size: 0.82rem;
+    color: var(--color-neutral-600);
+    line-height: 1.4;
+  }
+
+  /* ============================================================
+     Mockup do formulário — reusa .card + tokens
+     ============================================================ */
+  .form-mockup {
+    background: var(--color-neutral-050);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-8) var(--spacing-10);
+    max-width: 55rem;
+    margin: var(--spacing-4) auto 0;
+    border-top: 4px solid var(--color-primary-500);
+  }
+  .form-mockup__header {
+    font-size: 0.78rem;
+    color: var(--color-primary-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .form-mockup__title {
+    font-size: 1.2rem;
+    color: var(--color-neutral-700);
+    font-weight: 700;
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  .form-mockup__q {
+    font-size: 1.05rem;
+    color: var(--color-neutral-700);
+    font-weight: 600;
+    margin: var(--spacing-5) 0 var(--spacing-3);
+  }
+  .form-mockup__rating {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-4);
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-md);
+  }
+  .form-mockup__stars {
+    display: grid;
+    grid-template-columns: repeat(5, 56px);
+    gap: var(--spacing-3);
+    align-items: center;
+    justify-items: center;
+  }
+  .form-mockup__star {
+    width: 56px; height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-500);
+    line-height: 1;
+    font-size: 3rem;
+  }
+  .form-mockup__star--empty { color: var(--color-neutral-300); }
+  .form-mockup__star-labels {
+    display: grid;
+    grid-template-columns: repeat(5, 56px);
+    gap: var(--spacing-3);
+    font-size: 0.72rem;
+    color: var(--color-neutral-500);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .form-mockup__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .form-mockup__fcard {
+    padding: 0.6rem 0.75rem;
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--color-neutral-600);
+    text-align: center;
+  }
+  .form-mockup__textarea {
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-3);
+    color: var(--color-neutral-500);
+    font-size: 0.88rem;
+    min-height: 3.5rem;
+    font-style: italic;
+  }
+  .form-mockup__pcd {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-4);
+    background: var(--color-primary-100);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary-500);
+  }
+  .form-mockup__pcd .form-mockup__q {
+    margin: 0 0 var(--spacing-2);
+    font-size: 0.95rem;
+  }
+  .form-mockup__pcd-radios {
+    display: flex;
+    gap: var(--spacing-4);
+    font-size: 0.9rem;
+    color: var(--color-neutral-600);
+  }
+
+  /* ============================================================
+     Componente — .btn (padrão DS)
+     ============================================================ */
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  .btn.primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
+  }
+  .btn.primary:hover { background: var(--btn-primary-hover-bg); }
+  .form-mockup__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-neutral-200);
+  }
+
+  /* ============================================================
+     Indicadores — reusa .card
+     ============================================================ */
+  .indicators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-4);
+  }
+  .indicator {
+    background: var(--color-neutral-050);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary-500);
+  }
+  .indicator__label {
+    font-size: 0.72rem;
+    color: var(--color-primary-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .indicator__value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-neutral-700);
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+  }
+  .indicator__desc {
+    font-size: 0.85rem;
+    color: var(--color-neutral-600);
+    line-height: 1.4;
+  }
+
+  /* Frase de honestidade — limitação do dado explícita */
+  .note {
+    background: var(--color-neutral-050);
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--color-success-500);
+    margin-top: var(--spacing-5);
+    font-size: 1rem;
+    color: var(--color-neutral-600);
+    line-height: 1.5;
+  }
+  .note strong { color: var(--color-neutral-700); }
+
+  /* Slide de decisão — bloco central autocontido */
+  .decision {
+    background: var(--color-neutral-050);
+    padding: 2.5rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border-top: 6px solid var(--color-primary-500);
+    max-width: 68rem;
+    margin: var(--spacing-4) auto;
+  }
+  .decision h3 {
+    font-size: 0.85rem;
+    color: var(--color-primary-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: var(--spacing-3);
+  }
+  .decision__headline {
+    font-size: 1.55rem;
+    color: var(--color-neutral-700);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-6);
+    letter-spacing: -0.02em;
+  }
+  .decision__headline strong { color: var(--color-primary-500); }
+  .decision__why {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 2rem;
+    margin: var(--spacing-5) 0;
+  }
+  .decision__why div {
+    padding: 0.6rem 0;
+    color: var(--color-neutral-600);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+  .decision__why div::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--color-primary-500);
+    border-radius: 50%;
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+  .decision__condition {
+    background: var(--color-primary-100);
+    padding: var(--spacing-4) 1.25rem;
+    border-radius: var(--radius-md);
+    color: var(--color-neutral-700);
+    font-size: 1rem;
+    line-height: 1.5;
+    border-left: 4px solid var(--color-primary-500);
+    margin-top: var(--spacing-4);
+  }
+  .decision__condition strong { color: var(--color-primary-500); }
+
+  /* Steps finais */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-6);
+  }
+  .step-item {
+    background: rgba(255,255,255,0.08);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary-300);
+    color: rgba(255,255,255,0.95);
+  }
+  .step-item__n {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary-300);
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .step-item__t {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--color-neutral-050);
+  }
+  .step-item__d {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+  }
+
+  /* ============================================================
+     Componente — .ds-footer (rodapé de slide)
+     ============================================================ */
+  .ds-footer {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 5rem;
+    right: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-neutral-500);
+    font-size: 0.78rem;
+  }
+  .ds-footer__brand {
+    font-weight: 600;
+    color: var(--color-primary-600);
+  }
+  .ds-footer__counter {
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+  }
+  .cover .ds-footer__brand,
+  .cover .ds-footer__counter {
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ============================================================
+     Navegação
+     ============================================================ */
+  .nav {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-2);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-pill);
+    z-index: 100;
+  }
+  .nav button {
+    background: transparent;
+    border: 0;
+    color: var(--color-neutral-050);
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.1); }
+  .nav .dots { display: flex; gap: 0.35rem; align-items: center; padding: 0 var(--spacing-2); }
+  .nav .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .nav .dot.active { background: var(--color-neutral-050); transform: scale(1.5); }
+
+  .fs-btn {
+    position: fixed;
+    top: 4.25rem;
+    right: 1.5rem;
+    background: rgba(15,23,42,0.6);
+    color: var(--color-neutral-050);
+    border: 0;
+    width: 40px; height: 40px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fs-btn:hover { background: rgba(15,23,42,0.85); }
+
+  @media print {
+    body, html { overflow: visible; }
+    #deck { height: auto; }
+    .slide {
+      position: static; opacity: 1; pointer-events: auto; transform: none;
+      page-break-after: always; min-height: 100vh;
+    }
+    .nav, .fs-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ==========================================================
+       Slide 01 · Capa
+       Pergunta que responde: "O que vamos decidir hoje?"
+       ========================================================== -->
+  <section class="slide cover active">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Recomendação executiva · Agosto 2026</div>
+    </header>
+
+    <h1>Avaliação dos Serviços Digitais
+      <span class="accent">Como ouvir o cidadão depois que ele usa um serviço do Portal MS</span>
+    </h1>
+    <p class="subtitle">
+      Recomendação executiva sobre o modelo a ser adotado para ouvir o cidadão sobre os serviços digitais do Estado.
+    </p>
+    <div class="cover-rec">
+      <strong>Em uma frase:</strong> pedir ao cidadão uma nota simples ao fim do serviço, seguir o modelo já usado pelo governo federal e começar por um serviço-piloto antes de expandir.
+    </div>
+    <div class="cover-meta">
+      SEGOV-MS · Secretaria-Executiva de Transformação Digital — SETDIG · Superintendência de Governo Digital · Agosto/2026
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">01 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 02 · Por que avaliar
+       Pergunta que responde: "Por que investir tempo/energia nisso agora?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">Por que avaliar</div>
+    <h2>O Estado precisa de uma forma <span class="underline">única e simples</span> de ouvir o cidadão sobre os serviços digitais</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card__tag">Como está hoje</div>
+        <h3>Cada serviço entra no ar sem uma forma comum de ouvir o cidadão</h3>
+        <ul>
+          <li>Quem gerencia não sabe onde priorizar melhoria</li>
+          <li>Quem usa não vê que sua opinião foi registrada</li>
+          <li>O Estado não cumpre a obrigação legal de acompanhar a satisfação</li>
+        </ul>
+      </div>
+      <div class="card card--info">
+        <div class="card__tag">O que está a favor</div>
+        <h3>Três coisas tornam esse o momento certo</h3>
+        <ul>
+          <li>Existe um modelo federal pronto e em funcionamento — não precisamos inventar</li>
+          <li>O Portal já sabe quando o cidadão terminou o serviço — dá para convidar na hora certa</li>
+          <li>A lei e as regras de proteção de dados já estão claras sobre como fazer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor__inner">
+        <div class="anchor__headline">Avaliar já é obrigação. A escolha é <strong>como fazer bem</strong>.</div>
+        <div class="anchor__caption">O Código de Defesa do Usuário de Serviço Público exige que os órgãos acompanhem satisfação, qualidade e prazo, e publiquem o resultado.</div>
+      </div>
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">02 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 03 · Qual referência
+       Pergunta que responde: "Estamos inventando ou seguindo padrão?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">Referência adotada</div>
+    <h2>Vamos seguir o modelo do <span class="underline">gov.br</span> — já é padrão nacional</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card__tag">Padrão nacional</div>
+        <h3>Modelo do gov.br</h3>
+        <p>Norma federal em vigor desde 2022, aprimorada em 2025. Reconhecida pelos demais estados e municípios como referência para avaliação de serviço público digital.</p>
+      </div>
+      <div class="card">
+        <div class="card__tag">Escala de uso</div>
+        <h3>1.047 serviços já usam</h3>
+        <p>Nota média nacional <strong>4,39 de 5</strong> publicada em agosto de 2026 — mostra que o modelo funciona em grande escala.</p>
+      </div>
+      <div class="card">
+        <div class="card__tag">Ganho para o MS</div>
+        <h3>Já vai poder se comparar</h3>
+        <p>O cidadão reconhece a linguagem, o Estado se alinha ao restante do país e ganha capacidade de comparar seus serviços com outros entes.</p>
+      </div>
+    </div>
+
+    <div class="anchor-line">
+      <div class="anchor-line__text">Se o Estado quiser fazer diferente, precisa explicar por quê.</div>
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">03 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 04 · O que aprendemos
+       Pergunta que responde: "O que separa um modelo bom do ruim?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">O que aprendemos</div>
+    <h2>Boa avaliação é <span class="underline">simples, voluntária</span> e nunca atrapalha</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Referência</th>
+          <th class="center">Como pergunta</th>
+          <th class="center">Deixa o cidadão pular?</th>
+          <th class="center">Serve para serviço público?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>gov.br</strong> — governo federal</td>
+          <td class="center">1 nota de 5 estrelas</td>
+          <td class="center"><span class="signal signal--ok">Sim, sempre</span></td>
+          <td class="center"><span class="signal signal--ok">É a referência</span></td>
+        </tr>
+        <tr>
+          <td><strong>GOV.UK</strong> — governo do Reino Unido</td>
+          <td class="center">"Esta página foi útil?"</td>
+          <td class="center"><span class="signal signal--ok">Sim, sempre</span></td>
+          <td class="center"><span class="signal signal--ok">Sim</span></td>
+        </tr>
+        <tr>
+          <td><strong>iFood</strong> — aplicativo de delivery</td>
+          <td class="center">Estrelas + motivos</td>
+          <td class="center"><span class="signal signal--ok">Sim</span></td>
+          <td class="center"><span class="signal signal--mid">Em parte</span></td>
+        </tr>
+        <tr>
+          <td><strong>Uber</strong> — aplicativo de transporte</td>
+          <td class="center">Estrelas obrigatórias</td>
+          <td class="center"><span class="signal signal--bad">Não — bloqueia próxima corrida</span></td>
+          <td class="center"><span class="signal signal--bad">O que evitar</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Regra que não muda:</strong> pedir avaliação nunca pode impedir o cidadão de terminar ou continuar usando o serviço. Avaliar é convite — nunca barreira. É o que a norma federal exige, e é o que separa boa prática de má prática.
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">04 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 05 · Como será a avaliação
+       Pergunta que responde: "Como o cidadão vai avaliar sem ser incomodado?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">Como será</div>
+    <h2>Um único convite no <span class="underline">fim do serviço</span> — sem obstáculo</h2>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step__n">1</div>
+        <div class="flow-step__t">Cidadão termina o serviço</div>
+        <div class="flow-step__d">O Portal sabe que o serviço foi concluído.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__n">2</div>
+        <div class="flow-step__t">Recebe o convite</div>
+        <div class="flow-step__d">Aparece na tela do Portal ou chega por e-mail.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__n">3</div>
+        <div class="flow-step__t">Dá uma nota de 1 a 5</div>
+        <div class="flow-step__d">Única resposta necessária. Cerca de 5 segundos.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__n">4</div>
+        <div class="flow-step__t">Pode comentar se quiser</div>
+        <div class="flow-step__d">Motivos positivos e texto livre — tudo opcional.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__n">5</div>
+        <div class="flow-step__t">O Estado usa o resultado</div>
+        <div class="flow-step__d">Nota agregada no Portal, painel do órgão, série histórica.</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Um convite por uso do serviço.</strong> Se o cidadão volta ao Portal, aparece na tela. Se não volta, chega por e-mail. Nunca os dois. Sem lembrete, sem repetição.
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">05 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 06 · O que vamos perguntar
+       Pergunta que responde: "Que perguntas o cidadão vai ver?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">O que vamos perguntar</div>
+    <h2>Uma pergunta obrigatória + <span class="underline">três opcionais</span></h2>
+
+    <div class="form-mockup">
+      <div class="form-mockup__header">Avaliação do Serviço</div>
+      <div class="form-mockup__title">Emissão de 2ª via de IPVA · Secretaria de Estado de Fazenda</div>
+
+      <div class="form-mockup__q">Como foi a sua experiência com o serviço?</div>
+      <div class="form-mockup__rating">
+        <div class="form-mockup__stars">
+          <span class="form-mockup__star">★</span>
+          <span class="form-mockup__star">★</span>
+          <span class="form-mockup__star">★</span>
+          <span class="form-mockup__star">★</span>
+          <span class="form-mockup__star form-mockup__star--empty">☆</span>
+        </div>
+        <div class="form-mockup__star-labels">
+          <span>Péssima</span><span>Ruim</span><span>Mais ou menos</span><span>Boa</span><span>Excelente</span>
+        </div>
+      </div>
+
+      <div class="form-mockup__q">O que você mais gostou em nosso serviço? (opcional — marque até 3)</div>
+      <div class="form-mockup__cards">
+        <div class="form-mockup__fcard">Fácil de usar</div>
+        <div class="form-mockup__fcard">Site funcionou bem</div>
+        <div class="form-mockup__fcard">Informações claras</div>
+        <div class="form-mockup__fcard">Consegui resolver</div>
+        <div class="form-mockup__fcard">Foi rápido</div>
+        <div class="form-mockup__fcard">Fácil de encontrar</div>
+      </div>
+
+      <div class="form-mockup__q">Deixe elogio, sugestão ou crítica (opcional)</div>
+      <div class="form-mockup__textarea">Para que possamos melhorar o serviço, conte-nos sobre sua experiência.</div>
+
+      <div class="form-mockup__pcd">
+        <div class="form-mockup__q">Você se considera uma pessoa com deficiência? (opcional)</div>
+        <div class="form-mockup__pcd-radios"><span>○ Sim</span><span>○ Não</span></div>
+      </div>
+
+      <div class="form-mockup__actions">
+        <a class="btn primary">Enviar avaliação</a>
+      </div>
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">06 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 07 · O que o Estado vai medir
+       Pergunta que responde: "Como saberemos se está funcionando?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">O que o Estado vai medir</div>
+    <h2>Poucos indicadores, <span class="underline">bem escolhidos</span></h2>
+
+    <div class="indicators">
+      <div class="indicator">
+        <div class="indicator__label">Número principal</div>
+        <div class="indicator__value">Nota média (1 a 5)</div>
+        <div class="indicator__desc">Aparece na página pública do serviço. Meta: 4 ou mais.</div>
+      </div>
+      <div class="indicator">
+        <div class="indicator__label">Leitura executiva</div>
+        <div class="indicator__value">% de cidadãos satisfeitos</div>
+        <div class="indicator__desc">Quantos deram nota 4 ou 5. Meta: 80% ou mais.</div>
+      </div>
+      <div class="indicator">
+        <div class="indicator__label">Confiabilidade</div>
+        <div class="indicator__value">Quantidade de avaliações</div>
+        <div class="indicator__desc">Só publica nota quando houver avaliações suficientes para representar bem o serviço.</div>
+      </div>
+      <div class="indicator">
+        <div class="indicator__label">Diagnóstico</div>
+        <div class="indicator__value">Como as notas se distribuem</div>
+        <div class="indicator__desc">Mostra se há muitos cidadãos insatisfeitos, ou se o serviço divide opiniões.</div>
+      </div>
+      <div class="indicator">
+        <div class="indicator__label">O que preservar</div>
+        <div class="indicator__value">Principais pontos positivos</div>
+        <div class="indicator__desc">O que os cidadãos mais elogiam — para manter no serviço.</div>
+      </div>
+      <div class="indicator">
+        <div class="indicator__label">Recorte regional</div>
+        <div class="indicator__value">Nota por município</div>
+        <div class="indicator__desc">Mostra se a qualidade do serviço varia entre regiões do Estado.</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>O que o público vê é sempre resumo.</strong> Nem o painel público nem os dados abertos mostram avaliação individual. A opinião de cada cidadão fica protegida — só o resultado consolidado é publicado.
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">07 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 08 · Como vamos proteger os dados
+       Pergunta que responde: "O que o Estado garante ao cidadão sobre seus dados?"
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">Como vamos proteger os dados</div>
+    <h2>Coleta <span class="underline">só o necessário</span> — e apenas para melhorar o serviço</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card__tag">O que o Estado vê</div>
+        <ul>
+          <li>A nota que o cidadão deu (1 a 5 estrelas)</li>
+          <li>Os motivos positivos, se marcou algum</li>
+          <li>O comentário escrito, se escreveu algum</li>
+          <li>A autodeclaração de pessoa com deficiência, se respondeu</li>
+          <li>Município onde o serviço foi prestado</li>
+        </ul>
+      </div>
+      <div class="card card--info">
+        <div class="card__tag">O que o Estado NÃO pede</div>
+        <ul>
+          <li>CPF, nome, telefone ou endereço na tela de avaliação</li>
+          <li>Localização exata do cidadão</li>
+          <li>Idade, renda ou escolaridade</li>
+          <li>Rastreadores de anúncios ou de terceiros</li>
+          <li>Detalhes sobre o tipo de deficiência</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="anchor__inner">
+        <div class="anchor__headline">A avaliação usa <strong>obrigação legal de política pública</strong> como base</div>
+        <div class="anchor__caption">Está prevista em lei federal, não depende de consentimento adicional do cidadão. Os dados ficam guardados por até 2 anos e depois viram apenas resumo histórico — sem identificar ninguém.</div>
+      </div>
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">08 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 09 · Recomendação
+       Pergunta que responde: "Qual é a decisão que precisamos tomar?"
+       Autocontido — entendível sem ouvir a apresentação.
+       ========================================================== -->
+  <section class="slide">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Avaliação dos Serviços · Portal MS</div>
+    </header>
+
+    <div class="tag">Recomendação</div>
+    <h2>Adotar um <span class="underline">modelo simples, voluntário e alinhado ao gov.br</span></h2>
+
+    <div class="decision">
+      <h3>Recomendação</h3>
+      <div class="decision__headline">
+        Adotar no Portal MS um modelo de avaliação <strong>simples, voluntário e alinhado ao gov.br</strong>, com adaptação institucional mínima e piloto controlado antes da expansão.
+      </div>
+
+      <h3>Porque</h3>
+      <div class="decision__why">
+        <div>Já existe referência nacional funcionando em escala</div>
+        <div>O cidadão vai poder comparar os serviços do Estado</div>
+        <div>Cumpre a lei do usuário e as regras de proteção de dados</div>
+        <div>Baixo esforço para o cidadão — cerca de 5 segundos</div>
+        <div>Baixo risco técnico — nada de dado novo pedido ao cidadão</div>
+        <div>Permite evolução — novas perguntas podem ser adicionadas depois</div>
+      </div>
+
+      <div class="decision__condition">
+        <strong>Condição:</strong> validar o modelo com as áreas responsáveis antes de expandir. Começar pelos serviços que passam pelo sistema central do Portal. Publicar o contato do Encarregado de dados do Estado e a norma estadual antes do lançamento.
+      </div>
+    </div>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter">09 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ==========================================================
+       Slide 10 · Próximos passos
+       Pergunta que responde: "Se aprovado, o que vem em seguida?"
+       ========================================================== -->
+  <section class="slide cover" style="background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);">
+    <header class="ds-header">
+      <img class="ds-header__logo" src="assets/segov-logo.svg" alt="SEGOV Mato Grosso do Sul">
+      <div class="ds-header__divider"></div>
+      <div class="ds-header__titles">
+        <div class="ds-header__l1">SETDIG</div>
+        <div class="ds-header__l2">Secretaria-Executiva de Transformação Digital</div>
+      </div>
+      <div class="ds-header__spacer"></div>
+      <div class="ds-header__doc-tag">Próximos passos</div>
+    </header>
+
+    <div class="tag" style="background: rgba(255,255,255,0.15); color: var(--color-neutral-050);">Próximos passos</div>
+    <h1 style="color: var(--color-neutral-050);">Vamos
+      <span class="accent" style="color: var(--color-primary-300);">validar, aprender e expandir</span>
+    </h1>
+    <p class="subtitle" style="color: rgba(255,255,255,0.85); font-size: 1.15rem;">
+      Piloto de 3 meses em um serviço de alta demanda; decisão de expansão baseada em resultado, não em intenção.
+    </p>
+
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-item__n">01</div>
+        <div class="step-item__t">Aprovar a recomendação</div>
+        <div class="step-item__d">Deliberação do Secretário Executivo — em 2 semanas.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-item__n">02</div>
+        <div class="step-item__t">Publicar Encarregado e norma estadual</div>
+        <div class="step-item__d">Duas publicações que precisam existir antes do lançamento.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-item__n">03</div>
+        <div class="step-item__t">Escolher o serviço-piloto</div>
+        <div class="step-item__d">Um serviço com bastante uso, para gerar dado suficiente em 4 semanas.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-item__n">04</div>
+        <div class="step-item__t">Aprovar aviso de privacidade e avaliação de impacto</div>
+        <div class="step-item__d">Áreas jurídica e de proteção de dados dão parecer antes de ir ao ar.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-item__n">05</div>
+        <div class="step-item__t">Rodar o piloto — 4 semanas</div>
+        <div class="step-item__d">Coleta real com cidadãos, painel do órgão em uso, triagem dos comentários.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-item__n">06</div>
+        <div class="step-item__t">Decidir com base em resultado</div>
+        <div class="step-item__d">Se validar, expande em ritmo controlado — cerca de 5 novos serviços por mês.</div>
+      </div>
+    </div>
+
+    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 2rem; text-align: center;">
+      Secretaria-Executiva de Transformação Digital — SETDIG · SEGOV-MS · Agosto/2026
+    </p>
+
+    <footer class="ds-footer">
+      <span class="ds-footer__brand" style="color: rgba(255,255,255,0.7);">SEGOV-MS · SETDIG</span>
+      <span class="ds-footer__counter" style="color: rgba(255,255,255,0.7);">10 / 10</span>
+    </footer>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" title="Anterior (←)">←</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" title="Próximo (→)">→</button>
+</div>
+
+<button class="fs-btn" id="fullscreen" title="Tela cheia (F)">⛶</button>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => go(i);
+    dotsContainer.appendChild(dot);
+  });
+  const dots = document.querySelectorAll('.dot');
+
+  function go(i) {
+    if (i < 0 || i >= slides.length) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  document.getElementById('prev').onclick = () => go(current - 1);
+  document.getElementById('next').onclick = () => go(current + 1);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(slides.length - 1); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+  });
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+  document.getElementById('fullscreen').onclick = toggleFullscreen;
+
+  let touchStart = 0;
+  document.addEventListener('touchstart', (e) => touchStart = e.touches[0].clientX);
+  document.addEventListener('touchend', (e) => {
+    const delta = e.changedTouches[0].clientX - touchStart;
+    if (Math.abs(delta) > 50) go(current + (delta < 0 ? 1 : -1));
+  });
+</script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 site_name: Avaliação dos Serviços — Portal MS
-site_description: Estudo sobre modelos, benchmark e proposta de avaliação de serviços do Portal de Serviços do MS
+site_description: Estudo estratégico da SETDIG sobre como o Portal de Serviços do MS vai avaliar seus serviços digitais junto ao cidadão.
 site_author: SETDIG — Secretaria-Executiva de Transformação Digital
 site_url: https://fabioramos-02.github.io/avaliacao-de-servicos/
 
@@ -30,8 +30,6 @@ theme:
 
   features:
     - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.top
     - navigation.indexes
     - toc.follow
@@ -80,58 +78,11 @@ markdown_extensions:
 
 nav:
   - Início: index.md
-
-  - Contexto:
-      - Feature: 01-contexto/feature.md
-      - Objetivos: 01-contexto/objetivos.md
-
-  - Modelos de Avaliação:
-      - Visão geral: 02-modelos/modelos-avaliacao.md
-      - NPS: 02-modelos/nps.md
-      - CSAT: 02-modelos/csat.md
-      - CES: 02-modelos/ces.md
-      - Comparativo: 02-modelos/comparativo.md
-
-  - Benchmark:
-      - Visão geral: 03-benchmark/visao-geral.md
-      - gov.br (referência principal): 03-benchmark/gov-br.md
-      - Central de Qualidade: 03-benchmark/central-de-qualidade.md
-      - Ferramenta de Avaliação: 03-benchmark/ferramenta-de-avaliacao.md
-      - iFood: 03-benchmark/ifood.md
-      - Uber: 03-benchmark/uber.md
-      - Airbnb: 03-benchmark/airbnb.md
-      - Google: 03-benchmark/google.md
-      - Amazon: 03-benchmark/amazon.md
-      - GOV.UK: 03-benchmark/gov-uk.md
-      - Comparativo: 03-benchmark/comparativo.md
-
-  - O que coletar do cidadão:
-      - O que coletar: 04-cidadao/o-que-coletar.md
-      - Perguntas: 04-cidadao/perguntas.md
-      - Dados obrigatórios: 04-cidadao/dados-obrigatorios.md
-      - LGPD: 04-cidadao/lgpd.md
-
-  - Proposta:
-      - Modelo proposto: 05-proposta/modelo-proposto.md
-      - Perguntas: 05-proposta/perguntas.md
-      - Escala: 05-proposta/escala.md
-      - Fluxo: 05-proposta/fluxo.md
-      - Indicadores: 05-proposta/indicadores.md
-      - Matriz de decisão: 05-proposta/matriz-decisao.md
-
-  - Validação:
-      - Estratégia: 06-validacao/estrategia.md
-      - Stakeholders: 06-validacao/stakeholders.md
-      - Critérios de aceite: 06-validacao/criterios-aceite.md
-
-  - Conclusão:
-      - Recomendação: 07-conclusao/recomendacao.md
-      - Decisões: 07-conclusao/decisoes.md
-      - Próximos passos: 07-conclusao/proximos-passos.md
-
-  - Especificação TO BE:
-      - Avaliação de Serviço: 08-to-be/avaliacao-de-servico-to-be.md
-
-  - Pesquisa:
-      - Fontes: pesquisa/fontes.md
-      - Evidências: pesquisa/evidencias.md
+  - 1. Contexto: 01-contexto.md
+  - 2. Referência: 02-referencia.md
+  - 3. Modelo proposto: 03-modelo-proposto.md
+  - 4. Dados e privacidade: 04-dados-e-privacidade.md
+  - 5. Indicadores: 05-indicadores.md
+  - 6. Validação: 06-validacao.md
+  - 7. Recomendação: 07-recomendacao.md
+  - Fontes: pesquisa/fontes.md
