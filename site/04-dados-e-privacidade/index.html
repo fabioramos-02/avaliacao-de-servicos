@@ -1027,9 +1027,9 @@
 <td>Mesmo fundamento; texto voluntário</td>
 </tr>
 <tr>
-<td>Autodeclaração PcD</td>
-<td>Art. 11, II, "b" — execução de política pública para dado sensível</td>
-<td>Deficiência é dado pessoal sensível (art. 5º, II)</td>
+<td>~~Autodeclaração PcD~~</td>
+<td>~~Art. 11, II, "b"~~ — <strong>fora da primeira versão</strong> (decisão D13)</td>
+<td>Deficiência é dado pessoal sensível (art. 5º, II). Sem o bloco, a primeira versão não trata dado sensível e opera só com o art. 7º, III</td>
 </tr>
 <tr>
 <td>Vínculo com o cidadão (<code>id_usuario</code> do IdP) + município do serviço</td>
@@ -1093,8 +1093,8 @@
 </tr>
 <tr>
 <td>Autodeclaração PcD</td>
-<td>Opcional</td>
-<td>Art. 11, II, "b"</td>
+<td><strong>Não</strong> — fora da primeira versão (D13)</td>
+<td>Art. 11, II, "b" quando entrar</td>
 <td>Bruto: 24 meses. Agregado: indefinido</td>
 <td>Booleano</td>
 </tr>
@@ -1196,8 +1196,8 @@
 <td>Prevenção de duplicidade usa <code>id_usuario + id_execucao_orquestrador</code>, não IP</td>
 </tr>
 <tr>
-<td>Tipo específico de deficiência</td>
-<td>Bloco fica em Sim/Não; detalhe abre risco de identificação em serviço de baixo volume</td>
+<td>Qualquer dado sobre deficiência</td>
+<td>O bloco de autodeclaração está fora da primeira versão (D13). Quando entrar, fica em Sim/Não: o tipo específico abre risco de identificação em serviço de baixo volume</td>
 </tr>
 <tr>
 <td>Renda, raça, religião, orientação política ou sexual, saúde</td>
@@ -1236,8 +1236,8 @@
 <ol>
 <li><strong>Canal:</strong> Encarregado (DPO) estadual — <strong>Não identificado</strong> publicamente hoje; pendência bloqueadora antes do go-live.</li>
 <li><strong>Prazo:</strong> 15 dias corridos após solicitação (prática ANPD).</li>
-<li><strong>Escopo do acesso:</strong> cidadão vê suas próprias avaliações por serviço, data, nota, motivos, comentário, PcD e município.</li>
-<li><strong>Retificação:</strong> permitida para nota, motivos, comentário e PcD. Não para dados de operação (<code>id_servico</code>, timestamp, <code>id_execucao_orquestrador</code>).</li>
+<li><strong>Escopo do acesso:</strong> cidadão vê suas próprias avaliações por serviço, data, nota, motivos, comentário e município.</li>
+<li><strong>Retificação:</strong> permitida para nota, motivos e comentário. Não para dados de operação (<code>id_servico</code>, timestamp, <code>id_execucao_orquestrador</code>).</li>
 <li><strong>Eliminação:</strong> apaga o registro individual. Estatísticas agregadas já publicadas não são recomputadas retroativamente (LGPD art. 12 — dado agregado pseudonimizado não é dado pessoal).</li>
 <li><strong>Portabilidade:</strong> exportação em CSV/JSON das próprias avaliações.</li>
 <li><strong>Revisão de decisão automatizada:</strong> não se aplica — o instrumento não toma decisão automatizada sobre o cidadão.</li>
@@ -1262,7 +1262,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Nota + motivos + PcD + município + metadados de serviço</td>
+<td>Nota + motivos + município + metadados de serviço</td>
 <td>24 meses no estado identificado; após, pseudonimização + retenção indefinida em forma agregada</td>
 <td>Dois ciclos anuais para análise de sazonalidade</td>
 </tr>
@@ -1304,8 +1304,8 @@ telefone ou endereço nesta tela — usamos apenas o vínculo com a sua
 conta.
 
 Coletamos: a nota que você deu, os motivos positivos que você marcou
-(se marcou), o comentário que você escreveu (se escreveu), a
-autodeclaração de deficiência (se respondeu) e o município do serviço.
+(se marcou), o comentário que você escreveu (se escreveu) e o
+município do serviço.
 Guardamos também o identificador da sua conta, o identificador do
 serviço avaliado, o identificador da execução do serviço no
 orquestrador X-VIA e a data.
@@ -1397,11 +1397,11 @@ execução de política pública prevista na Lei nº 13.460/2017.
 <li>Revisão anual do desenho do instrumento com participação do DPO e da Ouvidoria.</li>
 <li>Log de acesso ao painel com trilha de auditoria (5 anos).</li>
 <li>Plano de resposta a incidente documentado.</li>
-<li><strong>RIPD (Relatório de Impacto à Proteção de Dados)</strong> — obrigatório antes do go-live pela combinação de (a) tratamento identificado em larga escala, (b) dado sensível (autodeclaração PcD), (c) uso do dado para retorno individual via e-mail transacional.</li>
+<li><strong>RIPD (Relatório de Impacto à Proteção de Dados)</strong> — necessário antes do go-live pela combinação de (a) tratamento identificado em larga escala e (b) uso do dado para retorno individual via e-mail transacional. A primeira versão não trata dado sensível, porque a autodeclaração PcD ficou fora (D13); se o bloco entrar, o relatório precisa ser revisto antes.</li>
 </ol>
 <h2 id="cidadao-vulneravel">Cidadão vulnerável<a class="headerlink" href="#cidadao-vulneravel" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>PcD:</strong> bloco opcional e binário; nunca cruzar com serviço específico em publicação quando amostra for pequena.</li>
+<li><strong>PcD:</strong> a primeira versão não pergunta (D13). Quando o bloco entrar, fica opcional e binário, e nunca deve ser cruzado com serviço específico em publicação quando a amostra for pequena.</li>
 <li><strong>Idoso:</strong> priorizar linguagem simples, fontes maiores, alto contraste no formulário. Não perguntar idade — não é necessária.</li>
 <li><strong>Criança:</strong> avaliação é do serviço, não da criança; se responsável responde por menor, não coletar dado do menor.</li>
 <li><strong>Cidadão não-alfabetizado digital:</strong> considerar canal alternativo (totem físico, avaliação verbal via atendente) — fora do escopo digital deste documento, mas registrado para consistência de política.</li>

@@ -10,14 +10,16 @@ Adotar no Portal MS um **modelo de avaliação simples, voluntário e alinhado a
 2. **Comparabilidade.** MS entra no mesmo referencial dos demais entes que caminham para adesão ao modelo federal.
 3. **Aderência legal.** Lei nº 13.460/2017 exige avaliação; LGPD exige minimização. O modelo gov.br já foi desenhado para atender ambos.
 4. **Baixo risco técnico.** Formulário simples, sem integração complexa, sem coleta de dado novo do cidadão além do que já entra pelo login.
-5. **Baixo atrito para o cidadão.** 1 pergunta obrigatória + 3 opcionais; ~5 segundos no mínimo, ~80 segundos no máximo.
+5. **Baixo atrito para o cidadão.** 1 pergunta obrigatória + 2 opcionais na primeira versão; ~5 segundos no mínimo, ~80 segundos no máximo.
 
 ## O que será adotado
 
 - Pergunta: *"Como foi a sua experiência com o serviço?"*
 - Escala: 5 estrelas rotuladas — Péssima / Ruim / Mais ou menos / Boa / Excelente.
-- 3 blocos opcionais: motivos positivos (6 cards, até 3) + comentário aberto (2000 caracteres) + autodeclaração PcD.
-- Momento: convite único ao concluir o serviço. **Nunca bloqueia.**
+- 2 blocos opcionais na primeira versão: motivos positivos (6 cards, até 3) + comentário aberto (2000 caracteres).
+- Autodeclaração PcD prevista no padrão gov.br, **adiada** para quando existir painel que leia o recorte de acessibilidade.
+- Momento: ao concluir o serviço, convite na tela do Portal e e-mail, sempre. **Nunca bloqueia.**
+- Reavaliação do mesmo serviço pelo mesmo cidadão: só depois de 10 dias.
 - Identificação: cidadão logado no Portal MS. Registram-se `id_usuario` e município do serviço finalístico. **Nenhum campo novo de identificação no formulário.**
 - Indicador principal: nota média (1–5) + % Satisfeitos (notas 4 e 5).
 - Meta orientativa: nota média ≥ 4,0 e % Satisfeitos ≥ 80%.
@@ -118,12 +120,14 @@ Cada linha responde: **o que foi decidido, quando, por quem, com base em quê**.
 | D4 | 2026-08-18 | Anônimo por default; sem CPF, e-mail ou nome | Estudo | LGPD art. 6º, III + prática gov.br |
 | D5 | 2026-08-18 | Indicador principal: nota média + % Satisfeitos | Estudo | Duplo indicador cobre cidadão e gestor |
 | D6 | 2026-08-18 | Recomendação: alternativa B (gov.br + adaptação MS leve) | Estudo | Nota 163/195 na comparação |
-| D7 | 2026-08-18 | Convite único, nunca bloquear | Estudo | Portaria SGD/ME nº 548/2022 art. 7º §3º |
-| D8 | 2026-08-18 | Retenção: 5 anos bruto, 3 anos dado sensível PcD | Estudo | LGPD art. 6º III + proporcionalidade |
+| D7 | 2026-08-18 | Convite único, nunca bloquear | Estudo | Portaria SGD/ME nº 548/2022 art. 7º §3º (parcialmente revogada pela D14: o canal único cai, a vedação de bloquear permanece) |
+| D8 | 2026-08-18 | Retenção: 5 anos bruto, 3 anos dado sensível PcD | Estudo | LGPD art. 6º III + proporcionalidade (revogada por D12; o trecho de dado sensível fica suspenso enquanto valer a D13) |
 | D9 | 2026-08-18 | Piloto de 3 meses antes de escalar | Estudo | Reduz risco + gera dado para calibração |
 | **D10** | **2026-08-25** | **Revoga D4.** Avaliação passa a ser **identificada** (usuário logado + município do serviço finalístico). Base LGPD: execução de política pública (art. 7º III + art. 11 II "b"), não mais anonimato | SGD | Permite retorno ao cidadão, análise por perfil/localização e integração com histórico do Portal |
 | **D11** | **2026-08-25** | Escopo restrito a **serviços que nascem no orquestrador X-VIA**. Serviços fora ficam de fora nesta onda | SGD | Sem orquestrador não há sinal confiável de conclusão do serviço |
 | **D12** | **2026-08-25** | Ajuste de retenção: 24 meses no estado identificado, 12 meses no comentário aberto, pseudonimização em agregado histórico. Revoga D8 | SGD | Combina exercício de direitos do titular, análise anual e redução de risco |
+| **D13** | **2026-09-02** | **Autodeclaração PcD fica fora da primeira versão.** Divergência consciente do padrão gov.br. O bloco entra quando existir painel que leia o recorte de acessibilidade | SETDIG | Sem leitor do dado, a coleta de dado sensível é excesso (LGPD art. 6º III). Sem ele, a v1 dispensa o art. 11 II "b", encurta o RIPD e a retenção diferenciada |
+| **D14** | **2026-09-02** | **Revoga a parte de canal único da D7.** O convite passa a sair nos dois canais: tela do Portal ao concluir o serviço **e** e-mail, sempre. Quem já avaliou recebe e-mail de agradecimento, sem link. Em contrapartida, o mesmo cidadão só reavalia o mesmo serviço **após 10 dias** | SETDIG | Alcança quem sai do Portal e não volta, sem transformar o e-mail em cobrança. A regra dos 10 dias passa a ser o limite ao excesso, no lugar do canal único. A vedação de bloquear o serviço (D7) permanece intacta |
 
 ### Decisões pendentes — a tomar na validação
 

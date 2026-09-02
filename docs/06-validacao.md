@@ -27,7 +27,9 @@ Confirmar que o modelo proposto:
 
 ### Encarregado (DPO) estadual — bloqueio a resolver
 
-Valida base legal, prazo de retenção, texto do aviso, política de pseudonimização, regra de publicação (só agregado, corte ≥ 10) e o **Relatório de Impacto à Proteção de Dados (RIPD)** — obrigatório antes do go-live pela combinação de identificação + dado sensível (PcD) + uso para retorno individual via e-mail.
+Valida base legal, prazo de retenção, texto do aviso, política de pseudonimização, regra de publicação (só agregado, corte ≥ 10) e o **Relatório de Impacto à Proteção de Dados (RIPD)** — necessário antes do go-live pela combinação de avaliação identificada + uso para retorno individual via e-mail.
+
+`[INTERPRETAÇÃO]` Sem a autodeclaração PcD na primeira versão (decisão D13), o instrumento deixa de tratar dado sensível. O RIPD continua exigido pela identificação e pelo retorno por e-mail, mas com escopo menor. Se o bloco voltar, o relatório precisa ser revisto antes.
 
 ## Serviço piloto — critérios de escolha
 
@@ -82,9 +84,9 @@ Prazo total ≈ **13 semanas** (aproximadamente 3 meses) até a decisão de impl
 
 ### Aceite jurídico (Jurídico / DPO)
 
-- [ ] Base legal LGPD documentada: art. 7º, III (execução de política pública) + art. 11, II, "b" (política pública para dado sensível — PcD).
+- [ ] Base legal LGPD documentada: art. 7º, III (execução de política pública). O art. 11, II, "b" só volta a ser necessário quando a autodeclaração PcD entrar (decisão D13).
 - [ ] Aviso de privacidade escrito e aprovado — reflete que a avaliação é identificada via login do Portal.
-- [ ] Política de retenção formalizada: 24 meses bruto (nota/motivos/PcD/metadados/`id_usuario`), 12 meses comentário aberto, agregado indefinido em forma pseudonimizada.
+- [ ] Política de retenção formalizada: 24 meses bruto (nota/motivos/metadados/`id_usuario`), 12 meses comentário aberto, agregado indefinido em forma pseudonimizada.
 - [ ] Escopo confirmado: apenas serviços que nascem no orquestrador X-VIA.
 - [ ] Publicação em painel público e dados abertos respeita corte mínimo (≥ 10 avaliações por agregação) e só sai em forma agregada.
 - [ ] Direitos do titular (LGPD art. 18) endereçados: cidadão logado consegue acessar, retificar ou eliminar suas avaliações via canal do DPO; procedimento documentado com prazo de 15 dias.

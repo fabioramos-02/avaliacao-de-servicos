@@ -25,7 +25,20 @@ Outros benchmarks (iFood, Uber, Airbnb, GOV.UK) são referências secundárias. 
 - Campo aberto opcional (até 2000 chars).
 - Bloco acessibilidade opcional (autodeclaração PcD).
 
-**Princípio jurídico crítico** (art. 7º §3º Portaria 548/2022): a avaliação nunca pode ser etapa obrigatória da jornada do cidadão. Convite único, nunca bloquear serviço.
+**Princípio jurídico crítico** (art. 7º §3º Portaria 548/2022): a avaliação nunca pode ser etapa obrigatória da jornada do cidadão. Nunca bloquear o serviço.
+
+## Onde o modelo MS já diverge do gov.br (decisões vigentes)
+
+Toda divergência tem justificativa em `docs/07-recomendacao.md`, seção "Registro de decisões". As vigentes:
+
+| # | Decisão | Efeito |
+|---|---|---|
+| **D10** | Avaliação **identificada** (não anônima), via login gov.br no Portal | Base LGPD passa a ser execução de política pública |
+| **D11** | Escopo restrito a serviços que nascem no orquestrador X-VIA | Sem X-VIA, não há sinal de conclusão |
+| **D13** | **Autodeclaração PcD fica fora da primeira versão** | v1 não trata dado sensível; o bloco volta com o painel da Fase 3 |
+| **D14** | **Convite nos dois canais** — tela do Portal **e** e-mail, sempre; quem já avaliou recebe agradecimento, sem link. Em troca, **reavaliação do mesmo serviço só depois de 10 dias** | Revoga a parte de canal único da D7; a vedação de bloquear permanece |
+
+Ao editar qualquer doc, conferir se o texto ainda bate com essas decisões antes de escrever.
 
 **Framework técnico gov.br**: 7 dimensões × 5 atributos = 35 padrões (Autodiagnóstico do gestor, não confundir com os 6 cards mostrados ao cidadão).
 
@@ -60,11 +73,16 @@ avaliacao-de-servicos/
 │   ├── 05-proposta/         Modelo MS + matriz decisão
 │   ├── 06-validacao/        Estratégia com stakeholders
 │   └── 07-conclusao/        Recomendação
+├── apresentacoes/
+│   └── avaliacao-servicos-portal-ms.html   Apresentação executiva (10 slides, tokens do DS)
+├── Avaliacao de Servicos  TO BE v1.docx    Pacote de entrega da Fase 1 — gerado pelo vault, não editar à mão
 └── pesquisa/
     ├── fontes.md            Bibliografia consolidada
     ├── evidencias.md        Trechos-chave
     └── notas/               Notas cruas dos agentes de pesquisa
 ```
+
+Os nomes reais dos arquivos em `docs/` são planos: `01-contexto.md`, `02-referencia.md`, `03-modelo-proposto.md`, `04-dados-e-privacidade.md`, `05-indicadores.md`, `06-validacao.md`, `07-recomendacao.md`.
 
 ## Design system
 
@@ -106,7 +124,8 @@ Status atual sempre em `contexto.md`.
 - Lei 13.460/2017 — Código de Defesa do Usuário de Serviço Público (obriga avaliação).
 - Lei 13.709/2018 — LGPD (base legal: execução de política pública, art. 7º III; minimização, art. 6º III).
 - Decreto federal 9.094/2017 — simplificação de serviços.
-- Estadual: verificar decretos SETDIG específicos em `10-conhecimento/setdig/` do vault do Fabio se necessário.
+- Lei 15.263/2025 — linguagem simples nos textos ao cidadão (telas e e-mails).
+- Estadual: decretos SETDIG em `10-conhecimento/setdig/` do vault (ver seção do vault acima).
 
 ## Contatos SETDIG (referência)
 
@@ -114,6 +133,34 @@ Status atual sempre em `contexto.md`.
 - Superintendência de Governo Digital — SGD (responsável direta pelo Portal).
 - Superintendência de Tecnologia da Informação — STI (implementação).
 - Secretário Executivo: Robson Roberto Duarte de Alencar.
+
+## Vault Obsidian do Fabio — contexto que vive fora deste repo
+
+Caminho: `C:\Users\framos\Documents\SETDIG\conhecimento-obsidian`
+
+Este repo é o **estudo**. O vault guarda o **projeto**: o que foi combinado com a Xvia, o que virou entrega e o histórico das reuniões. Consultar antes de assumir que algo não está decidido.
+
+| Nota | O que tem |
+|---|---|
+| `20-projeto/xvia-migracao-eds/XviaMigracaoEDS.md` | MOC do projeto Xvia — módulos, contrato, marco legal, reuniões |
+| `20-projeto/xvia-migracao-eds/pacotes-to-be/00-pacotes-to-be.md` | Método dos pacotes de entrega TO BE, feedback da Xvia e decisões de formato |
+| `20-projeto/xvia-migracao-eds/pacotes-to-be/insumos-avaliacao-servicos.md` | Insumos e decisões desta funcionalidade, do lado do projeto |
+| `20-projeto/xvia-migracao-eds/pacotes-to-be/gerar-avaliacao-servicos.py` | **Gera o DOCX** `Avaliacao de Servicos  TO BE v1.docx` e copia para a raiz deste repo |
+| `20-projeto/xvia-migracao-eds/pacotes-to-be/Template - Pacote de Entrega TO BE v2.docx` | Template dos pacotes entregues à Xvia |
+| `40-reunioes/[X-VIA] 28-07-26 ...md` | Reunião que definiu o modelo anterior (positivo/negativo), depois superado |
+
+### Estudo x pacote de entrega — não confundir
+
+- **Este repo (estudo):** por que o modelo é assim, o que diz o gov.br, base legal, indicadores, plano de validação. Linguagem de diretoria.
+- **DOCX TO BE (vault):** o que a Xvia precisa construir na Fase 1 — campos, regras numeradas (RN-XX), pendências (P-XX). Linguagem de especificação para fornecedor.
+
+Os dois contam a mesma história. Mudou regra aqui, conferir o DOCX; mudou no DOCX, conferir aqui. **O DOCX não se edita à mão** — altera-se o script no vault e roda-se de novo; ele salva no vault e copia para este repo.
+
+### Fases do projeto (o DOCX cobre só a Fase 1)
+
+1. **Fase 1** — formulário de avaliação e suas regras, online e presencial.
+2. **Fase 2** — sincronização das avaliações com o gov.br.
+3. **Fase 3** — gestão dos dados e indicadores (painéis, moderação, leitura por órgão).
 
 ## Fora de escopo deste estudo
 

@@ -8,8 +8,10 @@
 |---|---|
 | Pergunta | *"Como foi a sua experiência com o serviço?"* |
 | Escala | 5 estrelas rotuladas — Péssima / Ruim / Mais ou menos / Boa / Excelente |
-| Perguntas opcionais | Motivos positivos (6 cards, marca até 3) · comentário aberto (2000 caracteres) · autodeclaração PcD |
-| Momento | Convite único ao concluir o serviço. **Nunca bloqueia.** |
+| Perguntas opcionais | Motivos positivos (6 cards, marca até 3) · comentário aberto (2000 caracteres) |
+| Fora da primeira versão | Autodeclaração PcD — bloco previsto no padrão gov.br, adiado (ver Bloco 4) |
+| Momento | Ao concluir o serviço: convite na tela do Portal **e** e-mail. **Nunca bloqueia.** |
+| Reavaliação | O mesmo cidadão só avalia o mesmo serviço de novo depois de **10 dias** |
 | Identificação | Cidadão logado no Portal MS. Registram-se id do usuário e município do serviço finalístico. **Nenhum campo novo de identificação no formulário.** |
 | Indicador principal | Nota média (1–5) + % Satisfeitos (nota 4 e 5) |
 
@@ -65,15 +67,19 @@ Duas decisões da Superintendência de Governo Digital estreitam o escopo origin
 
 **Moderação:** o texto passa por triagem antes de qualquer uso. Detalhes em [Dados e privacidade](04-dados-e-privacidade.md).
 
-### Bloco 4 — Autodeclaração PcD (opcional)
+### Bloco 4 — Autodeclaração PcD (fora da primeira versão)
 
-**Título do bloco:** *"Ajude-nos a melhorar a acessibilidade (opcional)"*
+`[RECOMENDAÇÃO]` **Decisão de 2026-09-02: o bloco não entra na primeira versão do formulário.**
 
-**Aviso:** *"Para garantir que nossos serviços atendam todas as pessoas, gostaríamos de saber mais sobre você."*
+O padrão gov.br prevê o bloco de acessibilidade — *"Você se considera uma pessoa com deficiência?"*, Sim / Não, em área visualmente separada. Esta é, portanto, uma **divergência consciente do modelo âncora**, e a justificativa é a seguinte:
 
-**Enunciado:** *"Você se considera uma pessoa com deficiência?"* — Sim / Não.
+1. **Não há uso definido para o dado na primeira versão.** O recorte de acessibilidade depende de painel e leitura de resultados, que pertencem à etapa seguinte do projeto. Coletar antes de existir quem leia contraria a regra do próprio estudo: o uso do dado precisa estar declarado antes de o campo ser criado.
+2. **Minimização (LGPD art. 6º, III).** Deficiência é dado pessoal sensível (art. 5º, II). Sem finalidade ativa, a coleta é excesso.
+3. **Simplifica o go-live.** Sem dado sensível, a primeira versão dispensa a base legal do art. 11, II, "b", reduz o escopo do Relatório de Impacto à Proteção de Dados e elimina o prazo de retenção diferenciado.
 
-Bloco visualmente separado do restante. Dado pessoal sensível (LGPD art. 5º, II). Base legal: execução de política pública para dado sensível (art. 11, II, "b").
+**Quando volta:** junto com o painel de resultados, quando existir destino declarado para o recorte de acessibilidade — responsável pela leitura, indicador definido e ação prevista a partir do resultado. O texto, o formato e a base legal já estão prontos acima para reuso, sem retrabalho.
+
+`[INTERPRETAÇÃO]` Adiar não é abandonar. O bloco é o único ponto do formulário que enxerga desigualdade de acesso; entrar sem leitor apenas produziria dado parado.
 
 ### Botão de envio
 
@@ -94,10 +100,10 @@ Reduz a chance de nota mal atribuída ao serviço errado.
 | 1 | Nota (5 estrelas) | Sim | ~5s | Baixo |
 | 2 | Motivos positivos | Não | ~10s | Nulo |
 | 3 | Comentário aberto | Não | 0–60s | Nulo |
-| 4 | Autodeclaração PcD | Não | ~5s | Nulo |
 | — | Botão enviar | — | ~1s | — |
+| 4 | ~~Autodeclaração PcD~~ | Fora da primeira versão | — | — |
 
-`[FATO]` Microsurveys de 2–3 perguntas atingem 86,8% de conclusão; formulários de 4–6 perguntas caem para 77,4% (Survicate 2025). O modelo abaixo tem **1 pergunta obrigatória + 3 opcionais** — cidadão apressado envia em 5 segundos; interessado gasta até 80 segundos. Isso preserva a conclusão sem sacrificar profundidade.
+`[FATO]` Microsurveys de 2–3 perguntas atingem 86,8% de conclusão; formulários de 4–6 perguntas caem para 77,4% (Survicate 2025). O modelo do gov.br tem 1 pergunta obrigatória + 3 opcionais; a primeira versão do MS entra com **1 obrigatória + 2 opcionais** — cidadão apressado envia em 5 segundos; interessado gasta até 80 segundos. Isso preserva a conclusão sem sacrificar profundidade.
 
 `[HIPÓTESE]` Meta de taxa de resposta esperada para o Portal MS: **entre 5% e 15% dos usuários únicos** que concluem serviço, alinhada ao intervalo típico de instrumentos de satisfação em governo digital. **Não identificada** taxa oficial pública do gov.br para calibração precisa.
 
@@ -113,7 +119,7 @@ graph TD
     E -- Não --> G[Portal dispara e-mail com link único de avaliação]
     F --> H{Cidadão aceita?}
     G --> H
-    H -- Sim --> I[Formulário: 1 obrigatório + 3 opcionais]
+    H -- Sim --> I[Formulário: 1 obrigatório + 2 opcionais]
     H -- Não --> Z[Fluxo termina. Cidadão prossegue sem prejuízo.]
     I --> J[Envio]
     J --> K[Tela: 'Obrigado. Sua opinião foi registrada.']
@@ -130,7 +136,7 @@ graph TD
 1. O sistema do órgão avisa o orquestrador X-VIA que o serviço terminou.
 2. O Portal dispara o e-mail em janela curta (5–60 minutos) para preservar a recência da experiência.
 3. Link assinado, com validade limitada e uso único.
-4. Convite único por execução — tela **ou** e-mail, nunca os dois.
+4. **O e-mail sai sempre**, inclusive para quem já avaliou na tela do Portal (decisão D14, 2026-09-02). Muda o conteúdo, não o envio: quem já avaliou recebe agradecimento, sem link de avaliação; quem não avaliou recebe o convite com o link.
 
 **Pendência técnica:** o sinal de conclusão do serviço vem do sistema do órgão para o X-VIA. **Não identificado** se todos os sistemas finalísticos publicam esse evento com padrão único. Precisa ser confirmado com o time do X-VIA antes de estimar prazo.
 
@@ -138,7 +144,8 @@ graph TD
 
 ## Regras críticas do fluxo
 
-1. **Convite único.** Uma execução do serviço = um convite. Tela **ou** e-mail, nunca os dois. Sem retry, sem lembrete.
+1. **Um convite por execução, nos dois canais.** A tela do Portal convida ao concluir o serviço e o e-mail sai em seguida, sempre. Não há retry nem lembrete: cada execução gera exatamente um convite em tela e um e-mail, e o e-mail de quem já avaliou é de agradecimento, não de cobrança.
+1-A. **Reavaliação só depois de 10 dias.** O mesmo cidadão só pode avaliar o mesmo serviço novamente após 10 dias da última avaliação. Dentro desse prazo, o convite em tela não aparece e o e-mail sai sem link de avaliação. Prazo parametrizável, com 10 dias como padrão.
 2. **Nunca bloquear.** Fechar/pular sempre disponível. Cumpre art. 7º, §3º da Portaria SGD/ME nº 548/2022.
 3. **Identificação vem do login.** Cidadão já está logado no Portal para acessar o serviço via X-VIA — a avaliação usa a mesma sessão. **Nenhum campo novo de identificação é solicitado no formulário.**
 4. **Prevenção de duplicidade.** Chave `id_usuario + id_execucao_orquestrador` impede múltiplas avaliações da mesma execução.
@@ -154,7 +161,7 @@ graph TD
 - 6 cards de motivos positivos.
 - Comentário aberto opcional, 2000 caracteres.
 - Bloco de acessibilidade opcional.
-- Convite único, nunca bloqueia.
+- Momento do convite (ao concluir o serviço) e a regra de nunca bloquear.
 
 ### Difere (com justificativa)
 
@@ -163,6 +170,8 @@ graph TD
 | Plataforma | Ferramenta central SGD/MGI | Instrumento próprio do Portal MS | Adesão federal para entes subnacionais não formalizada. Replica-se o modelo. |
 | Identificação | Anônima por design | **Identificada** — usuário logado + município do serviço finalístico | Decisão SGD 2026-08-25. Permite retorno ao cidadão, análise por perfil/localização e integração com histórico do Portal. Base LGPD: execução de política pública. |
 | Escopo | Todo serviço federal integrado | Apenas serviços que nascem no orquestrador X-VIA | Sem orquestrador não há sinal confiável de conclusão. |
+| Canal do convite | Um convite por execução, em um canal só | Convite na tela **e** e-mail, sempre | Decisão D14 (2026-09-02). O e-mail garante alcance de quem sai do Portal e não volta; quem já avaliou recebe agradecimento, não novo pedido. O limite ao excesso passa a ser a regra dos 10 dias. |
+| Reavaliação | Uma avaliação por execução do serviço | Uma por execução **e** intervalo mínimo de 10 dias para o mesmo serviço | Decisão D14. Impede que execuções seguidas do mesmo serviço virem sequência de pedidos de avaliação ao mesmo cidadão. |
 | Publicação | Painel Central de Qualidade + dados.gov.br | Painel MS + `dados.ms.gov.br` (fase 2) | Início com painel próprio; explorar conexão com federal em fase 2. |
 
 ## Extensibilidade do formulário

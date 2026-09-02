@@ -30,9 +30,9 @@ Publicar **os dois**. A nota média conversa com o cidadão (comparável ao "4,3
 | 6 | Top motivos positivos | ranking dos 6 cards nas notas 4 e 5 | O que preservar |
 | 7 | Ranking de serviços | ordenação por nota média, com N mínimo de 30 | Priorização de melhoria |
 | 8 | Variação mensal | média do mês − média do mês anterior | Alerta de queda |
-| 9 | % de avaliações de PcD | n_pcd ÷ N × 100 | Recorte de acessibilidade |
+| 9 | % de avaliações de PcD | n_pcd ÷ N × 100 | Recorte de acessibilidade — **indisponível na primeira versão**, depende do bloco adiado pela decisão D13 |
 | 10 | Nota média por município | agregada por `municipio_servico_ibge`, com N mínimo de 10 por município | Diferenças regionais |
-| 11 | Efetividade do convite | avaliações por origem (tela vs. e-mail) ÷ convites emitidos × 100 | Ajuste do disparador e do link único |
+| 11 | Efetividade do convite | avaliações por origem (tela vs. e-mail) ÷ execuções de serviço × 100 | Compara os dois canais, que agora convivem (D14). Denominador é a execução do serviço, não o convite, porque cada execução gera convite nos dois canais |
 
 ## Indicadores propostos para o contrato de gestão
 

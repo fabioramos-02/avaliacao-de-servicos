@@ -27,7 +27,7 @@
 |---|---|---|
 | Nota + motivos positivos | Art. 7º, III — execução de política pública | Cumpre obrigação legal da Lei nº 13.460/2017 art. 23 |
 | Comentário aberto | Art. 7º, III — execução de política pública | Mesmo fundamento; texto voluntário |
-| Autodeclaração PcD | Art. 11, II, "b" — execução de política pública para dado sensível | Deficiência é dado pessoal sensível (art. 5º, II) |
+| ~~Autodeclaração PcD~~ | ~~Art. 11, II, "b"~~ — **fora da primeira versão** (decisão D13) | Deficiência é dado pessoal sensível (art. 5º, II). Sem o bloco, a primeira versão não trata dado sensível e opera só com o art. 7º, III |
 | Vínculo com o cidadão (`id_usuario` do IdP) + município do serviço | Art. 7º, III — execução de política pública | Identificação vem do login já existente; município vem do orquestrador X-VIA. Usados para (a) prevenir duplicidade, (b) permitir retorno ao cidadão via e-mail, (c) análise por perfil/localização. |
 | Metadados técnicos (timestamp, `id_execucao_orquestrador`) | Art. 7º, III + art. 16, II | Necessários para operação, agregação temporal e prevenção de duplicidade |
 
@@ -57,7 +57,7 @@ A **divergência em relação ao gov.br** (que é anônimo por design) é justif
 | Nota (1–5 estrelas) | **Obrigatório** | Art. 7º, III | Bruto: 24 meses. Agregado: indefinido | Inteiro 1–5 |
 | Motivos positivos (6 cards, até 3) | Opcional | Art. 7º, III | Bruto: 24 meses. Agregado: indefinido | Lista de códigos |
 | Comentário aberto | Opcional | Art. 7º, III | Bruto: 12 meses (com triagem). Agregado: indefinido | Texto até 2000 caracteres |
-| Autodeclaração PcD | Opcional | Art. 11, II, "b" | Bruto: 24 meses. Agregado: indefinido | Booleano |
+| Autodeclaração PcD | **Não** — fora da primeira versão (D13) | Art. 11, II, "b" quando entrar | Bruto: 24 meses. Agregado: indefinido | Booleano |
 | `id_usuario` (ref. ao IdP gov.br / conta Portal MS) | **Sempre** (vem do login) | Art. 7º, III | Bruto: 24 meses. Após: pseudonimização em agregados históricos | Identificador do IdP — **não é CPF em claro** |
 | Município do serviço finalístico | **Sempre** (vem do X-VIA) | Art. 7º, III | Bruto: 24 meses. Agregado: indefinido | Código IBGE do município |
 | `id_servico`, `id_orgao` | **Sempre** | Metadado — não é dado pessoal | Indefinido | Chave técnica |
@@ -82,7 +82,7 @@ Lista negativa explícita, publicada no aviso de privacidade:
 | Endereço | Município do serviço já cobre a necessidade regional |
 | Geolocalização precisa (GPS) | Município é suficiente; GPS é excessivo |
 | IP completo | Prevenção de duplicidade usa `id_usuario + id_execucao_orquestrador`, não IP |
-| Tipo específico de deficiência | Bloco fica em Sim/Não; detalhe abre risco de identificação em serviço de baixo volume |
+| Qualquer dado sobre deficiência | O bloco de autodeclaração está fora da primeira versão (D13). Quando entrar, fica em Sim/Não: o tipo específico abre risco de identificação em serviço de baixo volume |
 | Renda, raça, religião, orientação política ou sexual, saúde | Sensíveis (art. 5º, II) sem nexo com a finalidade |
 | Cookies de terceiros / rastreadores publicitários | Sem finalidade no instrumento |
 
@@ -119,8 +119,8 @@ Quatro regras práticas:
 
 1. **Canal:** Encarregado (DPO) estadual — **Não identificado** publicamente hoje; pendência bloqueadora antes do go-live.
 2. **Prazo:** 15 dias corridos após solicitação (prática ANPD).
-3. **Escopo do acesso:** cidadão vê suas próprias avaliações por serviço, data, nota, motivos, comentário, PcD e município.
-4. **Retificação:** permitida para nota, motivos, comentário e PcD. Não para dados de operação (`id_servico`, timestamp, `id_execucao_orquestrador`).
+3. **Escopo do acesso:** cidadão vê suas próprias avaliações por serviço, data, nota, motivos, comentário e município.
+4. **Retificação:** permitida para nota, motivos e comentário. Não para dados de operação (`id_servico`, timestamp, `id_execucao_orquestrador`).
 5. **Eliminação:** apaga o registro individual. Estatísticas agregadas já publicadas não são recomputadas retroativamente (LGPD art. 12 — dado agregado pseudonimizado não é dado pessoal).
 6. **Portabilidade:** exportação em CSV/JSON das próprias avaliações.
 7. **Revisão de decisão automatizada:** não se aplica — o instrumento não toma decisão automatizada sobre o cidadão.
@@ -140,7 +140,7 @@ Quatro regras práticas:
 
 | Categoria | Prazo | Justificativa |
 |---|---|---|
-| Nota + motivos + PcD + município + metadados de serviço | 24 meses no estado identificado; após, pseudonimização + retenção indefinida em forma agregada | Dois ciclos anuais para análise de sazonalidade |
+| Nota + motivos + município + metadados de serviço | 24 meses no estado identificado; após, pseudonimização + retenção indefinida em forma agregada | Dois ciclos anuais para análise de sazonalidade |
 | Vínculo `id_usuario` ↔ avaliação | 24 meses | Suficiente para retorno ao cidadão, atendimento a direitos do titular e análise por perfil |
 | Comentário aberto | 12 meses no estado bruto (pós-triagem); após, descarte ou consolidação em relatório qualitativo agregado pseudonimizado | Texto tem maior potencial de reidentificação; ciclo mais curto |
 | `id_execucao_orquestrador` (X-VIA) | 24 meses | Necessário para prevenção de duplicidade |
@@ -161,8 +161,8 @@ telefone ou endereço nesta tela — usamos apenas o vínculo com a sua
 conta.
 
 Coletamos: a nota que você deu, os motivos positivos que você marcou
-(se marcou), o comentário que você escreveu (se escreveu), a
-autodeclaração de deficiência (se respondeu) e o município do serviço.
+(se marcou), o comentário que você escreveu (se escreveu) e o
+município do serviço.
 Guardamos também o identificador da sua conta, o identificador do
 serviço avaliado, o identificador da execução do serviço no
 orquestrador X-VIA e a data.
@@ -220,11 +220,11 @@ Se houver fornecedor operando a infraestrutura, formalizar como **operador** (LG
 1. Revisão anual do desenho do instrumento com participação do DPO e da Ouvidoria.
 2. Log de acesso ao painel com trilha de auditoria (5 anos).
 3. Plano de resposta a incidente documentado.
-4. **RIPD (Relatório de Impacto à Proteção de Dados)** — obrigatório antes do go-live pela combinação de (a) tratamento identificado em larga escala, (b) dado sensível (autodeclaração PcD), (c) uso do dado para retorno individual via e-mail transacional.
+4. **RIPD (Relatório de Impacto à Proteção de Dados)** — necessário antes do go-live pela combinação de (a) tratamento identificado em larga escala e (b) uso do dado para retorno individual via e-mail transacional. A primeira versão não trata dado sensível, porque a autodeclaração PcD ficou fora (D13); se o bloco entrar, o relatório precisa ser revisto antes.
 
 ## Cidadão vulnerável
 
-- **PcD:** bloco opcional e binário; nunca cruzar com serviço específico em publicação quando amostra for pequena.
+- **PcD:** a primeira versão não pergunta (D13). Quando o bloco entrar, fica opcional e binário, e nunca deve ser cruzado com serviço específico em publicação quando a amostra for pequena.
 - **Idoso:** priorizar linguagem simples, fontes maiores, alto contraste no formulário. Não perguntar idade — não é necessária.
 - **Criança:** avaliação é do serviço, não da criança; se responsável responde por menor, não coletar dado do menor.
 - **Cidadão não-alfabetizado digital:** considerar canal alternativo (totem físico, avaliação verbal via atendente) — fora do escopo digital deste documento, mas registrado para consistência de política.

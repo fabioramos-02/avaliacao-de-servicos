@@ -554,9 +554,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bloco-4-autodeclaracao-pcd-opcional" class="md-nav__link">
+  <a href="#bloco-4-autodeclaracao-pcd-fora-da-primeira-versao" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloco 4 — Autodeclaração PcD (opcional)
+      Bloco 4 — Autodeclaração PcD (fora da primeira versão)
     </span>
   </a>
   
@@ -877,9 +877,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bloco-4-autodeclaracao-pcd-opcional" class="md-nav__link">
+  <a href="#bloco-4-autodeclaracao-pcd-fora-da-primeira-versao" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloco 4 — Autodeclaração PcD (opcional)
+      Bloco 4 — Autodeclaração PcD (fora da primeira versão)
     </span>
   </a>
   
@@ -1048,11 +1048,19 @@
 </tr>
 <tr>
 <td>Perguntas opcionais</td>
-<td>Motivos positivos (6 cards, marca até 3) · comentário aberto (2000 caracteres) · autodeclaração PcD</td>
+<td>Motivos positivos (6 cards, marca até 3) · comentário aberto (2000 caracteres)</td>
+</tr>
+<tr>
+<td>Fora da primeira versão</td>
+<td>Autodeclaração PcD — bloco previsto no padrão gov.br, adiado (ver Bloco 4)</td>
 </tr>
 <tr>
 <td>Momento</td>
-<td>Convite único ao concluir o serviço. <strong>Nunca bloqueia.</strong></td>
+<td>Ao concluir o serviço: convite na tela do Portal <strong>e</strong> e-mail. <strong>Nunca bloqueia.</strong></td>
+</tr>
+<tr>
+<td>Reavaliação</td>
+<td>O mesmo cidadão só avalia o mesmo serviço de novo depois de <strong>10 dias</strong></td>
 </tr>
 <tr>
 <td>Identificação</td>
@@ -1123,11 +1131,16 @@
 <p><strong>Placeholder:</strong> <em>"Para que possamos melhorar o serviço, conte-nos sobre sua experiência."</em></p>
 <p><strong>Formato:</strong> área de texto, limite de <strong>2000 caracteres</strong>, contador visível.</p>
 <p><strong>Moderação:</strong> o texto passa por triagem antes de qualquer uso. Detalhes em <a href="../04-dados-e-privacidade/">Dados e privacidade</a>.</p>
-<h3 id="bloco-4-autodeclaracao-pcd-opcional">Bloco 4 — Autodeclaração PcD (opcional)<a class="headerlink" href="#bloco-4-autodeclaracao-pcd-opcional" title="Permanent link">&para;</a></h3>
-<p><strong>Título do bloco:</strong> <em>"Ajude-nos a melhorar a acessibilidade (opcional)"</em></p>
-<p><strong>Aviso:</strong> <em>"Para garantir que nossos serviços atendam todas as pessoas, gostaríamos de saber mais sobre você."</em></p>
-<p><strong>Enunciado:</strong> <em>"Você se considera uma pessoa com deficiência?"</em> — Sim / Não.</p>
-<p>Bloco visualmente separado do restante. Dado pessoal sensível (LGPD art. 5º, II). Base legal: execução de política pública para dado sensível (art. 11, II, "b").</p>
+<h3 id="bloco-4-autodeclaracao-pcd-fora-da-primeira-versao">Bloco 4 — Autodeclaração PcD (fora da primeira versão)<a class="headerlink" href="#bloco-4-autodeclaracao-pcd-fora-da-primeira-versao" title="Permanent link">&para;</a></h3>
+<p><code>[RECOMENDAÇÃO]</code> <strong>Decisão de 2026-09-02: o bloco não entra na primeira versão do formulário.</strong></p>
+<p>O padrão gov.br prevê o bloco de acessibilidade — <em>"Você se considera uma pessoa com deficiência?"</em>, Sim / Não, em área visualmente separada. Esta é, portanto, uma <strong>divergência consciente do modelo âncora</strong>, e a justificativa é a seguinte:</p>
+<ol>
+<li><strong>Não há uso definido para o dado na primeira versão.</strong> O recorte de acessibilidade depende de painel e leitura de resultados, que pertencem à etapa seguinte do projeto. Coletar antes de existir quem leia contraria a regra do próprio estudo: o uso do dado precisa estar declarado antes de o campo ser criado.</li>
+<li><strong>Minimização (LGPD art. 6º, III).</strong> Deficiência é dado pessoal sensível (art. 5º, II). Sem finalidade ativa, a coleta é excesso.</li>
+<li><strong>Simplifica o go-live.</strong> Sem dado sensível, a primeira versão dispensa a base legal do art. 11, II, "b", reduz o escopo do Relatório de Impacto à Proteção de Dados e elimina o prazo de retenção diferenciado.</li>
+</ol>
+<p><strong>Quando volta:</strong> junto com o painel de resultados, quando existir destino declarado para o recorte de acessibilidade — responsável pela leitura, indicador definido e ação prevista a partir do resultado. O texto, o formato e a base legal já estão prontos acima para reuso, sem retrabalho.</p>
+<p><code>[INTERPRETAÇÃO]</code> Adiar não é abandonar. O bloco é o único ponto do formulário que enxerga desigualdade de acesso; entrar sem leitor apenas produziria dado parado.</p>
 <h3 id="botao-de-envio">Botão de envio<a class="headerlink" href="#botao-de-envio" title="Permanent link">&para;</a></h3>
 <p><strong>Rótulo:</strong> <em>"Enviar avaliação"</em>. Habilita assim que a nota é escolhida.</p>
 <h3 id="cabecalho-contextual">Cabeçalho contextual<a class="headerlink" href="#cabecalho-contextual" title="Permanent link">&para;</a></h3>
@@ -1168,22 +1181,22 @@
 <td>Nulo</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Autodeclaração PcD</td>
-<td>Não</td>
-<td>~5s</td>
-<td>Nulo</td>
-</tr>
-<tr>
 <td>—</td>
 <td>Botão enviar</td>
 <td>—</td>
 <td>~1s</td>
 <td>—</td>
 </tr>
+<tr>
+<td>4</td>
+<td>~~Autodeclaração PcD~~</td>
+<td>Fora da primeira versão</td>
+<td>—</td>
+<td>—</td>
+</tr>
 </tbody>
 </table>
-<p><code>[FATO]</code> Microsurveys de 2–3 perguntas atingem 86,8% de conclusão; formulários de 4–6 perguntas caem para 77,4% (Survicate 2025). O modelo abaixo tem <strong>1 pergunta obrigatória + 3 opcionais</strong> — cidadão apressado envia em 5 segundos; interessado gasta até 80 segundos. Isso preserva a conclusão sem sacrificar profundidade.</p>
+<p><code>[FATO]</code> Microsurveys de 2–3 perguntas atingem 86,8% de conclusão; formulários de 4–6 perguntas caem para 77,4% (Survicate 2025). O modelo do gov.br tem 1 pergunta obrigatória + 3 opcionais; a primeira versão do MS entra com <strong>1 obrigatória + 2 opcionais</strong> — cidadão apressado envia em 5 segundos; interessado gasta até 80 segundos. Isso preserva a conclusão sem sacrificar profundidade.</p>
 <p><code>[HIPÓTESE]</code> Meta de taxa de resposta esperada para o Portal MS: <strong>entre 5% e 15% dos usuários únicos</strong> que concluem serviço, alinhada ao intervalo típico de instrumentos de satisfação em governo digital. <strong>Não identificada</strong> taxa oficial pública do gov.br para calibração precisa.</p>
 <h2 id="caminho-percorrido-pelo-cidadao">Caminho percorrido pelo cidadão<a class="headerlink" href="#caminho-percorrido-pelo-cidadao" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TD
@@ -1195,7 +1208,7 @@
     E -- Não --&gt; G[Portal dispara e-mail com link único de avaliação]
     F --&gt; H{Cidadão aceita?}
     G --&gt; H
-    H -- Sim --&gt; I[Formulário: 1 obrigatório + 3 opcionais]
+    H -- Sim --&gt; I[Formulário: 1 obrigatório + 2 opcionais]
     H -- Não --&gt; Z[Fluxo termina. Cidadão prossegue sem prejuízo.]
     I --&gt; J[Envio]
     J --&gt; K[Tela: 'Obrigado. Sua opinião foi registrada.']
@@ -1209,13 +1222,14 @@
 <li>O sistema do órgão avisa o orquestrador X-VIA que o serviço terminou.</li>
 <li>O Portal dispara o e-mail em janela curta (5–60 minutos) para preservar a recência da experiência.</li>
 <li>Link assinado, com validade limitada e uso único.</li>
-<li>Convite único por execução — tela <strong>ou</strong> e-mail, nunca os dois.</li>
+<li><strong>O e-mail sai sempre</strong>, inclusive para quem já avaliou na tela do Portal (decisão D14, 2026-09-02). Muda o conteúdo, não o envio: quem já avaliou recebe agradecimento, sem link de avaliação; quem não avaliou recebe o convite com o link.</li>
 </ol>
 <p><strong>Pendência técnica:</strong> o sinal de conclusão do serviço vem do sistema do órgão para o X-VIA. <strong>Não identificado</strong> se todos os sistemas finalísticos publicam esse evento com padrão único. Precisa ser confirmado com o time do X-VIA antes de estimar prazo.</p>
 <p><strong>Alternativa considerada e descartada como caminho principal:</strong> tela de retorno ao Portal ao final do serviço no sistema do órgão. Descartada porque exige que cada sistema do órgão implemente a chamada de volta — custo distribuído, prazo imprevisível. E-mail centraliza a orquestração no Portal.</p>
 <h2 id="regras-criticas-do-fluxo">Regras críticas do fluxo<a class="headerlink" href="#regras-criticas-do-fluxo" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Convite único.</strong> Uma execução do serviço = um convite. Tela <strong>ou</strong> e-mail, nunca os dois. Sem retry, sem lembrete.</li>
+<li><strong>Um convite por execução, nos dois canais.</strong> A tela do Portal convida ao concluir o serviço e o e-mail sai em seguida, sempre. Não há retry nem lembrete: cada execução gera exatamente um convite em tela e um e-mail, e o e-mail de quem já avaliou é de agradecimento, não de cobrança.
+1-A. <strong>Reavaliação só depois de 10 dias.</strong> O mesmo cidadão só pode avaliar o mesmo serviço novamente após 10 dias da última avaliação. Dentro desse prazo, o convite em tela não aparece e o e-mail sai sem link de avaliação. Prazo parametrizável, com 10 dias como padrão.</li>
 <li><strong>Nunca bloquear.</strong> Fechar/pular sempre disponível. Cumpre art. 7º, §3º da Portaria SGD/ME nº 548/2022.</li>
 <li><strong>Identificação vem do login.</strong> Cidadão já está logado no Portal para acessar o serviço via X-VIA — a avaliação usa a mesma sessão. <strong>Nenhum campo novo de identificação é solicitado no formulário.</strong></li>
 <li><strong>Prevenção de duplicidade.</strong> Chave <code>id_usuario + id_execucao_orquestrador</code> impede múltiplas avaliações da mesma execução.</li>
@@ -1230,7 +1244,7 @@
 <li>6 cards de motivos positivos.</li>
 <li>Comentário aberto opcional, 2000 caracteres.</li>
 <li>Bloco de acessibilidade opcional.</li>
-<li>Convite único, nunca bloqueia.</li>
+<li>Momento do convite (ao concluir o serviço) e a regra de nunca bloquear.</li>
 </ul>
 <h3 id="difere-com-justificativa">Difere (com justificativa)<a class="headerlink" href="#difere-com-justificativa" title="Permanent link">&para;</a></h3>
 <table>
@@ -1260,6 +1274,18 @@
 <td>Todo serviço federal integrado</td>
 <td>Apenas serviços que nascem no orquestrador X-VIA</td>
 <td>Sem orquestrador não há sinal confiável de conclusão.</td>
+</tr>
+<tr>
+<td>Canal do convite</td>
+<td>Um convite por execução, em um canal só</td>
+<td>Convite na tela <strong>e</strong> e-mail, sempre</td>
+<td>Decisão D14 (2026-09-02). O e-mail garante alcance de quem sai do Portal e não volta; quem já avaliou recebe agradecimento, não novo pedido. O limite ao excesso passa a ser a regra dos 10 dias.</td>
+</tr>
+<tr>
+<td>Reavaliação</td>
+<td>Uma avaliação por execução do serviço</td>
+<td>Uma por execução <strong>e</strong> intervalo mínimo de 10 dias para o mesmo serviço</td>
+<td>Decisão D14. Impede que execuções seguidas do mesmo serviço virem sequência de pedidos de avaliação ao mesmo cidadão.</td>
 </tr>
 <tr>
 <td>Publicação</td>
