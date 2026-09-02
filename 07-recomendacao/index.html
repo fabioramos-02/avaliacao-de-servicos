@@ -986,14 +986,16 @@
 <li><strong>Comparabilidade.</strong> MS entra no mesmo referencial dos demais entes que caminham para adesão ao modelo federal.</li>
 <li><strong>Aderência legal.</strong> Lei nº 13.460/2017 exige avaliação; LGPD exige minimização. O modelo gov.br já foi desenhado para atender ambos.</li>
 <li><strong>Baixo risco técnico.</strong> Formulário simples, sem integração complexa, sem coleta de dado novo do cidadão além do que já entra pelo login.</li>
-<li><strong>Baixo atrito para o cidadão.</strong> 1 pergunta obrigatória + 3 opcionais; ~5 segundos no mínimo, ~80 segundos no máximo.</li>
+<li><strong>Baixo atrito para o cidadão.</strong> 1 pergunta obrigatória + 2 opcionais na primeira versão; ~5 segundos no mínimo, ~80 segundos no máximo.</li>
 </ol>
 <h2 id="o-que-sera-adotado">O que será adotado<a class="headerlink" href="#o-que-sera-adotado" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Pergunta: <em>"Como foi a sua experiência com o serviço?"</em></li>
 <li>Escala: 5 estrelas rotuladas — Péssima / Ruim / Mais ou menos / Boa / Excelente.</li>
-<li>3 blocos opcionais: motivos positivos (6 cards, até 3) + comentário aberto (2000 caracteres) + autodeclaração PcD.</li>
-<li>Momento: convite único ao concluir o serviço. <strong>Nunca bloqueia.</strong></li>
+<li>2 blocos opcionais na primeira versão: motivos positivos (6 cards, até 3) + comentário aberto (2000 caracteres).</li>
+<li>Autodeclaração PcD prevista no padrão gov.br, <strong>adiada</strong> para quando existir painel que leia o recorte de acessibilidade.</li>
+<li>Momento: ao concluir o serviço, convite na tela do Portal e e-mail, sempre. <strong>Nunca bloqueia.</strong></li>
+<li>Reavaliação do mesmo serviço pelo mesmo cidadão: só depois de 10 dias.</li>
 <li>Identificação: cidadão logado no Portal MS. Registram-se <code>id_usuario</code> e município do serviço finalístico. <strong>Nenhum campo novo de identificação no formulário.</strong></li>
 <li>Indicador principal: nota média (1–5) + % Satisfeitos (notas 4 e 5).</li>
 <li>Meta orientativa: nota média ≥ 4,0 e % Satisfeitos ≥ 80%.</li>
@@ -1279,14 +1281,14 @@
 <td>2026-08-18</td>
 <td>Convite único, nunca bloquear</td>
 <td>Estudo</td>
-<td>Portaria SGD/ME nº 548/2022 art. 7º §3º</td>
+<td>Portaria SGD/ME nº 548/2022 art. 7º §3º (parcialmente revogada pela D14: o canal único cai, a vedação de bloquear permanece)</td>
 </tr>
 <tr>
 <td>D8</td>
 <td>2026-08-18</td>
 <td>Retenção: 5 anos bruto, 3 anos dado sensível PcD</td>
 <td>Estudo</td>
-<td>LGPD art. 6º III + proporcionalidade</td>
+<td>LGPD art. 6º III + proporcionalidade (revogada por D12; o trecho de dado sensível fica suspenso enquanto valer a D13)</td>
 </tr>
 <tr>
 <td>D9</td>
@@ -1315,6 +1317,20 @@
 <td>Ajuste de retenção: 24 meses no estado identificado, 12 meses no comentário aberto, pseudonimização em agregado histórico. Revoga D8</td>
 <td>SGD</td>
 <td>Combina exercício de direitos do titular, análise anual e redução de risco</td>
+</tr>
+<tr>
+<td><strong>D13</strong></td>
+<td><strong>2026-09-02</strong></td>
+<td><strong>Autodeclaração PcD fica fora da primeira versão.</strong> Divergência consciente do padrão gov.br. O bloco entra quando existir painel que leia o recorte de acessibilidade</td>
+<td>SETDIG</td>
+<td>Sem leitor do dado, a coleta de dado sensível é excesso (LGPD art. 6º III). Sem ele, a v1 dispensa o art. 11 II "b", encurta o RIPD e a retenção diferenciada</td>
+</tr>
+<tr>
+<td><strong>D14</strong></td>
+<td><strong>2026-09-02</strong></td>
+<td><strong>Revoga a parte de canal único da D7.</strong> O convite passa a sair nos dois canais: tela do Portal ao concluir o serviço <strong>e</strong> e-mail, sempre. Quem já avaliou recebe e-mail de agradecimento, sem link. Em contrapartida, o mesmo cidadão só reavalia o mesmo serviço <strong>após 10 dias</strong></td>
+<td>SETDIG</td>
+<td>Alcança quem sai do Portal e não volta, sem transformar o e-mail em cobrança. A regra dos 10 dias passa a ser o limite ao excesso, no lugar do canal único. A vedação de bloquear o serviço (D7) permanece intacta</td>
 </tr>
 </tbody>
 </table>
